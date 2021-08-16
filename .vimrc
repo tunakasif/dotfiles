@@ -7,20 +7,24 @@ endif
 
 "plugins using vim-plug"
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround' 
-Plug 'sheerun/vim-polyglot' 
-Plug 'rafi/awesome-vim-colorschemes'
+
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }"
+Plug 'christoomey/vim-sort-motion' 
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'junegunn/goyo.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
+Plug 'plasticboy/vim-markdown'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot' 
+Plug 'tpope/vim-commentary' 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }"
+Plug 'vim-syntastic/syntastic'
+
 call plug#end()
 
 "theme"
