@@ -7,6 +7,7 @@ endif
 
 "plugins using vim-plug"
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround' 
 Plug 'sheerun/vim-polyglot' 
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'godlygeek/tabular'
@@ -19,7 +20,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }"
 call plug#end()
 
 "theme"
