@@ -11,9 +11,11 @@ call plug#begin('~/.vim/plugged')
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'christoomey/vim-sort-motion' 
 Plug 'christoomey/vim-system-copy'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'junegunn/goyo.vim'
+Plug 'lervag/vimtex'
 Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -67,4 +69,7 @@ noremap <silent> <C-Down> :resize -2<CR>
 "airline settings
 let g:airline_section_z = airline#section#create(['linenr', '/%L', ':%v'])
 let g:airline_powerline_fonts = 1
+
+"indent
+au BufRead,BufNewFile *.md setlocal textwidth=79
 
