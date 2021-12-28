@@ -128,3 +128,40 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
+trash-can () {
+  cd "/home/tunakasif/.local/share/Trash";
+}
+
+srs () {
+  curr_path=$(pwd);
+  cd ~/Documents/GitHub/BilBot;
+  python3 bilkent_bot.py;
+  cd "$curr_path";
+}
+
+airs () {
+  curr_path=$(pwd);
+  cd ~/Documents/GitHub/BilBot;
+  python3 bilkent_bot.py --site airs;
+  cd "$curr_path";
+}
+
+mine_eth_tmux() {
+  curr_path=$(pwd)
+  location=/home/tunakasif/Programs/lolMiner/1.36a;
+  cd $location;
+  tmux new -d -s eth_miner './mine_eth.sh';
+  cd $curr_path;
+}
+
+mine_eth() {
+  location=/home/tunakasif/Programs/lolMiner/1.36a;
+  cd $location;
+  ./mine_eth.sh;
+}
+
+my_mail() {
+  mw -Y;
+  neomutt;
+}
+
