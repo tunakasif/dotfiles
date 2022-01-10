@@ -1,15 +1,17 @@
-# News Feeds
-https://lukesmith.xyz/rss.xml
-
-# Twitter
+# ---Twitter---
 https://nitter.1d4.us/pusholder/rss "Twitter" 
 https://nitter.1d4.us/BilkentUniv/rss "Twitter" 
 https://nitter.1d4.us/ProfDemirtas/rss "Twitter" 
 
-# YouTube
+# ---YouTube---
 https://www.youtube.com/feeds/videos.xml?channel_id=UCv6jcPwFujuTIwFQ11jt1Yw "YouTube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "YouTube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "YouTube"
 
-# GitHub Users
+# ---NewsFeed---
+https://lukesmith.xyz/rss.xml
+
+# ---GitHub---
 https://github.com/LukeSmithxyz.atom "GitHub" "~GitHub: Luke Smith"
 https://github.com/atahanyorganci.atom "GitHub" "~GitHub: Atahan Yorgancı"
 
