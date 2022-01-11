@@ -1,4 +1,5 @@
 external-url-viewer "urlview"
+auto-reload yes
 reload-time 15
 reload-threads 16
 
