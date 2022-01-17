@@ -32,6 +32,9 @@ end
 return packer.startup(
     function()
         use 'wbthomason/packer.nvim' -- packer itself for managment
+        use 'nvim-lua/popup.nvim' -- lua functions used by lots of plugins
+        use 'nvim-lua/plenary.nvim' -- lua functions used by lots of plugins
+
         use 'christoomey/vim-sort-motion' -- sorting motion: gs
         use 'christoomey/vim-system-copy' -- system copy: cp, cv
         use 'christoomey/vim-tmux-navigator' -- nav to tmux from vim
@@ -63,6 +66,7 @@ return packer.startup(
         use 'tpope/vim-surround' -- adding/changing surrounding env
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
+        use 'nvim-telescope/telescope.nvim'
         -- use 'vim-syntastic/syntastic'
 
         -- auto-completion

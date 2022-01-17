@@ -10,6 +10,7 @@ local lua_scripts = {
     "plugins",
     "plugsettings.airline",
     "plugsettings.cmp",
+    "telescope",
     "keymaps"
 }
 local vim_scripts = {
