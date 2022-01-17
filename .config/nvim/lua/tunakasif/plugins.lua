@@ -64,6 +64,16 @@ return packer.startup(
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
         -- use 'vim-syntastic/syntastic'
+
+        -- auto-completion
+        use 'hrsh7th/nvim-cmp' -- auto-completion
+        use 'hrsh7th/cmp-buffer' -- buffer completions
+        use 'hrsh7th/cmp-path' -- path completions
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-nvim-lua'
+        use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+        use 'L3MON4D3/LuaSnip' -- snippet engine
+        use 'rafamadriz/friendly-snippets' -- bunch of snippets
     end
 )
 
