@@ -62,6 +62,7 @@ return packer.startup(
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
         use 'nvim-telescope/telescope.nvim'
+        use 'nvim-telescope/telescope-media-files.nvim'
 
         -- Deprecated plugins
         -- use 'tpope/vim-fugitive' -- git extension
