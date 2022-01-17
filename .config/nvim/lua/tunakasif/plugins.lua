@@ -1,10 +1,8 @@
-local fn = vim.fn
-
 -- auto install packer
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
+  fn.system({
         'git',
         'clone',
         '--depth',
@@ -18,7 +16,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -50,7 +48,6 @@ return packer.startup(
             'lervag/vimtex',
             ft = {'tex', 'bib'}
         }
-        -- use 'nvie/vim-flake8'
         use {
             'plasticboy/vim-markdown',
             ft = {'markdown'}
@@ -60,14 +57,17 @@ return packer.startup(
             'rust-lang/rust.vim',
             ft = {'rs'}
         }
-        -- use 'sheerun/vim-polyglot'
         use 'tpope/vim-commentary' -- toggle comments: gc
-        use 'tpope/vim-fugitive' -- git extension
         use 'tpope/vim-surround' -- adding/changing surrounding env
         use 'vim-airline/vim-airline'
         use 'vim-airline/vim-airline-themes'
         use 'nvim-telescope/telescope.nvim'
+
+        -- Deprecated plugins
+        -- use 'tpope/vim-fugitive' -- git extension
+        -- use 'sheerun/vim-polyglot'
         -- use 'vim-syntastic/syntastic'
+        -- use 'nvie/vim-flake8'
 
         -- auto-completion
         use 'hrsh7th/nvim-cmp' -- auto-completion
