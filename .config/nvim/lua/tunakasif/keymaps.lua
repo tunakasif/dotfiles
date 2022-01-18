@@ -43,3 +43,18 @@ keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+
+-- TreeSitter
+-- There is problem with the :TSToggle when the module starts as `false`.
+-- In addition :TSEnableAll rainbow does not on the first try, two calls
+-- are necessary for enabling.
+function ENABLE_RAINBOW()
+    vim.cmd([[:TSEnableAll rainbow]])
+    vim.cmd([[:TSEnableAll rainbow]])
+end
+function DISABLE_RAINBOW()
+    vim.cmd([[:TSDisableAll rainbow]])
+end
+keymap("n", "<leader>r(", ":lua ENABLE_RAINBOW()<CR>", opts)
+keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
+

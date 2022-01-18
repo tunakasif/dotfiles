@@ -63,6 +63,22 @@ return packer.startup(
         use 'vim-airline/vim-airline-themes'
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-telescope/telescope-media-files.nvim'
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ":TSUpdate",
+        }
+        use {
+            'p00f/nvim-ts-rainbow',
+            requires = { 'nvim-treesitter/nvim-treesitter' }
+        }
+        use {
+            'windwp/nvim-autopairs',
+            requires = { 'nvim-treesitter/nvim-treesitter' }
+        }
+        use {
+            'windwp/nvim-ts-autotag',
+            requires = { 'nvim-treesitter/nvim-treesitter' }
+        }
 
         -- Deprecated plugins
         -- use 'tpope/vim-fugitive' -- git extension

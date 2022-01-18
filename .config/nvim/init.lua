@@ -11,6 +11,8 @@ local lua_scripts = {
     "plugsettings.airline",
     "plugsettings.cmp",
     "telescope",
+    "treesitter",
+    "autopairs",
     "lsp",
     "keymaps"
 }
