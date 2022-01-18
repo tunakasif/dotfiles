@@ -51,8 +51,6 @@ return packer.startup(
         }
         use 'tpope/vim-commentary' -- toggle comments: gc
         use 'tpope/vim-surround' -- adding/changing surrounding env
-        use 'vim-airline/vim-airline'
-        use 'vim-airline/vim-airline-themes'
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-telescope/telescope-media-files.nvim'
         use {
