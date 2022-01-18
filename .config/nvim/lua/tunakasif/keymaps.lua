@@ -38,6 +38,15 @@ keymap("v", ">", "> gv", opts)
 -- keep yanked
 keymap("v", "p", '"_dP', opts)
 
+-- toggle explorer
+keymap("n", "<C-E>", ":Lex 15<CR>", opts)
+
+-- toggle wrap
+function TOGGLE_WRAP()
+    vim.opt.wrap = not vim.opt.wrap:get()
+end
+keymap("n", "<leader>ww", ":lua TOGGLE_WRAP()<CR>", opts)
+
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
