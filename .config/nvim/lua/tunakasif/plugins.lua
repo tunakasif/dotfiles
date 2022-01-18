@@ -69,6 +69,10 @@ return packer.startup(
             'windwp/nvim-ts-autotag',
             requires = { 'nvim-treesitter/nvim-treesitter' }
         }
+        use {
+            'lewis6991/gitsigns.nvim',
+            requires = { 'nvim-lua/plenary.nvim' }
+        }
 
         -- Deprecated plugins
         -- use {
