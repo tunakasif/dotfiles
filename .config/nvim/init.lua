@@ -16,6 +16,7 @@ local lua_scripts = {
     "autopairs",
     "gitsigns",
     "transparent.transparent",
+    "nvim-tree",
     "lsp",
     "keymaps"
 }

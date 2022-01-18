@@ -73,6 +73,10 @@ return packer.startup(
             'lewis6991/gitsigns.nvim',
             requires = { 'nvim-lua/plenary.nvim' }
         }
+        use {
+            'kyazdani42/nvim-tree.lua',
+            requires = { 'kyazdani42/nvim-web-devicons' }
+        }
 
         -- Deprecated plugins
         -- use {

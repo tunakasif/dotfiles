@@ -38,9 +38,6 @@ keymap("v", ">", "> gv", opts)
 -- keep yanked
 keymap("v", "p", '"_dP', opts)
 
--- toggle explorer
-keymap("n", "<C-E>", ":Lex 15<CR>", opts)
-
 -- toggle wrap
 function TOGGLE_WRAP()
     vim.opt.wrap = not vim.opt.wrap:get()
@@ -69,4 +66,7 @@ keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
 
 -- Transparent toggle
 keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
+
+-- Nvim Tree
+keymap("n", "<C-E>", ":NvimTreeToggle<CR>", opts)
 
