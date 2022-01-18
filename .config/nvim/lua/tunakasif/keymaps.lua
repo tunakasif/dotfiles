@@ -67,3 +67,6 @@ end
 keymap("n", "<leader>r(", ":lua ENABLE_RAINBOW()<CR>", opts)
 keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
 
+-- Transparent toggle
+keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
+

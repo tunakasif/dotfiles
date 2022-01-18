@@ -50,6 +50,7 @@ return packer.startup(
         }
         use 'tpope/vim-commentary' -- toggle comments: gc
         use 'tpope/vim-surround' -- adding/changing surrounding env
+        use 'xiyaowong/nvim-transparent'
         use 'nvim-telescope/telescope.nvim'
         use 'nvim-telescope/telescope-media-files.nvim'
         use {

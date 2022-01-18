@@ -14,6 +14,7 @@ local lua_scripts = {
     "telescope",
     "treesitter",
     "autopairs",
+    "transparent.transparent",
     "lsp",
     "keymaps"
 }
