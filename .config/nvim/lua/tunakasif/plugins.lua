@@ -44,14 +44,6 @@ return packer.startup(
             ft = {'markdown'}
         }
         use 'junegunn/goyo.vim' -- zen mode for vim
-        use {
-            'lervag/vimtex',
-            ft = {'tex', 'bib'}
-        }
-        use {
-            'plasticboy/vim-markdown',
-            ft = {'markdown'}
-        }
         use 'rafi/awesome-vim-colorschemes' -- additional color like gruvbox
         use {
             'rust-lang/rust.vim',
@@ -81,6 +73,14 @@ return packer.startup(
         }
 
         -- Deprecated plugins
+        -- use {
+        --     'lervag/vimtex',
+        --     ft = {'tex', 'bib'}
+        -- }
+        -- use {
+        --     'plasticboy/vim-markdown',
+        --     ft = {'markdown'}
+        -- }
         -- use 'tpope/vim-fugitive' -- git extension
         -- use 'sheerun/vim-polyglot'
         -- use 'vim-syntastic/syntastic'
