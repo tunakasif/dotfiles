@@ -44,7 +44,6 @@ return packer.startup(
             ft = {'markdown'}
         }
         use 'junegunn/goyo.vim' -- zen mode for vim
-        use 'rafi/awesome-vim-colorschemes' -- additional color like gruvbox
         use {
             'rust-lang/rust.vim',
             ft = {'rs'}
@@ -97,6 +96,12 @@ return packer.startup(
         -- LSP
         use 'neovim/nvim-lspconfig' -- enable LSP
         use 'williamboman/nvim-lsp-installer' -- simple to use LS installer
+
+        -- colorschemes
+        use 'sainnhe/gruvbox-material'
+        use 'luisiacc/gruvbox-baby'
+        use 'folke/tokyonight.nvim'
+        use 'EdenEast/nightfox.nvim'
     end
 )
 

@@ -1,8 +1,6 @@
 vim.cmd([[
     syntax on
     filetype indent on
-    colorscheme gruvbox
-    autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 ]])
 
 local opts = {
