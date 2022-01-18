@@ -35,6 +35,7 @@ local opts = {
     foldlevelstart = 99,
     splitbelow = true,
     splitright = true,
+    signcolumn = "number",
 }
 
 for k, v in pairs(opts) do
