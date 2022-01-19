@@ -82,6 +82,10 @@ return packer.startup(
             requires = 'kyazdani42/nvim-web-devicons'
         }
         use 'moll/vim-bbye'
+        use {
+            'nvim-lualine/lualine.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        }
         use 'akinsho/toggleterm.nvim'
 
         -- Deprecated plugins

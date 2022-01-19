@@ -34,6 +34,7 @@ local opts = {
     splitbelow = true,
     splitright = true,
     signcolumn = "yes:1",
+    showmode = false,
 }
 
 for k, v in pairs(opts) do
