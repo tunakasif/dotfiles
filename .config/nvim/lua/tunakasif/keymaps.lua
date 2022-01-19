@@ -73,3 +73,5 @@ keymap("n", "<C-E>", ":NvimTreeToggle<CR>", opts)
 -- Vim BBye
 keymap("n", "<leader>q", ":Bdelete<CR>", opts)
 
+-- toggle term
+keymap("n", "<leader><Bslash>", ":ToggleTerm<CR>", opts)
