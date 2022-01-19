@@ -1,9 +1,10 @@
 local namespace = "tunakasif"
 local colorschemes = {
-    "nightfox",
-    "tokyonight",
-    "gruvbox-baby",
-    "gruvbox-material"
+	"nightfox",
+	"tokyonight",
+	"vscode",
+	"gruvbox-baby",
+	"gruvbox-material",
 }
 
 local lua_scripts = {

@@ -116,6 +116,7 @@ return packer.startup(
         use 'luisiacc/gruvbox-baby'
         use 'folke/tokyonight.nvim'
         use 'EdenEast/nightfox.nvim'
+        use 'Mofiqul/vscode.nvim'
     end
 )
 
