@@ -70,3 +70,6 @@ keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
 -- Nvim Tree
 keymap("n", "<C-E>", ":NvimTreeToggle<CR>", opts)
 
+-- Vim BBye
+keymap("n", "<leader>q", ":Bdelete<CR>", opts)
+

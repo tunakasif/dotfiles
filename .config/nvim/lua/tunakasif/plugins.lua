@@ -77,6 +77,11 @@ return packer.startup(
             'kyazdani42/nvim-tree.lua',
             requires = { 'kyazdani42/nvim-web-devicons' }
         }
+        use {
+            'akinsho/bufferline.nvim',
+            requires = 'kyazdani42/nvim-web-devicons'
+        }
+        use 'moll/vim-bbye'
 
         -- Deprecated plugins
         -- use {
