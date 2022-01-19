@@ -116,6 +116,9 @@ return packer.startup(
         use 'neovim/nvim-lspconfig' -- enable LSP
         use 'williamboman/nvim-lsp-installer' -- simple to use LS installer
 
+        -- Null LS
+        use 'jose-elias-alvarez/null-ls.nvim'
+
         -- colorschemes
         use 'sainnhe/gruvbox-material'
         use 'luisiacc/gruvbox-baby'
