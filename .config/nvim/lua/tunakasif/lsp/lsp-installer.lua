@@ -1,24 +1,24 @@
 local namespace = "tunakasif.lsp."
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-    return
+	return
 end
 
-local function has_value (tab, val)
-    for _, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-    return false
+local function has_value(tab, val)
+	for _, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
+	return false
 end
 
 lsp_installer.on_server_ready(function(server)
-    local handlers = namespace .. "handlers"
-    local opts = {
-        on_attach = require(handlers).on_attach,
-        capabilities = require(handlers).capabilities,
-    }
+	local handlers = namespace .. "handlers"
+	local opts = {
+		on_attach = require(handlers).on_attach,
+		capabilities = require(handlers).capabilities,
+	}
 
 	local server_names = { "pyright", "sumneko_lua" }
 	if has_value(server_names, server.name) then
@@ -26,7 +26,5 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", additional_opts, opts)
 	end
 
-    server:setup(opts)
+	server:setup(opts)
 end)
-
-

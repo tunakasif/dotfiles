@@ -1,4 +1,4 @@
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- leader key
@@ -40,7 +40,7 @@ keymap("v", "p", '"_dP', opts)
 
 -- toggle wrap
 function TOGGLE_WRAP()
-    vim.opt.wrap = not vim.opt.wrap:get()
+	vim.opt.wrap = not vim.opt.wrap:get()
 end
 keymap("n", "<leader>ww", ":lua TOGGLE_WRAP()<CR>", opts)
 
@@ -55,11 +55,11 @@ keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 -- In addition :TSEnableAll rainbow does not on the first try, two calls
 -- are necessary for enabling.
 function ENABLE_RAINBOW()
-    vim.cmd([[:TSEnableAll rainbow]])
-    vim.cmd([[:TSEnableAll rainbow]])
+	vim.cmd([[:TSEnableAll rainbow]])
+	vim.cmd([[:TSEnableAll rainbow]])
 end
 function DISABLE_RAINBOW()
-    vim.cmd([[:TSDisableAll rainbow]])
+	vim.cmd([[:TSDisableAll rainbow]])
 end
 keymap("n", "<leader>r(", ":lua ENABLE_RAINBOW()<CR>", opts)
 keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)

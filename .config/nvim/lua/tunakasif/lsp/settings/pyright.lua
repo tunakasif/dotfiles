@@ -1,7 +1,7 @@
 return {
-    settings = {
-        python = {
-            typeCheckingMode = "basic"
-        }
-    }
+	settings = {
+		python = {
+			typeCheckingMode = "basic",
+		},
+	},
 }
