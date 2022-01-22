@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+TryExec=kitty
+Exec=kitty
+/* Icon=/home/tunakasif/.local/kitty.app/share/icons/hicolor/scalable/apps/kitty.svg */
+/* Icon=/home/tunakasif/.local/kitty.app/share/icons/k0nserv/kitty-icon/icon_512x512@2x.png */
+Icon=/home/tunakasif/.local/kitty.app/share/icons/DinkDonk/kitty-icon/kitty-dark.svg
+Terminal=false
+Categories=System;TerminalEmulator;
+
+Name=Kitty
+GenericName=Terminal
+Comment=Fast, feature-rich, GPU based terminal
+StartupWMClass=kitty
+Actions=New;
+
+[Desktop Action New]
+Name=New Terminal
+Exec=kitty
