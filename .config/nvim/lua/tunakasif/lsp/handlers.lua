@@ -60,8 +60,26 @@ local function lsp_highlight_document(client)
 	end
 end
 
-local buf_set_keymap = vim.api.nvim_buf_set_keymap
+function TOGGLE_FORMAT_ON_SAVE()
+	if FORMAT_ON_SAVE then
+		vim.cmd([[
+            augroup LspFormatOnSave
+                autocmd!
+            augroup END
+        ]])
+	else
+		vim.cmd([[
+            augroup LspFormatOnSave
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+        ]])
+	end
+	FORMAT_ON_SAVE = not FORMAT_ON_SAVE
+end
+
 local function lsp_keymaps(bufnr)
+	local buf_set_keymap = vim.api.nvim_buf_set_keymap
 	local opts = { noremap = true, silent = true }
 	buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -95,6 +113,8 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
+	FORMAT_ON_SAVE = false
+	TOGGLE_FORMAT_ON_SAVE()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
