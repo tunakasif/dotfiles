@@ -20,7 +20,7 @@ lsp_installer.on_server_ready(function(server)
 		capabilities = require(handlers).capabilities,
 	}
 
-	local server_names = { "pyright", "sumneko_lua" }
+	local server_names = { "clangd", "pyright", "sumneko_lua" }
 	if has_value(server_names, server.name) then
 		local additional_opts = require(namespace .. "settings." .. server.name)
 		opts = vim.tbl_deep_extend("force", additional_opts, opts)
