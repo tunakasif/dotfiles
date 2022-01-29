@@ -86,15 +86,20 @@ return packer.startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 	use("akinsho/toggleterm.nvim")
+	use({
+		"ellisonleao/glow.nvim",
+		opt = true,
+		ft = { "markdown" },
+	})
+	use({
+		"plasticboy/vim-markdown",
+		ft = { "markdown" },
+	})
 
 	-- Deprecated plugins
 	-- use {
 	--     'lervag/vimtex',
 	--     ft = {'tex', 'bib'}
-	-- }
-	-- use {
-	--     'plasticboy/vim-markdown',
-	--     ft = {'markdown'}
 	-- }
 	-- use 'tpope/vim-fugitive' -- git extension
 	-- use 'sheerun/vim-polyglot'

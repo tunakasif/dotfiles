@@ -75,3 +75,6 @@ keymap("n", "<leader>q", ":Bdelete<CR>", opts)
 
 -- toggle term
 keymap("n", "<leader><Bslash>", ":ToggleTerm<CR>", opts)
+
+-- Glow
+vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
