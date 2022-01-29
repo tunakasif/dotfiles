@@ -118,7 +118,12 @@ return packer.startup(function()
 	-- Null LS
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- colorschemes
+	-- Visual
+	use("folke/twilight.nvim")
+	use({
+		"folke/zen-mode.nvim",
+		requires = { "folke/twilight.nvim", opt = true },
+	})
 	use("sainnhe/gruvbox-material")
 	use("luisiacc/gruvbox-baby")
 	use("folke/tokyonight.nvim")

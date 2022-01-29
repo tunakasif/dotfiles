@@ -23,6 +23,7 @@ local lua_scripts = {
 	"toggleterm",
 	"lsp",
 	"null-ls",
+	"zenmode",
 	"keymaps",
 }
 
