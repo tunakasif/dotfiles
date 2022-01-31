@@ -78,3 +78,19 @@ keymap("n", "<leader><Bslash>", ":ToggleTerm<CR>", opts)
 
 -- Glow
 vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
+
+-- copilot
+function TOGGLE_COPILOT()
+	if vim.b.copilot_enabled == nil then
+		vim.b.copilot_enabled = false
+	end
+	if vim.b.copilot_enabled then
+		vim.b.copilot_enabled = false
+		vim.cmd([[:Copilot disable <CR>]])
+	else
+		vim.b.copilot_enabled = true
+		vim.cmd([[:Copilot enable <CR>]])
+	end
+	vim.cmd([[:Copilot status <CR>]])
+end
+keymap("n", "<leader>cp", ":lua TOGGLE_COPILOT()<CR>", opts)

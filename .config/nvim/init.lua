@@ -24,6 +24,7 @@ local lua_scripts = {
 	"lsp",
 	"null-ls",
 	"zenmode",
+	"copilot",
 	"keymaps",
 }
 

@@ -115,6 +115,7 @@ return packer.startup(function()
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("rafamadriz/friendly-snippets") -- bunch of snippets
+	use("github/copilot.vim") -- copilot
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
