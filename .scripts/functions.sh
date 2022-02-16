@@ -1,4 +1,15 @@
 # functions
+update_all () {
+    figlet "dnf";
+    sudo dnf upgrade -y;
+    figlet "flatpak";
+    flatpak update -y;
+    figlet "snap";
+    sudo snap refresh;
+    figlet "brew";
+    brew update && brew upgrade;
+}
+
 trash-can () {
   cd "/home/tunakasif/.local/share/Trash";
 }
