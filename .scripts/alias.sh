@@ -1,7 +1,7 @@
 # system stuff
-alias up='sudo dnf upgrade'
-alias upy='sudo dnf upgrade -y'
-alias please='sudo !!'
+alias up="sudo dnf upgrade"
+alias upy="sudo dnf upgrade -y"
+alias please='sudo $(fc -ln -1)'
 
 # directory stuff
 alias cdd="cd $HOME/Desktop"

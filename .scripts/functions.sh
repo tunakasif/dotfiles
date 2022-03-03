@@ -74,4 +74,3 @@ kitty_update() {
     git clone $k0nserv_repo $k0nserv_path
 }
 
-
