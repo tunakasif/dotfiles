@@ -95,12 +95,12 @@ return packer.startup(function()
 		"plasticboy/vim-markdown",
 		ft = { "markdown" },
 	})
+	use({
+		"lervag/vimtex",
+		ft = { "tex", "bib" },
+	})
 
 	-- Deprecated plugins
-	-- use {
-	--     'lervag/vimtex',
-	--     ft = {'tex', 'bib'}
-	-- }
 	-- use 'tpope/vim-fugitive' -- git extension
 	-- use 'sheerun/vim-polyglot'
 	-- use 'vim-syntastic/syntastic'
