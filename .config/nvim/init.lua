@@ -25,6 +25,7 @@ local lua_scripts = {
 	"null-ls",
 	"zenmode",
 	"copilot",
+	"vimtex",
 	"keymaps",
 }
 
