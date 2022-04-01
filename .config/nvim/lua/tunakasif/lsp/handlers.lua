@@ -76,6 +76,7 @@ function TOGGLE_FORMAT_ON_SAVE()
         ]])
 	end
 	FORMAT_ON_SAVE = not FORMAT_ON_SAVE
+	print("Format on save: " .. (FORMAT_ON_SAVE and "on" or "off"))
 end
 
 local function lsp_keymaps(bufnr)
