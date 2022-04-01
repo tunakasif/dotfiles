@@ -68,7 +68,7 @@ keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
 keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
 
 -- Nvim Tree
-keymap("n", "<C-E>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<CR> :NvimTreeRefresh<CR>", opts)
 
 -- Vim BBye
 keymap("n", "<leader>q", ":Bdelete<CR>", opts)
