@@ -60,7 +60,8 @@ local function lsp_highlight_document(client)
 	end
 end
 
-function TOGGLE_FORMAT_ON_SAVE()
+function TOGGLE_FORMAT_ON_SAVE(verbose)
+	verbose = verbose or false
 	if FORMAT_ON_SAVE then
 		vim.cmd([[
             augroup LspFormatOnSave
@@ -76,7 +77,9 @@ function TOGGLE_FORMAT_ON_SAVE()
         ]])
 	end
 	FORMAT_ON_SAVE = not FORMAT_ON_SAVE
-	print("Format on save: " .. (FORMAT_ON_SAVE and "on" or "off"))
+	if verbose then
+		print("Format on save: " .. (FORMAT_ON_SAVE and "on" or "off"))
+	end
 end
 
 local function lsp_keymaps(bufnr)
@@ -106,7 +109,7 @@ local function lsp_keymaps(bufnr)
 	buf_set_keymap(bufnr, "n", "<leader>sl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 	buf_set_keymap(bufnr, "n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-	buf_set_keymap(bufnr, "n", "<leader>fs", ":lua TOGGLE_FORMAT_ON_SAVE()<CR>", opts)
+	buf_set_keymap(bufnr, "n", "<leader>fs", ":lua TOGGLE_FORMAT_ON_SAVE(true)<CR>", opts)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
 end
 
