@@ -28,16 +28,25 @@ airs () {
   cd "$curr_path";
 }
 
+ytd () {
+    yt-dlp -f $YT_DLP_FORMAT $1;
+}
+
+ytfzfd () {
+    yt-dlp -f $YT_DLP_FORMAT $(ytfzf -tL $1);
+}
+
+
 mine_eth_tmux() {
   curr_path=$(pwd)
-  location=/home/tunakasif/Programs/lolMiner/1.36a;
+  location=$HOME/Programs/lolMiner/1.36a;
   cd $location;
   tmux new -d -s eth_miner './mine_eth.sh';
   cd $curr_path;
 }
 
 mine_eth() {
-  location=/home/tunakasif/Programs/lolMiner/1.36a;
+  location=$HOME/Programs/lolMiner/1.36a;
   cd $location;
   ./mine_eth.sh;
 }
