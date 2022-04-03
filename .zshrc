@@ -1,5 +1,5 @@
-source "$HOME/.scripts/export.sh"
-source "$HOME/.scripts/alias.sh"
+source "$HOME/.scripts/export.sh"       
+source "$HOME/.scripts/alias.sh"       
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -19,3 +19,6 @@ export KEYTIMEOUT=1
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source "$HOME/.scripts/functions.sh"
+source "$HOME/.scripts/phue.sh"
+source "$HOME/.scripts/kitty.sh"
+
