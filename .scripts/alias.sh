@@ -6,6 +6,7 @@ alias please='sudo $(fc -ln -1)'
 # directory stuff
 alias cdd="cd $HOME/Desktop"
 alias cdgh="cd $HOME/Documents/GitHub"
+alias cddf="cd $HOME/Documents/GitHub/dotfiles"
 alias cdhue="cd $HOME/Documents/GitHub/phue_control"
 alias cdre="cd $HOME/Drive/school/MS/research"
 alias cdcc="cd $HOME/Drive/school/MS/current"
