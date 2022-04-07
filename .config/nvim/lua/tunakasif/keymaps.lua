@@ -66,7 +66,7 @@ keymap("n", "<leader>r(", ":lua ENABLE_RAINBOW()<CR>", opts)
 keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
 
 -- Transparent toggle
-keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
+keymap("n", "<leader>tr", ":TransparentToggle<CR>", opts)
 
 -- Nvim Tree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR> :NvimTreeRefresh<CR>", opts)
@@ -75,7 +75,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR> :NvimTreeRefresh<CR>", opts)
 keymap("n", "<leader>q", ":Bdelete<CR>", opts)
 
 -- toggle term
-keymap("n", "<leader><Bslash>", ":ToggleTerm<CR>", opts)
+keymap("n", "<leader>tt", ":ToggleTerm direction=float<CR>", opts)
+keymap("n", "<leader><Bslash>", ":ToggleTerm direction=horizontal<CR>", opts)
 
 -- Glow
 vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
