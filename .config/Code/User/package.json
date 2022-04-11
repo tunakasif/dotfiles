@@ -1,0 +1,27 @@
+{
+    "name": "My Snippets",
+    "publisher": "Tuna",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.60"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "plaintex",
+                "path": "./snippets/latex.json"
+            },
+            {
+                "language": "tex",
+                "path": "./snippets/latex.json"
+            },
+            {
+                "language": "bib",
+                "path": "./snippets/bibtex.json"
+            }
+        ]
+    }
+}

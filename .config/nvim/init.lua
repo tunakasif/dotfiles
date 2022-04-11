@@ -12,6 +12,7 @@ local lua_scripts = {
 	"options",
 	"plugins",
 	"cmp",
+	"luasnip",
 	"telescope",
 	"treesitter",
 	"autopairs",

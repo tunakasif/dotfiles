@@ -1,0 +1,97 @@
+{
+    "Basic Article Template": {
+        "prefix": "latex_doc",
+        "body": [
+            "\\documentclass[a4paper, 12pt]{article}",
+            "\\usepackage[utf8]{inputenc}",
+            "\\usepackage{hyperref}",
+            "",
+            "\\title{$1}",
+            "\\author{Tuna Alikaşifoğlu}",
+            "\\date{\\today}",
+            "\\hypersetup{colorlinks=true, allcolors=black}",
+            "",
+            "\\begin{document}",
+            "\\begin{titlepage}",
+            "\t\\maketitle",
+            "\t\\thispagestyle{empty}",
+            "\\end{titlepage}",
+            "",
+            "$2",
+            "\\end{document}"
+        ],
+        "description": "Generate basic article template"
+    },
+    "Bibliography Article Template": {
+        "prefix": "latex_doc_bib",
+        "body": [
+            "\\documentclass[a4paper, 12pt]{article}",
+            "\\usepackage[utf8]{inputenc}",
+            "\\usepackage[style=ieee]{biblatex}",
+            "\\usepackage{hyperref}",
+            "",
+            "\\title{$1}",
+            "\\author{Tuna Alikaşifoğlu}",
+            "\\date{\\today}",
+            "\\bibliography{bibliography}",
+            "\\hypersetup{colorlinks=true, allcolors=black}",
+            "",
+            "\\begin{document}",
+            "\\begin{titlepage}",
+            "\t\\maketitle",
+            "\t\\thispagestyle{empty}",
+            "\\end{titlepage}",
+            "",
+            "$2",
+            "",
+            "\\printbibliography{}",
+            "\\end{document}"
+        ],
+        "description": "Generate article with bibliography"
+    },
+    "Figure with ratio": {
+        "prefix": "my_figure",
+        "body": [
+            "\\begin{figure}[$1]",
+            "\t\\centering{}",
+            "\t\\includegraphics[width=${3:0.48}\\linewidth, height=${4:0.3}\\textheight, keepaspectratio]{$2}",
+            "\t\\caption{$5}~\\label{fig:$6}",
+            "\\end{figure}"
+        ],
+        "description": "Figure with ratio"
+    },
+    "Subfigure": {
+        "prefix": "my_sub_figure",
+        "body": [
+            "\\begin{figure}[$1]",
+            "\t\\centering{}",
+            "\t\\begin{subfigure}{0.49\\linewidth}",
+            "\t\t\\centering{}",
+            "\t\t\\includegraphics[width=\\linewidth, height=0.3\\textheight, keepaspectratio]{$2}",
+            "\t\t\\caption{}~\\label{fig:}",
+            "\t\\end{subfigure}",
+            "\t\\begin{subfigure}{0.49\\linewidth}",
+            "\t\t\\centering{}",
+            "\t\t\\includegraphics[width=\\linewidth, height=0.3\\textheight, keepaspectratio]{$3}",
+            "\t\t\\caption{}~\\label{fig:}",
+            "\t\\end{subfigure}",
+            "\t\\caption{}\\label{fig:}",
+            "\\end{figure}"
+        ],
+        "description": "Subfigure"
+    },
+    "Table with tabular": {
+        "prefix": "my_table",
+        "body": [
+            "\\begin{table}[$1]",
+            "\t\\centering{}",
+            "\t\\caption{${2:My Table}}~\\label{tab:$3}",
+            "\t\\begin{tabular}{${4:cc}}\\toprule",
+            "\t\t${5:Column A} & ${6:Column B} \\\\\\ \\midrule",
+            "\t\t${7:1}        & ${8:2}        \\\\\\ \\bottomrule",
+            "\t\\end{tabular}",
+            "\\end{table}"
+        ],
+        "description": "Table with tabular"
+    }
+}

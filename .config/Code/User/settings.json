@@ -1,0 +1,411 @@
+{
+    "explorer.confirmDelete": false,
+    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/bin/zsh"
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh"
+        }
+    },
+    "terminal.integrated.profiles.windows": {
+        "pwsh": {
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "args": [
+                "-NoLogo"
+            ],
+            "terminal.integrated.fontFamily": "CaskaydiaCove NF"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "pwsh",
+    "editor.fontSize": 18,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "git.enableSmartCommit": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ],
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk-escape",
+            "tools": [
+                "latexmk"
+            ],
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-pdflatex=pdflatex -shell-escape %O %S",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatexmk",
+            "tools": [
+                "xelatexmk"
+            ],
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ],
+            "args": [
+                "-shell-escape"
+            ]
+        },
+        {
+            "name": "pythontex",
+            "tools": [
+                "pythontex"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ pythontex ➞ latexmk 🔃",
+            "tools": [
+                "pdflatex",
+                "pythontex",
+                "latexmk"
+            ],
+            "args": [
+                "-shell-escape"
+            ]
+        },
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": [
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pythontex",
+            "command": "pythontex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.chktex.enabled": true,
+    "cSpell.userWords": [
+        "Alikaşifoğlu",
+        "Alikaşifoğlu's",
+        "BILKENT",
+        "cmap",
+        "dtype",
+        "imshow",
+        "ndarray"
+    ],
+    "altervista-thesaurus.key": "5j4sdmjsJcfyn3VQVrGg",
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "files.associations": {
+        "*.srt": "subrip"
+    },
+    "editor.multiCursorModifier": "ctrlCmd",
+    "gitlens.views.repositories.branches.layout": "list",
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "git-commit",
+        "json",
+        "jsonc",
+        "latex",
+        "markdown",
+        "plaintext",
+        "text",
+        "txt",
+        "yaml",
+        "yml"
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.synctex.gz",
+        "*.gz",
+        "*.run.xml",
+        "*.bcf",
+        "_minted*/",
+        "__latexindent_temp.tex",
+        "*.pygtex",
+        "*.pygstyle",
+        "_minted-*/",
+        "*.pytxcode",
+        "pythontex-files-*/*",
+        "pythontex-files-*",
+        "*.sympy"
+    ],
+    "python.autoComplete.addBrackets": true,
+    "python.showStartPage": false,
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "vim.easymotion": true,
+    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-k>": false,
+        "<C-m>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "<Caps Lock>"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "p"
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        }
+    ],
+    "cSpell.enableFiletypes": [
+        "bibtex",
+        "bibtex-style",
+        "dockerfile",
+        "doctex",
+        "git-rebase",
+        "html",
+        "ignore",
+        "java",
+        "javascript",
+        "jsx-tags",
+        "jupyter",
+        "latex-expl3",
+        "makefile",
+        "perl",
+        "perl6",
+        "pip-requirements",
+        "python",
+        "rainbow hover markup",
+        "ruby",
+        "rust",
+        "swift",
+        "tex",
+        "typescript",
+        "xml"
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.analysis.completeFunctionParens": true,
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "python.analysis.memory.keepLibraryAst": true,
+    "settingsSync.ignoredSettings": [
+        "-git.path",
+        "python.analysis.stubPath",
+        "terminal.integrated.fontFamily",
+        "latex-workshop.latex.tools"
+    ],
+    "python.languageServer": "Pylance",
+    "jupyter.askForKernelRestart": false,
+    "editor.fontFamily": "Cascadia Code PL, CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "remote.SSH.remotePlatform": {
+        "139.179.32.242": "linux",
+        "139.179.55.62": "linux",
+        "139.179.55.197": "linux",
+        "139.179.55.36": "linux",
+        "139.179.32.154": "linux",
+        "192.168.43.44": "linux",
+        "192.168.43.202": "linux",
+        "192.168.43.37": "linux",
+        "192.168.43.107": "linux"
+    },
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-y=defaultIndent: '%INDENT%'",
+        "-l"
+    ],
+    "liveshare.authenticationProvider": "GitHub",
+    "jupyter.interactiveWindowMode": "perFile",
+    "jupyter.alwaysTrustNotebooks": true,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.formatOnSave": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/bin/python",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "none",
+    "window.zoomLevel": 1,
+    "breadcrumbs.enabled": false,
+    "notebook.consolidatedRunButton": true,
+    "jupyter.experimental.debugging": true,
+    "notebook.lineNumbers": "on",
+    "python.formatting.provider": "black",
+    "editor.unicodeHighlight.allowedCharacters": {
+        "ı": true
+    },
+    "cSpell.language": "en,tr",
+    "keyboard.dispatch": "keyCode",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+    },
+    "vim.foldfix": true
+}

@@ -1,0 +1,44 @@
+{
+	"Online Source": {
+		"prefix": "online",
+		"body": [
+			"@online{${1:citation_name},",
+			"\tauthor    = {${2:author_name(s)}},",
+			"\ttitle     = {${3:title}},",
+			"\turl       = {${4:https://www.example.com}},",
+			"\tyear      = {${5:year}},",
+			"\tmonth     = {${6:month}},",
+			"\taddendum  = {[Accessed: ${7:mon}. ${8:day}, ${9:year}]}",
+			"}"
+		],
+		"description": "Online Source"
+	},
+	"Online Source with Full Author Name": {
+		"prefix": "online_full_author",
+		"body": [
+			"@online{${1:citation_name},",
+			"\tauthor    = \"{${2:full_author_name}}\",",
+			"\ttitle     = {${3:title}},",
+			"\turl       = {${4:https://www.example.com}},",
+			"\tyear      = {${5:year}},",
+			"\tmonth     = {${6:month}},",
+			"\taddendum  = {[Accessed: ${7:mon}. ${8:day}, ${9:year}]}",
+			"}"
+		],
+		"description": "Online Source with Full Author Name"
+	},
+	"Book Source": {
+		"prefix": "book",
+		"body": [
+			"@book{${1:citation_name},",
+			"\ttitle      = {${2:title}},",
+			"\tauthor     = {${3:author_name(s)}},",
+			"\tpublisher  = {${4:publisher}}",
+			"\tyear       = {${5:year}},",
+			"\tseries     = {${6:series}},",
+			"\tpages      = {${7:pages}},",
+			"}"
+		],
+		"description": "Book Source"
+	}
+}
