@@ -13,6 +13,8 @@ alias cdcc="cd $HOME/Drive/school/MS/current"
 alias fml='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias xo="xdg-open"
 
+alias lnwd='ln -s "$(pwd -P)"'
+
 # dictionary stuff
 alias dict_eng_tur="dict -d fd-eng-tur"
 alias dict_tur_eng="dict -d fd-tur-eng"
