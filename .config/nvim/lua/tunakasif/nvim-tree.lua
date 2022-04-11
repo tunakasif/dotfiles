@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
-vim.g.nvim_tree_indent_markers = 0
 vim.g.nvim_tree_show_icons = {
 	git = 1,
 	folders = 1,
