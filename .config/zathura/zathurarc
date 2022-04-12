@@ -7,6 +7,8 @@
 # Copyright © 2020-Present Adhiraj Sirohi
 # Copyright © 2020-Present Vasundhara Sharma
 
+set adjust-open "best-fit"
+set synctex true
 set selection-clipboard clipboard
 # set recolor true
 

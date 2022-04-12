@@ -95,10 +95,7 @@ return packer.startup(function()
 		"plasticboy/vim-markdown",
 		ft = { "markdown" },
 	})
-	use({
-		"lervag/vimtex",
-		ft = { "tex", "bib" },
-	})
+	use({ "lervag/vimtex" })
 
 	-- Deprecated plugins
 	-- use 'tpope/vim-fugitive' -- git extension
