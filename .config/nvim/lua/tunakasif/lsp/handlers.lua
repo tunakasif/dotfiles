@@ -60,6 +60,16 @@ local function lsp_highlight_document(client)
 	end
 end
 
+function COMPILE_RMD_ON_SAVE()
+	print("Compiling Rmd on save")
+	vim.cmd([[
+      augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost *.Rmd RMarkdown pdf
+      augroup end
+    ]])
+end
+
 function TOGGLE_FORMAT_ON_SAVE(verbose)
 	verbose = verbose or false
 	if FORMAT_ON_SAVE then

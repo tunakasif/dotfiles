@@ -80,6 +80,7 @@ keymap("n", "<leader><Bslash>", ":ToggleTerm direction=horizontal<CR>", opts)
 
 -- Glow
 vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
+vim.cmd("autocmd Filetype rmarkdown nnoremap <leader>p :RMarkdown pdf<CR>")
 
 -- copilot
 function TOGGLE_COPILOT()
