@@ -11,7 +11,7 @@ configs.setup({
 		enable = true,
 	},
 	autotag = {
-		enable = true,
+		enable = false,
 	},
 	highlight = {
 		enable = true,
