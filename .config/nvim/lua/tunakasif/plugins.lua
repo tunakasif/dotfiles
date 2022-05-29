@@ -93,7 +93,7 @@ return packer.startup(function()
 	})
 	use({
 		"plasticboy/vim-markdown",
-		ft = { "markdown" },
+		ft = { "markdown", "md" },
 	})
 	use({ "lervag/vimtex" })
 
