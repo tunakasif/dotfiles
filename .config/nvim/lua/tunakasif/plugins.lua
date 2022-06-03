@@ -89,7 +89,7 @@ return packer.startup(function()
 	use({
 		"ellisonleao/glow.nvim",
 		opt = true,
-		ft = { "markdown" },
+		ft = { "markdown", "md" },
 	})
 	use({
 		"plasticboy/vim-markdown",
