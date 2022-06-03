@@ -118,6 +118,9 @@ return packer.startup(function()
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use LS installer
 
+	--
+	use("folke/trouble.nvim")
+
 	-- Null LS
 	use("jose-elias-alvarez/null-ls.nvim")
 

@@ -82,6 +82,15 @@ keymap("n", "<leader><Bslash>", ":ToggleTerm direction=horizontal<CR>", opts)
 vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
 vim.cmd("autocmd Filetype rmarkdown nnoremap <leader>p :RMarkdown pdf<CR>")
 
+-- Trouble
+-- Lua
+keymap("n", "<leader>xx", ":TroubleToggle<CR>", opts)
+keymap("n", "<leader>xw", ":Trouble workspace_diagnostics<CR>", opts)
+keymap("n", "<leader>xd", ":Trouble document_diagnostics<CR>", opts)
+keymap("n", "<leader>xl", ":Trouble loclist<CR>", opts)
+keymap("n", "<leader>xq", ":Trouble quickfix<CR>", opts)
+keymap("n", "gR", ":Trouble lsp_references<CR>", opts)
+
 -- copilot
 function TOGGLE_COPILOT()
 	if vim.b.copilot_enabled == nil then
