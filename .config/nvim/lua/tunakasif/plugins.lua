@@ -32,6 +32,7 @@ return packer.startup(function()
 	use("nvim-lua/popup.nvim") -- lua functions used by lots of plugins
 	use("nvim-lua/plenary.nvim") -- lua functions used by lots of plugins
 
+	use("lewis6991/impatient.nvim")
 	use("christoomey/vim-sort-motion") -- sorting motion: gs
 	use("christoomey/vim-system-copy") -- system copy: cp, cv
 	use("christoomey/vim-tmux-navigator") -- nav to tmux from vim
@@ -42,7 +43,6 @@ return packer.startup(function()
 		cmd = "MarkdownPreview",
 		ft = { "markdown" },
 	})
-	use("junegunn/goyo.vim") -- zen mode for vim
 	use({
 		"rust-lang/rust.vim",
 		ft = { "rs" },
@@ -97,12 +97,6 @@ return packer.startup(function()
 	})
 	use({ "lervag/vimtex" })
 
-	-- Deprecated plugins
-	-- use 'tpope/vim-fugitive' -- git extension
-	-- use 'sheerun/vim-polyglot'
-	-- use 'vim-syntastic/syntastic'
-	-- use 'nvie/vim-flake8'
-
 	-- auto-completion
 	use("hrsh7th/nvim-cmp") -- auto-completion
 	use("hrsh7th/cmp-buffer") -- buffer completions
@@ -117,22 +111,16 @@ return packer.startup(function()
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use LS installer
-
-	--
-	use("folke/trouble.nvim")
-
-	-- Null LS
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- Visual
-	use("folke/twilight.nvim")
-	use({
-		"folke/zen-mode.nvim",
-		requires = { "folke/twilight.nvim", opt = true },
-	})
+	-- Troubleshoot
+	use("folke/trouble.nvim")
+
+	-- Colorschemes
 	use("sainnhe/gruvbox-material")
 	use("luisiacc/gruvbox-baby")
 	use("folke/tokyonight.nvim")
 	use("EdenEast/nightfox.nvim")
 	use("Mofiqul/vscode.nvim")
+	use("lunarvim/darkplus.nvim")
 end)
