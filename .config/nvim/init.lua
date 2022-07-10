@@ -12,6 +12,7 @@ local lua_scripts = {
 	"colorschemes." .. colorschemes[1],
 	"options",
 	"plugins",
+	"impatient",
 	"cmp",
 	"luasnip",
 	"telescope",
