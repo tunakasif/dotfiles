@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -56,11 +56,11 @@ keymap("n", "<leader>ft", "<cmd>Telescope help_tags<CR>", opts)
 -- In addition :TSEnableAll rainbow does not on the first try, two calls
 -- are necessary for enabling.
 function ENABLE_RAINBOW()
-	vim.cmd([[:TSEnableAll rainbow]])
-	vim.cmd([[:TSEnableAll rainbow]])
+	vim.cmd([[:TSEnable rainbow]])
+	vim.cmd([[:TSEnable rainbow]])
 end
 function DISABLE_RAINBOW()
-	vim.cmd([[:TSDisableAll rainbow]])
+	vim.cmd([[:TSDisable rainbow]])
 end
 keymap("n", "<leader>r(", ":lua ENABLE_RAINBOW()<CR>", opts)
 keymap("n", "<leader>r)", ":lua DISABLE_RAINBOW()<CR>", opts)
