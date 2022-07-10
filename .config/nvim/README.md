@@ -2,7 +2,7 @@
 
 ## LSP Install
 
-Language servers are not installed automatically, therefore one needs to download the servers from `:LspInstallInfo`. Some of the necessary language servers are listed below (list may be outdated).
+Language servers are not installed automatically, therefore one needs to download the servers from `:LspInstallInfo`. Some necessary language servers are listed below (list may be outdated).
 
 - pyright
 - clangd
