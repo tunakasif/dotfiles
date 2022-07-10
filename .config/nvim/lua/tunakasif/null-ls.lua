@@ -3,18 +3,24 @@ if not status_ok then
 	return
 end
 
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+local completion = null_ls.builtins.completion
+
 null_ls.setup({
+	debug = false,
 	sources = {
 		-- Formatter
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.formatting.stylua,
+		formatting.black,
+		formatting.prettier,
+		formatting.stylua,
+		formatting.mdformat,
 
 		-- Diagnostics
-		null_ls.builtins.diagnostics.flake8,
-		null_ls.builtins.diagnostics.chktex,
+		diagnostics.flake8,
+		diagnostics.chktex,
 
 		-- Other
-		null_ls.builtins.completion.spell,
+		completion.spell,
 	},
 })
