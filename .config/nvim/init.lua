@@ -1,6 +1,7 @@
 local namespace = "tunakasif"
 local colorschemes = {
 	"nightfox",
+	"darkplus",
 	"tokyonight",
 	"vscode",
 	"gruvbox-baby",
