@@ -1,38 +1,38 @@
 local namespace = "tunakasif"
 local colorschemes = {
-	"nightfox",
-	"darkplus",
-	"tokyonight",
-	"vscode",
-	"gruvbox-baby",
-	"gruvbox-material",
+    "darkplus",
+    "gruvbox-baby",
+    "gruvbox-material",
+    "nightfox",
+    "tokyonight",
+    "vscode",
 }
 
 local lua_scripts = {
-	"colorschemes." .. colorschemes[1],
-	"options",
-	"plugins",
-	"impatient",
-	"cmp",
-	"luasnip",
-	"telescope",
-	"treesitter",
-	"autopairs",
-	"gitsigns",
-	"transparent.transparent",
-	"nvim-tree",
-	"bufferline",
-	"lualine",
-	"toggleterm",
-	"lsp",
-	"null-ls",
-	"zenmode",
-	"copilot",
-	"vimtex",
-	"keymaps",
+    "colorschemes." .. colorschemes[4],
+    "options",
+    "plugins",
+    "autopairs",
+    "bufferline",
+    "cmp",
+    "copilot",
+    "gitsigns",
+    "impatient",
+    "lsp",
+    "lualine",
+    -- "luasnip",
+    -- "null-ls",
+    "nvim-tree",
+    "telescope",
+    "toggleterm",
+    "transparent.transparent",
+    "treesitter",
+    "vimtex",
+    "zenmode",
+    "keymaps",
 }
 
 for i = 1, #lua_scripts do
-	local module = namespace .. "." .. lua_scripts[i]
-	require(module)
+    local module = namespace .. "." .. lua_scripts[i]
+    require(module)
 end
