@@ -116,6 +116,12 @@ return packer.startup(function()
 	-- Troubleshoot
 	use("folke/trouble.nvim")
 
+	-- Landing Page
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+
 	-- Colorschemes
 	use("sainnhe/gruvbox-material")
 	use("luisiacc/gruvbox-baby")
