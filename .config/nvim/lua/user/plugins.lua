@@ -32,7 +32,7 @@ end
 packer.init({
 	-- Packer Settings
 	snapshot_path = fn.stdpath("config"),
-	snapshot = "packer_snapshot",
+	snapshot = "packer_snapshot.json",
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
