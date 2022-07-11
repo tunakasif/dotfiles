@@ -17,6 +17,7 @@ local lua_scripts = {
 	"bufferline",
 	"cmp",
 	"copilot",
+	"dap",
 	"gitsigns",
 	"impatient",
 	"lsp",

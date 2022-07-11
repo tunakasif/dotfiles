@@ -113,6 +113,11 @@ return packer.startup(function()
 	use("williamboman/nvim-lsp-installer") -- simple to use LS installer
 	use("jose-elias-alvarez/null-ls.nvim")
 
+	-- DAP
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("ravenxrz/DAPInstall.nvim")
+
 	-- Troubleshoot
 	use("folke/trouble.nvim")
 
