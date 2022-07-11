@@ -43,75 +43,61 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
-	use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
-	use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used by lots of plugins
-	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({ "kyazdani42/nvim-tree.lua" })
-	use({ "akinsho/bufferline.nvim" })
-	use({ "moll/vim-bbye" })
-	use({ "nvim-lualine/lualine.nvim" })
-	use({ "akinsho/toggleterm.nvim" })
-	use({ "ahmedkhalf/project.nvim" })
-	use({ "lewis6991/impatient.nvim" })
-	use({ "lukas-reineke/indent-blankline.nvim" })
-	use({ "goolord/alpha-nvim" })
+	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
-	-- Colorschemes
-	use({ "folke/tokyonight.nvim" })
-	use({ "lunarvim/darkplus.nvim" })
-
-	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
-
-	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "RRethy/vim-illuminate" })
-
-	-- Telescope
-	use({ "nvim-telescope/telescope.nvim" })
-	use("nvim-telescope/telescope-media-files.nvim")
-
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter" })
-
-	-- Git
-	use({ "lewis6991/gitsigns.nvim" })
-
-	-- DAP
-	use({ "mfussenegger/nvim-dap" })
-	use({ "rcarriga/nvim-dap-ui" })
-	use({ "ravenxrz/DAPInstall.nvim" })
-
-	-- My Additional
+	use("ahmedkhalf/project.nvim")
+	use("akinsho/bufferline.nvim")
+	use("akinsho/toggleterm.nvim")
 	use("christoomey/vim-sort-motion") -- sorting motion: gs
 	use("christoomey/vim-tmux-navigator") -- nav to tmux from vim
 	use("godlygeek/tabular") -- aligning with regex
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && yarn install",
-		cmd = "MarkdownPreview",
-		ft = { "markdown" },
-	})
-	use({
-		"rust-lang/rust.vim",
-		ft = { "rs" },
-	})
+	use("goolord/alpha-nvim")
+	use("kyazdani42/nvim-tree.lua")
+	use("kyazdani42/nvim-web-devicons")
+	use("lewis6991/impatient.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
+	use("moll/vim-bbye")
+	use("nvim-lualine/lualine.nvim")
+	use("RRethy/vim-illuminate")
 	use("tpope/vim-commentary") -- toggle comments: gc
 	use("tpope/vim-surround") -- adding/changing surrounding env
 	use("xiyaowong/nvim-transparent")
+
+	-- Colorschemes
+	use("EdenEast/nightfox.nvim")
+	use("Mofiqul/vscode.nvim")
+	use("folke/tokyonight.nvim")
+	use("luisiacc/gruvbox-baby")
+	use("lunarvim/darkplus.nvim")
+	use("sainnhe/gruvbox-material")
+
+	-- cmp plugins
+	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/cmp-buffer") -- buffer completions
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-path") -- path completions
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("github/copilot.vim") -- copilot
+
+	-- snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+
+	-- LSP
+	use("neovim/nvim-lspconfig") -- enable LSP
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+
+	-- Telescope
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-media-files.nvim")
+
+	-- Treesitter
+	use("nvim-treesitter/nvim-treesitter")
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"p00f/nvim-ts-rainbow",
 		requires = { "nvim-treesitter/nvim-treesitter" },
@@ -120,23 +106,40 @@ return packer.startup(function(use)
 		"windwp/nvim-ts-autotag",
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
+
+	-- Troubleshooting
+	use("folke/trouble.nvim")
+
+	-- Git
+	use({ "lewis6991/gitsigns.nvim" })
+
+	-- DAP
+	use({ "mfussenegger/nvim-dap" })
+	use({ "ravenxrz/DAPInstall.nvim" })
+	use({ "rcarriga/nvim-dap-ui" })
+
+	-- Markdown
+	use({
+		"plasticboy/vim-markdown",
+		ft = { "markdown", "md" },
+	})
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && yarn install",
+		cmd = "MarkdownPreview",
+		ft = { "markdown" },
+	})
 	use({
 		"ellisonleao/glow.nvim",
 		opt = true,
 		ft = { "markdown", "md" },
 	})
-	use({
-		"plasticboy/vim-markdown",
-		ft = { "markdown", "md" },
-	})
-	use({ "lervag/vimtex" })
-	use("github/copilot.vim") -- copilot
-	use("folke/trouble.nvim")
 
-	use("sainnhe/gruvbox-material")
-	use("luisiacc/gruvbox-baby")
-	use("EdenEast/nightfox.nvim")
-	use("Mofiqul/vscode.nvim")
+	-- LaTeX
+	use("lervag/vimtex")
+
+	-- Rust
+	use({ "rust-lang/rust.vim", ft = { "rs" } })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
