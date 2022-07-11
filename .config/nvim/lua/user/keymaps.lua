@@ -38,6 +38,18 @@ keymap("v", ">", "> gv", opts)
 -- keep yanked
 keymap("v", "p", '"_dP', opts)
 
+-- Copy to clipboard
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+yg_', opts)
+keymap("n", "<leader>yy", '"+yy', opts)
+
+-- Paste from clipboard
+keymap("n", "<leader>p", '"+p', opts)
+keymap("n", "<leader>P", '"+P', opts)
+keymap("v", "<leader>p", '"+p', opts)
+keymap("v", "<leader>P", '"+P', opts)
+
 -- toggle wrap
 function TOGGLE_WRAP()
 	vim.opt.wrap = not vim.opt.wrap:get()
@@ -79,11 +91,10 @@ keymap("n", "<leader>tt", ":ToggleTerm direction=float<CR>", opts)
 keymap("n", "<leader><Bslash>", ":ToggleTerm direction=horizontal<CR>", opts)
 
 -- Glow
-vim.cmd("autocmd Filetype markdown nnoremap <leader>p :Glow<CR>")
-vim.cmd("autocmd Filetype rmarkdown nnoremap <leader>p :RMarkdown pdf<CR>")
+vim.cmd("autocmd Filetype markdown nnoremap <leader>vv :Glow<CR>")
+vim.cmd("autocmd Filetype rmarkdown nnoremap <leader>vv :RMarkdown pdf<CR>")
 
 -- Trouble
--- Lua
 keymap("n", "<leader>xx", ":TroubleToggle<CR>", opts)
 keymap("n", "<leader>xw", ":Trouble workspace_diagnostics<CR>", opts)
 keymap("n", "<leader>xd", ":Trouble document_diagnostics<CR>", opts)
@@ -106,3 +117,17 @@ function TOGGLE_COPILOT()
 	vim.cmd([[:Copilot status <CR>]])
 end
 keymap("n", "<leader>cp", ":lua TOGGLE_COPILOT()<CR>", opts)
+
+-- Git
+keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+
+-- DAP
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)

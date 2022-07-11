@@ -1,4 +1,4 @@
-local namespace = "tunakasif"
+local namespace = "user"
 local colorschemes = {
 	"darkplus",
 	"gruvbox-baby",
@@ -13,24 +13,27 @@ local lua_scripts = {
 	"options",
 	"plugins",
 	"alpha",
+	"autocommands",
 	"autopairs",
 	"bufferline",
 	"cmp",
 	"copilot",
 	"dap",
 	"gitsigns",
+	"illuminate",
 	"impatient",
+	"indentline",
 	"lsp",
 	"lualine",
 	"luasnip",
 	"null-ls",
 	"nvim-tree",
+	"project",
 	"telescope",
 	"toggleterm",
 	"transparent.transparent",
 	"treesitter",
 	"vimtex",
-	"zenmode",
 	"keymaps",
 }
 

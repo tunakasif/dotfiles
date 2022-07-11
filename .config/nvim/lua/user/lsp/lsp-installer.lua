@@ -1,4 +1,4 @@
-local namespace = "tunakasif.lsp."
+local namespace = "user.lsp."
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
 	return
@@ -28,3 +28,4 @@ lsp_installer.on_server_ready(function(server)
 
 	server:setup(opts)
 end)
+
