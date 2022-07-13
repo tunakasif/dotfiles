@@ -37,6 +37,7 @@
   "packer.nvim": { "commit": "00ec5ad" },
   "plenary.nvim": { "commit": "968a4b9" },
   "project.nvim": { "commit": "541115e" },
+  "rust-tools.nvim": { "commit": "11dcd67" },
   "rust.vim": { "commit": "4aa69b8" },
   "tabular": { "commit": "339091a" },
   "telescope-media-files.nvim": { "commit": "513e4ee" },
