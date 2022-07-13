@@ -15,5 +15,6 @@ null_ls.setup({
 
 		diagnostics.flake8,
 		diagnostics.chktex,
+		diagnostics.gitlint,
 	},
 })
