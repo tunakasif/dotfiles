@@ -4,19 +4,21 @@
 
 Language servers are not installed automatically, therefore one needs to download the servers from `:LspInstallInfo`. Some necessary language servers are listed below (list may be outdated).
 
-- pyright
-- clangd
-- eslint
-- html
-- pyright
-- rust_analyzer
-- sumneko_lua
-- texlab
+- `bashls`
+- `clangd`
+- `cssls`
+- `html`
+- `jsonls`
+- `pyright`
+- `rust_analyzer`
+- `sumneko_lua`
+- `taplo`
+- `texlab`
+- `tsserver`
+- `yamlls`
 
-## Troubleshoot
+## Necessary Programs to Install
 
-Compilation of `tree-sitter-norg` was problematic, so related aspect of the `norg` component is commented out in the following file:
+### Rust
 
-```
-~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/lua/nvim-treesitter/parsers.lua
-```
+- `lldb`: for debugging with DAP
