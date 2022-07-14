@@ -46,18 +46,17 @@ local function get_extra_groups(filter_keywords)
 	local group_file_path = file_path .. "/groups.txt"
 
 	local group_file = io.open(group_file_path, "r")
-	local contents = group_file:read("*all")
-	group_file:close()
-
-	local split_string = split(contents, "\n")
 	local filtered = {}
-	for _, value in ipairs(filter_keywords) do
-		local curr_filtered = filter_string_table(split_string, value)
-		filtered = array_concat(filtered, curr_filtered)
+	if group_file then
+		local contents = group_file:read("*all")
+		group_file:close()
+
+		local split_string = split(contents, "\n")
+		for _, value in ipairs(filter_keywords) do
+			local curr_filtered = filter_string_table(split_string, value)
+			filtered = array_concat(filtered, curr_filtered)
+		end
 	end
-	-- for _, f in ipairs(filtered) do
-	--     print(f)
-	-- end
 	return filtered
 end
 

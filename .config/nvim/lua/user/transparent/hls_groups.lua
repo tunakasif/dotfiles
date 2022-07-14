@@ -9,8 +9,10 @@ local group_file = io.open(file_path .. "/groups.txt", "w")
 local hls = vim.split(vim.api.nvim_exec("highlight", true), "\n")
 for _, hl in ipairs(hls) do
 	local group = vim.split(hl, " ")[1]
-	if group then
+	if group and group_file then
 		group_file:write(group .. "\n")
 	end
 end
-group_file:close()
+if group_file then
+	group_file:close()
+end
