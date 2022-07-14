@@ -11,6 +11,8 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
+	respect_buf_cwd = true,
+	update_cwd = true,
 	update_focused_file = {
 		enable = true,
 		update_cwd = true,
