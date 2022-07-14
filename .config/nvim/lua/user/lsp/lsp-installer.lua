@@ -9,6 +9,7 @@ local servers = {
 	"cssls",
 	"html",
 	"jsonls",
+	"ltex",
 	"pyright",
 	"rust_analyzer",
 	"sumneko_lua",
@@ -41,6 +42,11 @@ for _, server in pairs(servers) do
 	if server == "pyright" then
 		local pyright_opts = require("user.lsp.settings.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	end
+
+	if server == "ltex" then
+		local ltex_opts = require("user.lsp.settings.ltex")
+		opts = vim.tbl_deep_extend("force", ltex_opts, opts)
 	end
 
 	if server == "rust_analyzer" then
