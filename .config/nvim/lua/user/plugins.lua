@@ -128,13 +128,9 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && yarn install",
 		cmd = "MarkdownPreview",
-		ft = { "markdown" },
+		ft = { "md", "markdown" },
 	})
-	use({
-		"ellisonleao/glow.nvim",
-		opt = true,
-		ft = { "markdown", "md" },
-	})
+	use({ "ellisonleao/glow.nvim", opt = true, ft = { "md", "markdown" } })
 
 	-- LaTeX
 	use("lervag/vimtex")
