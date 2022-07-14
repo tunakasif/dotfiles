@@ -1,4 +1,4 @@
-local status_ok, nightfox = pcall(require, "nightfox")
+local status_ok, _ = pcall(require, "nightfox")
 if not status_ok then
 	return
 end
