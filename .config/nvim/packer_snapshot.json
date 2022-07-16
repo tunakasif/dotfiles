@@ -42,7 +42,7 @@
   "rust.vim": { "commit": "4aa69b8" },
   "tabular": { "commit": "339091a" },
   "telescope-media-files.nvim": { "commit": "513e4ee" },
-  "telescope.nvim": { "commit": "d96eaa9" },
+  "telescope.nvim": { "commit": "6bddc38" },
   "toggleterm.nvim": { "commit": "aaeed9e" },
   "tokyonight.nvim": { "commit": "8223c97" },
   "trouble.nvim": { "commit": "da61737" },
