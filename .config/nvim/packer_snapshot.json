@@ -20,7 +20,7 @@
   "lualine.nvim": { "commit": "3362b28" },
   "markdown-preview.nvim": { "commit": "02cc387" },
   "nightfox.nvim": { "commit": "8666cba" },
-  "null-ls.nvim": { "commit": "ff40739" },
+  "null-ls.nvim": { "commit": "ec7764e" },
   "nvim-autopairs": { "commit": "fa6876f" },
   "nvim-cmp": { "commit": "df6734a" },
   "nvim-dap": { "commit": "014ebd5" },

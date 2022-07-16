@@ -3,12 +3,15 @@ if not null_ls_status_ok then
 	return
 end
 
+local completion = null_ls.builtins.completion
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	debug = false,
 	sources = {
+		completion.spell,
+
 		formatting.prettier,
 		formatting.black,
 		formatting.stylua,
@@ -16,5 +19,6 @@ null_ls.setup({
 		diagnostics.flake8,
 		diagnostics.chktex,
 		diagnostics.gitlint,
+		diagnostics.mlint,
 	},
 })
