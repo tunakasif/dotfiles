@@ -62,6 +62,7 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope find_files hidden=true<CR>", opts)
 keymap("n", "<leader>ft", "<cmd>Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", opts)
 
 -- TreeSitter
 -- There is problem with the :TSToggle when the module starts as `false`.
