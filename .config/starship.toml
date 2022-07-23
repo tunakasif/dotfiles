@@ -1,159 +1,38 @@
-# ~/.config/starship.toml
+"$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
 
-format = """
-$username\
-$hostname\
-$shlvl\
-$kubernetes\
-$directory\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
-$custom\
-$cmd_duration\
-$lua\
-$jobs\
-$battery\
-$time\
-$status\
-$shell\
-$line_break\
-$character"""
-
-[line_break]
-disabled = false
-
-[battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
-discharging_symbol = "⚡"
+[aws]
 disabled = true
 
-[[battery.display]]
-threshold = 20
-style = "bold red"
-
-[[battery.display]]  # "bold yellow" style
-threshold = 50
-style = "bold yellow"
-
-[[battery.display]]  # "bold yellow" style
-threshold = 100
-style = "bold green"
-
-[character]
-error_symbol = "[✖](bold red) "
-
-[cmd_duration]
-min_time = 2_000  # Show command duration over 10,000 milliseconds (=10 sec)
-format = " took [$duration]($style)"
-
-[directory]
-truncation_length = 3
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+[gcloud]
+disabled = true
 
 [git_branch]
+symbol = " "
 format = " [$symbol$branch]($style) "
-style = "bold yellow"
-
-[git_commit]
-commit_hash_length = 8
-style = "bold white"
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count}"
-behind = "🐢 ×${count}"
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-untracked = "🛤️  ×${count}"
-stashed = "📦 "
-modified = "📝 ×${count}"
-staged = "🗃️  ×${count}"
-renamed = "📛 ×${count}"
-deleted = "🗑️  ×${count}"
-style = "bright-white"
-format = "$all_status$ahead_behind"
+conflicted = "🏳"
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count} ⇣${behind_count} "
+untracked = "?${count} "
+stashed = "$${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+style = "yellow"
+format = '([$all_status$ahead_behind]($style) )'
 
-[hostname]
-ssh_only = false
-format = "<[$hostname]($style)>"
-trim_at = "-"
-style = "bold dimmed white"
-disabled = true
+[python]
+pyenv_prefix = ""
+version_format = "${major}.${minor}"
+style = "green"
 
-[julia]
-format = "[$symbol$version]($style) "
-symbol = "ஃ "
-style = "bold green"
-
-[memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 70
-style = "bold dimmed white"
-disabled = true
+[rust]
+version_format = "v${major}.${minor}"
 
 [package]
 disabled = true
 
-[python]
-pyenv_version_name = true
-format = '[${symbol}(\($virtualenv\) )]($style)'
-style = "bold green"
-
-[rust]
-format = "[$symbol$version]($style) "
-style = "bold green"
-
-[time]
-time_format = "%T"
-format = "🕙 $time($style) "
-style = "bright-white"
-disabled = true
-
-[username]
-style_user = "bold dimmed blue"
-show_always = false
