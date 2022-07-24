@@ -23,7 +23,8 @@ My dotfiles to configure programs I use.
 
 ### File Manager
 
-- [`ranger`](./.config/ranger/) *VIM-inspired filemanager for the console  [GitHub page](https://github.com/ranger/ranger).*
+- [`ranger`](./.config/ranger/) *VIM-inspired file manager for the console, [GitHub page](https://github.com/ranger/ranger).*
+- [`lf`](./.config/lf/) *Terminal file manager written in `Go` with a heavy inspiration from ranger file manager, [GitHub page](https://github.com/gokcehan/lf).*
 
 ### Video Player
 
