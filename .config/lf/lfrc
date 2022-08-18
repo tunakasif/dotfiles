@@ -99,3 +99,9 @@ cmd zip ${{
 }}
 
 map zz zip archive
+
+# bulkrename with vimv
+cmd bulkrename ${{
+    vimv $fx
+}}
+map br bulkrename
