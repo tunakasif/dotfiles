@@ -83,6 +83,17 @@ kitty_update() {
     git clone $k0nserv_repo $k0nserv_path
 }
 
+wifi_pass(){
+    network_path="/etc/NetworkManager/system-connections/";
+    lenght=${#network_path};
+    text="$(sudo grep -r '^psk=' $network_path)";
+    path_removed="$(echo $text | awk -F "${network_path}" '{print $2}')";
+    wifis="$(echo $path_removed | awk -F '.' '{print $1}')";
+    passwd="$(echo $path_removed | awk -F '=' '{print $2}')";
+
+    echo $path_removed;
+}
+
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"

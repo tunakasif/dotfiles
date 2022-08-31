@@ -3,9 +3,14 @@ alias up="sudo dnf upgrade"
 alias upy="sudo dnf upgrade -y"
 alias please='sudo $(fc -ln -1)'
 
+# neovim stuff
+alias e="nvim"
+alias c="code"
+
 # directory stuff
 alias cdd="cd $HOME/Desktop"
 alias cdgh="cd $HOME/Documents/GitHub"
+alias cdve="cd $HOME/.cache/pypoetry/virtualenvs"
 alias cddf="cd $HOME/Documents/GitHub/dotfiles"
 alias cdhue="cd $HOME/Documents/GitHub/phue_control"
 alias cdre="cd $HOME/Drive/school/MS/research"
@@ -28,5 +33,4 @@ alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 # kitty stuff
 alias icat='kitty +kitten icat'
 alias kittyconfig="$EDITOR $HOME/.config/kitty/kitty.conf"
-
 
