@@ -1,3 +1,4 @@
+require("impatient") -- Make startup faster
 local namespace = "user"
 local colorschemes = {
 	"darkplus",
@@ -21,7 +22,6 @@ local lua_scripts = {
 	"dap",
 	"gitsigns",
 	"illuminate",
-	"impatient",
 	"indentline",
 	"lsp",
 	"lualine",
