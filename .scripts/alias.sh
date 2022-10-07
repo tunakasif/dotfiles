@@ -17,7 +17,6 @@ alias cdre="cd $HOME/Drive/school/MS/research"
 alias cdcc="cd $HOME/Drive/school/MS/current"
 alias fml='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias xo="xdg-open"
-
 alias lnwd='ln -s "$(pwd -P)"'
 
 # dictionary stuff
@@ -26,11 +25,10 @@ alias dict_tur_eng="dict -d fd-tur-eng"
 
 # config stuff
 alias vimconfig="$EDITOR $HOME/.vimrc"
-alias nvimconfig="cd $HOME/.config/nvim; $EDITOR $HOME/.config/nvim/init.lua"
+alias nvimconfig="$EDITOR $HOME/.config/nvim/"
 alias zshconfig="$EDITOR $HOME/.zshrc; source $HOME/.zshrc"
 alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 
 # kitty stuff
 alias icat='kitty +kitten icat'
 alias kittyconfig="$EDITOR $HOME/.config/kitty/kitty.conf"
-
