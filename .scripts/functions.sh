@@ -92,6 +92,13 @@ wifi_pass(){
     passwd="$(echo $path_removed | awk -F '=' '{print $2}')";
 
     echo $path_removed;
+
+compress_pdf() {
+    dir_name="$(dirname $1)";
+    file_name="$(basename $1)";
+    out_file_name="compressed_$file_name";
+    out_file_path="$dir_name/$out_file_name";
+    gs -sDEVICE=pdfwrite -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$out_file_path $1
 }
 
 lfcd () {
@@ -107,3 +114,4 @@ lfcd () {
         fi
     fi
 }
+
