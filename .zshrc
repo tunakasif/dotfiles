@@ -21,10 +21,6 @@ source "$HOME/.scripts/phue.sh"
 source "$HOME/.scripts/kitty.sh"
 source "$HOME/.scripts/bindkey.sh"
 
-bindkey -s '^b' 'code .^M'
-bindkey '^j' history-substring-search-down
-bindkey '^k' history-substring-search-up 
-
 # eval
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
