@@ -11,6 +11,7 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
+	ignore_ft_on_setup = { "dashboard", "startify", "alpha" },
 	respect_buf_cwd = true,
 	update_cwd = true,
 	update_focused_file = {
@@ -24,8 +25,8 @@ nvim_tree.setup({
 				default = "",
 				symlink = "",
 				folder = {
-					arrow_open = "",
-					arrow_closed = "",
+					arrow_open = "▾",
+					arrow_closed = "▸",
 					default = "",
 					open = "",
 					empty = "",
