@@ -1,4 +1,4 @@
-require("impatient") -- Make startup faster
+local _ = pcall(require, "impatient") -- Make startup faster
 local namespace = "user"
 local colorschemes = {
 	"darkplus",
