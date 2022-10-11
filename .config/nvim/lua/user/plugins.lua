@@ -72,6 +72,10 @@ return packer.startup(function(use)
 	use("luisiacc/gruvbox-baby")
 	use("lunarvim/darkplus.nvim")
 	use("sainnhe/gruvbox-material")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

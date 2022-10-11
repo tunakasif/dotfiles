@@ -1,6 +1,7 @@
 local _ = pcall(require, "impatient") -- Make startup faster
 local namespace = "user"
 local colorschemes = {
+	"catppuccin",
 	"darkplus",
 	"gruvbox-baby",
 	"gruvbox-material",
@@ -10,7 +11,7 @@ local colorschemes = {
 }
 
 local lua_scripts = {
-	"colorschemes." .. colorschemes[4],
+	"colorschemes." .. colorschemes[1],
 	"options",
 	"plugins",
 	"alpha",
