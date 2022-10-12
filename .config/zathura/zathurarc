@@ -10,7 +10,7 @@
 set adjust-open "best-fit"
 set synctex true
 set selection-clipboard clipboard
-# set recolor true
+set recolor true
 
-include themes/lighthaus
-# include themes/catppuccin-mocha
+# include themes/lighthaus
+include themes/catppuccin-mocha
