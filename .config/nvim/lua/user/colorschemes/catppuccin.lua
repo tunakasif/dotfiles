@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 vim.g.catppuccin_flavour = "mocha"
+local colors = require("catppuccin.palettes").get_palette()
 
 catppuccin.setup({
 	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
@@ -20,6 +21,9 @@ catppuccin.setup({
 		properties = {},
 		types = {},
 		operators = {},
+	},
+	custom_highlights = {
+		TSParameter = { fg = colors.text, style = {} },
 	},
 	integrations = {
 		cmp = true,
