@@ -92,6 +92,7 @@ wifi_pass(){
     passwd="$(echo $path_removed | awk -F '=' '{print $2}')";
 
     echo $path_removed;
+}
 
 compress_pdf() {
     dir_name="$(dirname $1)";
