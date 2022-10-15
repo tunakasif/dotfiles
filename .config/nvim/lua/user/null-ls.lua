@@ -15,7 +15,9 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.black,
 		formatting.stylua,
-		formatting.latexindent,
+		formatting.latexindent.with({
+			filetypes = { "tex", "bib" },
+		}),
 
 		diagnostics.flake8,
 		diagnostics.chktex,
