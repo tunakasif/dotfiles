@@ -78,6 +78,15 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 
+	if client.name == "ltex" then
+		require("ltex_extra").setup({
+			load_langs = { "en-US" }, -- table <string> : languages for witch dictionaries will be loaded
+			init_check = true, -- boolean : whether to load dictionaries on startup
+			path = ".vscode/", -- string : path to store dictionaries. Relative path uses current working directory
+			log_level = "none", -- string : "none", "trace", "debug", "info", "warn", "error", "fatal"
+		})
+	end
+
 	lsp_keymaps(bufnr)
 	FORMAT_ON_SAVE = false
 	TOGGLE_FORMAT_ON_SAVE()

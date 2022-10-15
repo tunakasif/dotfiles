@@ -112,6 +112,9 @@ return packer.startup(function(use)
 		requires = { "nvim-treesitter/nvim-treesitter" },
 	})
 
+	-- Spellcheck
+	use({ "barreiroleo/ltex-extra.nvim" })
+
 	-- Troubleshooting
 	use("folke/trouble.nvim")
 
