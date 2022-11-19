@@ -17,14 +17,14 @@ trash-can () {
 srs () {
   curr_path=$(pwd);
   cd ~/Documents/GitHub/BilBot;
-  python3 bilkent_bot.py;
+  poertry run python bilkent_bot.py;
   cd "$curr_path";
 }
 
 airs () {
   curr_path=$(pwd);
   cd ~/Documents/GitHub/BilBot;
-  python3 bilkent_bot.py --site airs;
+  poertry run python bilkent_bot.py --site airs;
   cd "$curr_path";
 }
 
