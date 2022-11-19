@@ -11,21 +11,21 @@ update_all () {
 }
 
 trash-can () {
-  cd "/home/tunakasif/.local/share/Trash";
+  cd "$HOME/.local/share/Trash" || exit;
 }
 
 srs () {
   curr_path=$(pwd);
-  cd ~/Documents/GitHub/BilBot;
+  cd "$HOME/Documents/GitHub/BilBot" || exit;
   poertry run python bilkent_bot.py;
-  cd "$curr_path";
+  cd "$curr_path" || exit;
 }
 
 airs () {
   curr_path=$(pwd);
-  cd ~/Documents/GitHub/BilBot;
+  cd "$HOME/Documents/GitHub/BilBot" || exit;
   poertry run python bilkent_bot.py --site airs;
-  cd "$curr_path";
+  cd "$curr_path" || exit;
 }
 
 ytd () {
@@ -33,21 +33,21 @@ ytd () {
 }
 
 ytfzfd () {
-    yt-dlp -f $YT_DLP_FORMAT $(ytfzf -tL $1);
+    yt-dlp -f "$YT_DLP_FORMAT" "$(ytfzf -tL $1)";
 }
 
 
 mine_eth_tmux() {
   curr_path=$(pwd)
   location=$HOME/Programs/lolMiner/1.36a;
-  cd $location;
+  cd $location || exit;
   tmux new -d -s eth_miner './mine_eth.sh';
-  cd $curr_path;
+  cd $curr_path || exit;
 }
 
 mine_eth() {
   location=$HOME/Programs/lolMiner/1.36a;
-  cd $location;
+  cd $location || exit;
   ./mine_eth.sh;
 }
 
@@ -83,17 +83,6 @@ kitty_update() {
     git clone $k0nserv_repo $k0nserv_path
 }
 
-wifi_pass(){
-    network_path="/etc/NetworkManager/system-connections/";
-    lenght=${#network_path};
-    text="$(sudo grep -r '^psk=' $network_path)";
-    path_removed="$(echo $text | awk -F "${network_path}" '{print $2}')";
-    wifis="$(echo $path_removed | awk -F '.' '{print $1}')";
-    passwd="$(echo $path_removed | awk -F '=' '{print $2}')";
-
-    echo $path_removed;
-}
-
 compress_pdf() {
     dir_name="$(dirname $1)";
     file_name="$(basename $1)";
@@ -110,7 +99,7 @@ lfcd () {
         rm -f "$tmp"
         if [ -d "$dir" ]; then
             if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
+                cd "$dir" || exit
             fi
         fi
     fi
