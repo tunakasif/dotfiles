@@ -5,3 +5,4 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     unfunction kitty-integration
 fi
 
+export KITTY_ENABLE_WAYLAND=1
