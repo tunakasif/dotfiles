@@ -14,6 +14,13 @@ trash-can () {
   cd "$HOME/.local/share/Trash" || exit;
 }
 
+pytureng () {
+  curr_path=$(pwd);
+  cd "$HOME/Documents/GitHub/pytureng" || exit;
+  poetry run python -m pytureng "$@";
+  cd "$curr_path" || exit;
+}
+
 srs () {
   curr_path=$(pwd);
   cd "$HOME/Documents/GitHub/BilBot" || exit;
