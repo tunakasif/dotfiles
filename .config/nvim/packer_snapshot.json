@@ -8,7 +8,7 @@
   "cmp-nvim-lua": { "commit": "d276254" },
   "cmp-path": { "commit": "466b6b8" },
   "cmp_luasnip": { "commit": "a9de941" },
-  "copilot.vim": { "commit": "c2e75a3" },
+  "copilot.vim": { "commit": "5a411d1" },
   "darkplus.nvim": { "commit": "2584cde" },
   "friendly-snippets": { "commit": "d27a83a" },
   "gitsigns.nvim": { "commit": "c18e016" },
