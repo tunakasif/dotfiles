@@ -3,7 +3,8 @@ export EDITOR="$(which nvim)"
 export BROWSER="firefox"
 export TERM=xterm-256color
 export YT_DLP_FORMAT='bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best'
-export ZSH="/home/tunakasif/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+export DISABLE_UPDATE_PROMPT=true # disable oh-my-zsh update prompt
 export CALIBRE_LIBRARY="$HOME/Drive/AppSync/Calibre"
 export KEYTIMEOUT=1 # for vi mode
 
