@@ -112,3 +112,6 @@ lfcd () {
     fi
 }
 
+wifi_pass() {
+    nmcli device wifi show-password
+}
