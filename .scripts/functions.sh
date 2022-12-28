@@ -115,3 +115,7 @@ lfcd () {
 wifi_pass() {
     nmcli device wifi show-password
 }
+
+kittytrans() {
+    kitty @set-background-opacity "${1:-0.7}";
+}
