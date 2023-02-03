@@ -119,3 +119,8 @@ wifi_pass() {
 kittytrans() {
     kitty @set-background-opacity "${1:-0.7}";
 }
+
+bw_unlock() {
+    session="$(bw unlock $(pass bitwarden) | grep export | awk -F '"' '{print $2}')";
+    export BW_SESSION="$session";
+}
