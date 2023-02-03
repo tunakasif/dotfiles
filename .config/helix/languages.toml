@@ -1,0 +1,7 @@
+[[language]]
+name = "python"
+roots = ["pyproject.toml"]
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true
+config = {} # <- this is the important line
