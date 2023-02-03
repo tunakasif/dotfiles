@@ -10,6 +10,8 @@ external-url-viewer "urlview"
 auto-reload yes
 reload-time 15
 reload-threads 100
+confirm-mark-feed-read no
+confirm-mark-all-feeds-read no
 
 bind-key ; macro-prefix
 bind-key j down
