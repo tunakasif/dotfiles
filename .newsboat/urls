@@ -8,8 +8,9 @@ https://lukesmith.xyz/rss.xml "Blog"
 https://caftalks.substack.com/feed "Blog" "~Caftalks - Yüksel Arslantaş"
 
 # ---GitHub---
-https://github.com/LukeSmithxyz.atom "GitHub" "~GitHub: Luke Smith"
 https://github.com/atahanyorganci.atom "GitHub" "~GitHub: Atahan Yorgancı"
+https://github.com/tunakasif.atom "GitHub" "~GitHub: Tuna Alikaşifoğlu"
+https://github.com/koc-lab.atom "GitHub" "~GitHub: Aykut Koç LAB"
 
 # ---YouTube---
 https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "YouTube"
