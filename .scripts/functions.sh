@@ -124,3 +124,16 @@ bw_unlock() {
     session="$(bw unlock $(pass bitwarden) | grep export | awk -F '"' '{print $2}')";
     export BW_SESSION="$session";
 }
+
+glint() {
+    # check if a `.gitlint` config file exists in the directory,
+    # if not, use the default config file provided in the dotfiles
+    # repo. If even the repo does not exist, then use the without
+    # config file option.
+    default_config_file="$HOME/dotfiles/.gitlint";
+    if [ ! -f "$default_config_file" ] || [ -f ".gitlint" ]; then
+        gitlint "$@";
+    else
+        gitlint --config "$default_config_file" "$@";
+    fi
+}
