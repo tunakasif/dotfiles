@@ -125,7 +125,7 @@ bw_unlock() {
     export BW_SESSION="$session";
 }
 
-glint() {
+lintgit() {
     # check if a `.gitlint` config file exists in the directory,
     # if not, use the default config file provided in the dotfiles
     # repo. If even the repo does not exist, then use the without
