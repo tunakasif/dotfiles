@@ -137,3 +137,13 @@ lintgit() {
         gitlint --config "$default_config_file" "$@";
     fi
 }
+
+kill-wp () {
+    wp_pids="$(pidof whatsapp-desktop-linux)";
+
+    if [ -n "$wp_pids" ]; then
+        echo "$wp_pids" | xargs kill;
+    else
+        echo "No whatsapp-desktop-linux process found";
+    fi
+}
