@@ -10,6 +10,18 @@ update_all () {
     brew update && brew upgrade;
 }
 
+cds () {
+    if [ -z "$1" ]; then
+        cd "$HOME" || return
+    elif [[ -d $1 ]]; then
+        cd "$1" || return
+    elif [[ -f $1 ]]; then
+        cd "$(dirname "$1")" || return
+    else
+        cd "$@" || return
+    fi
+}
+
 trash-can () {
   cd "$HOME/.local/share/Trash" || exit;
 }
