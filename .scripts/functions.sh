@@ -1,5 +1,5 @@
 # functions
-update_all () {
+update-all () {
     if type dnf &> /dev/null; then
         figlet "dnf";
         sudo dnf upgrade -y;
@@ -64,7 +64,7 @@ ytfzfd () {
 }
 
 
-mine_eth_tmux() {
+mine-eth-tmux() {
   curr_path=$(pwd)
   location=$HOME/Programs/lolMiner/1.36a;
   cd $location || exit;
@@ -72,13 +72,13 @@ mine_eth_tmux() {
   cd $curr_path || exit;
 }
 
-mine_eth() {
+mine-eth() {
   location=$HOME/Programs/lolMiner/1.36a;
   cd $location || exit;
   ./mine_eth.sh;
 }
 
-my_mail() {
+my-mail() {
   mw -Y;
   neomutt;
 }
@@ -87,11 +87,11 @@ brightness() {
     xrandr --output DP-0 --brightness $1
 }
 
-kitty_force_ssh() {
+kitty-force-ssh() {
     infocmp -a xterm-kitty | ssh $1 tic -x -o \~/.terminfo /dev/stdin
 }
 
-kitty_update() {
+kitty-update() {
     # Update kitty
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
@@ -110,7 +110,7 @@ kitty_update() {
     git clone $k0nserv_repo $k0nserv_path
 }
 
-compress_pdf() {
+compress-pdf() {
     dir_name="$(dirname $1)";
     file_name="$(basename $1)";
     out_file_name="compressed_$file_name";
@@ -132,7 +132,7 @@ lfcd () {
     fi
 }
 
-wifi_pass() {
+wifi-pass() {
     nmcli device wifi show-password
 }
 
@@ -140,7 +140,7 @@ kittytrans() {
     kitty @set-background-opacity "${1:-0.7}";
 }
 
-bw_unlock() {
+bw-unlock() {
     session="$(bw unlock $(pass bitwarden) | grep export | awk -F '"' '{print $2}')";
     export BW_SESSION="$session";
 }
