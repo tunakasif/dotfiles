@@ -1,13 +1,21 @@
 # functions
 update_all () {
-    figlet "dnf";
-    sudo dnf upgrade -y;
-    figlet "flatpak";
-    flatpak update -y;
-    figlet "snap";
-    sudo snap refresh;
-    figlet "brew";
-    brew update && brew upgrade;
+    if type dnf &> /dev/null; then
+        figlet "dnf";
+        sudo dnf upgrade -y;
+    fi
+    if type flatpak &> /dev/null; then
+        figlet "flatpak";
+        flatpak update -y;
+    fi
+    if type snap &> /dev/null; then
+        figlet "snap";
+        sudo snap refresh;
+    fi
+    if type brew &> /dev/null; then
+        figlet "brew";
+        brew update && brew upgrade;
+    fi
 }
 
 cds () {
