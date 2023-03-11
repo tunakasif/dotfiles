@@ -101,6 +101,10 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 	illuminate.on_attach(client)
+
+	if client.name == "clangd" then
+		client.resolved_capabilities.offset_encoding = { "utf-16" }
+	end
 end
 
 return M
