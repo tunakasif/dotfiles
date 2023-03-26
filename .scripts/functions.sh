@@ -171,3 +171,13 @@ kill-wp () {
         echo "No whatsapp-desktop-linux process found";
     fi
 }
+
+rte () {
+    rustureng_exe="$HOME/Documents/GitHub/rustureng/target/release/rustureng";
+    if [ ! -f "$rustureng_exe" ]; then
+        echo "rustureng executable does not exist";
+        return;
+    fi
+
+    command "$rustureng_exe" "$@" | less -F
+}
