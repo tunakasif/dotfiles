@@ -5,6 +5,10 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
 [editor.soft-wrap]
 enable = true
 max-wrap = 25 # increase value to reduce forced mid-word wrapping
