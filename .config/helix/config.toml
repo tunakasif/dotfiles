@@ -9,7 +9,7 @@ color-modes = true
 enable = true
 max-wrap = 25 # increase value to reduce forced mid-word wrapping
 max-indent-retain = 0
-wrap-indicator = ""  # set wrap-indicator to "" to hide it
+# wrap-indicator = ""  # set wrap-indicator to "" to hide it
 
 [editor.cursor-shape]
 insert = "bar"
@@ -18,6 +18,7 @@ select = "underline"
 
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+A-z = ":toggle-option soft-wrap.enable"
 
 [editor.indent-guides]
 render = true
