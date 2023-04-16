@@ -6,8 +6,29 @@ return {
 		opts = {
 			---@type lspconfig.options
 			servers = {
-				-- pyright will be automatically installed with mason and loaded with lspconfig
 				pyright = {},
+				rust_analyzer = {
+					mason = false,
+					settings = {
+						["rust-analyzer"] = {
+							imports = {
+								granularity = {
+									group = "module",
+								},
+								prefix = "self",
+							},
+							cargo = {
+								allFeatures = true,
+								buildScripts = {
+									enable = true,
+								},
+							},
+							procMacro = {
+								enable = true,
+							},
+						},
+					},
+				},
 			},
 		},
 	},
@@ -21,6 +42,7 @@ return {
 				"shellcheck",
 				"shfmt",
 				"flake8",
+				"rust-analyzer",
 			},
 		},
 	},
