@@ -4,8 +4,13 @@ return {
 		"neovim/nvim-lspconfig",
 		---@class PluginLspOpts
 		opts = {
-			---@type lspconfig.options
+			setup = {
+				clangd = function(_, opts)
+					opts.capabilities.offsetEncoding = { "utf-16" }
+				end,
+			},
 			format = { timeout_ms = 5000 },
+			---@type lspconfig.options
 			servers = {
 				pyright = {},
 			},
