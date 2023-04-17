@@ -5,6 +5,7 @@ return {
 		---@class PluginLspOpts
 		opts = {
 			---@type lspconfig.options
+			format = { timeout_ms = 5000 },
 			servers = {
 				pyright = {},
 				rust_analyzer = {
