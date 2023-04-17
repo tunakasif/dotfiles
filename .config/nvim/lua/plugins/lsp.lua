@@ -8,28 +8,6 @@ return {
 			format = { timeout_ms = 5000 },
 			servers = {
 				pyright = {},
-				rust_analyzer = {
-					mason = false,
-					settings = {
-						["rust-analyzer"] = {
-							imports = {
-								granularity = {
-									group = "module",
-								},
-								prefix = "self",
-							},
-							cargo = {
-								allFeatures = true,
-								buildScripts = {
-									enable = true,
-								},
-							},
-							procMacro = {
-								enable = true,
-							},
-						},
-					},
-				},
 			},
 		},
 	},
@@ -43,9 +21,10 @@ return {
 				"shellcheck",
 				"shfmt",
 				"flake8",
-				"rust-analyzer",
 				"texlab",
 			},
 		},
 	},
+
+	{ import = "plugins.extras.lang.rust" },
 }
