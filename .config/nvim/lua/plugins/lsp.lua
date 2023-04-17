@@ -44,6 +44,7 @@ return {
 				"shfmt",
 				"flake8",
 				"rust-analyzer",
+				"texlab",
 			},
 		},
 	},
