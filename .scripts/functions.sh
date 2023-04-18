@@ -181,3 +181,14 @@ rte () {
 
     command "$rustureng_exe" "$@" | less -F
 }
+
+push-nvim-plugin-update () {
+    cwd=$(pwd);
+    cd "$HOME/.config/nvim" || return;
+    git diff --quiet lazy-lock.json && cd "$cwd" && return;
+    git add "lazy-lock.json";
+    git commit -m 'build(nvim): update `nvim` plugins' -m 'Update Neovim plugins.';
+    git push;
+    cd "$cwd" || return;
+}
+
