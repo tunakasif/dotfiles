@@ -3,3 +3,7 @@
 -- Add any additional options here
 vim.g.maplocalleader = "\\"
 vim.opt.clipboard = ""
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
