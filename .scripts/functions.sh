@@ -192,3 +192,21 @@ push-nvim-plugin-update () {
     cd "$cwd" || return;
 }
 
+install-nerd-font () {
+    # list all the nerd fonts available in the latest release
+    # Use GitHub CLI to get the `*.zip` files in the latest release.
+    # The use `fzf` to provide an interactive interface for selecting.
+    selected_font="$(gh release view --json assets \
+        --jq '.assets[] | select(.contentType == "application/zip") | .name' \
+        -R ryanoasis/nerd-fonts | awk -F . '{print $1}' | fzf)";
+
+    # download the nerd font
+    zip_file="$selected_font.zip";
+    gh release download -p "$zip_file" -R ryanoasis/nerd-fonts
+    echo "Download complete.";
+
+    # extract `*.ttf` files to `~/.local/share/fonts` and delete the zip file
+    echo "Extracting fonts ...";
+    unzip -o "$zip_file" "*.ttf" -d "$HOME/.local/share/fonts";
+    rm "$zip_file";
+}
