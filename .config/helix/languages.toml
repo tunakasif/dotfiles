@@ -1,10 +1,14 @@
+[language-server.pyright-langserver]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {} # <- this is the important line
+
 [[language]]
 name = "python"
 roots = ["pyproject.toml"]
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
+language-servers = ["pyright-langserver"]
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-config = {} # <- this is the important line
 
 [[language]]
 name = "markdown"
@@ -12,7 +16,7 @@ scope = "source.md"
 injection-regex = "md|markdown"
 file-types = ["md", "markdown", "PULLREQ_EDITMSG"]
 roots = [".marksman.toml"]
-language-server = { command = "marksman", args=["server"] }
+language-servers = ["marksman"]
 indent = { tab-width = 2, unit = "  " }
 formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
