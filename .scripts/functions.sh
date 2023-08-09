@@ -210,3 +210,18 @@ install-nerd-font() {
 	unzip -o "$zip_file" "*.ttf" -d "$HOME/.local/share/fonts"
 	rm "$zip_file"
 }
+
+gitignore-download() {
+	TREE_BASE_URL="https://api.github.com/repos/github/gitignore/git/trees/main"
+	DOWNLOAD_BASE_URL="https://raw.githubusercontent.com/github/gitignore/main"
+
+	name=$(
+		GET $TREE_BASE_URL |
+			jq '.tree[].path' |                  # get the name of `.gitignore` files
+			sed 's/"//g' |                       # remove the quotes
+			awk '/\.gitignore$/ { print }' |     # select only the `.gitignore` files
+			awk -F '.gitignore' '{ print $1 }' | # remove the `.gitignore` extension
+			fzf                                  # interactive interface for selecting
+	)
+	curl --url "$DOWNLOAD_BASE_URL/$name.gitignore" >>.gitignore
+}
