@@ -12,20 +12,21 @@ return {
 				desc = "Find Plugin File",
 			},
 		},
-		config = function()
-			local actions = require("telescope.actions")
-			require("telescope").setup({
-				file_ignore_patterns = { ".git", "node_modules", "gspbox", "ltfat" },
-				defaults = {
-					mappings = {
-						i = {
-							["<C-j>"] = actions.move_selection_next,
-							["<C-k>"] = actions.move_selection_previous,
-						},
+		opts = {
+			defaults = {
+				file_ignore_patterns = { ".git", "node_modules", "gspbox/", "ltfat/" },
+				layout_strategy = "horizontal",
+				layout_config = { prompt_position = "top" },
+				sorting_strategy = "ascending",
+				winblend = 0,
+				mappings = {
+					i = {
+						["<C-j>"] = require("telescope.actions").move_selection_next,
+						["<C-k>"] = require("telescope.actions").move_selection_previous,
 					},
 				},
-			})
-		end,
+			},
+		},
 	},
 	{
 		"telescope.nvim",
