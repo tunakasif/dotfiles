@@ -216,7 +216,7 @@ gitignore-download() {
 	DOWNLOAD_BASE_URL="https://raw.githubusercontent.com/github/gitignore/main"
 
 	name=$(
-		GET $TREE_BASE_URL |
+		curl $TREE_BASE_URL |
 			jq '.tree[].path' |                  # get the name of `.gitignore` files
 			sed 's/"//g' |                       # remove the quotes
 			awk '/\.gitignore$/ { print }' |     # select only the `.gitignore` files
