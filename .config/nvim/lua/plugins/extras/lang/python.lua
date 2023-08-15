@@ -3,18 +3,20 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "python", "toml" })
+			if type(opts.ensure_installed) == "table" then
+				vim.list_extend(opts.ensure_installed, { "ninja", "python", "rst", "toml" })
+			end
 		end,
 	},
 
-	-- correctly setup mason lsp
-	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			opts.automatic_installation = true
-			vim.list_extend(opts.ensure_installed, { "pyright", "black", "mypy", "ruff", "debugpy" })
-		end,
-	},
+	-- -- correctly setup mason lsp
+	-- {
+	-- 	"williamboman/mason.nvim",
+	-- 	opts = function(_, opts)
+	-- 		opts.automatic_installation = true
+	-- 		vim.list_extend(opts.ensure_installed, { "pyright", "black", "mypy", "ruff", "debugpy" })
+	-- 	end,
+	-- },
 
 	-- debugger
 	-- {
