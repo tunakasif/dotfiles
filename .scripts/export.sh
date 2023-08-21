@@ -1,5 +1,5 @@
-export EDITOR="$(which nvim)"
-# export VISUAL="nvr --remote-wait +'set bufhidden=wipe'"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export BROWSER="firefox"
 export TERM=xterm-256color
 export YT_DLP_FORMAT='bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best'
