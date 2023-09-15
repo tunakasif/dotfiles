@@ -29,6 +29,7 @@ return {
 			server_opts = {
 				settings = {
 					ltex = {
+						checkFrequency = "save",
 						dictionary = {
 							["en-US"] = words,
 						},
