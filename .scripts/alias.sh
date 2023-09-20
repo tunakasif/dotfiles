@@ -33,3 +33,9 @@ alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 alias icat='kitty +kitten icat'
 alias kittyconfig="$EDITOR $HOME/.config/kitty/kitty.conf"
 
+# exa
+alias ls='exa'
+alias ll='exa --icons --long --group-directories-first --git'
+alias llgi='exa --icons --long --group-directories-first --git --git-ignore'
+alias la='exa --icons --all --long --group-directories-first --git'
+alias lagi='exa --icons --all --long --group-directories-first --git --git-ignore'
