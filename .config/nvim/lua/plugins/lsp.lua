@@ -34,4 +34,5 @@ return {
 	{ import = "plugins.extras.lang.rust" },
 	{ import = "plugins.extras.lang.markdown" },
 	{ import = "plugins.extras.lang.python" },
+	{ import = "plugins.extras.lang.latex" },
 }
