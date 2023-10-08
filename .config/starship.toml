@@ -32,9 +32,6 @@ pyenv_prefix = ""
 version_format = "${major}.${minor}"
 style = "green"
 
-[rust]
-version_format = "v${major}.${minor}"
-
 [package]
 disabled = true
 
