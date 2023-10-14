@@ -4,16 +4,7 @@ return {
 		"neovim/nvim-lspconfig",
 		---@class PluginLspOpts
 		opts = {
-			setup = {
-				clangd = function(_, opts)
-					opts.capabilities.offsetEncoding = { "utf-16" }
-				end,
-			},
 			format = { timeout_ms = 5000 },
-			---@type lspconfig.options
-			servers = {
-				pyright = {},
-			},
 		},
 	},
 
@@ -30,9 +21,4 @@ return {
 			},
 		},
 	},
-
-	{ import = "plugins.extras.lang.rust" },
-	{ import = "plugins.extras.lang.markdown" },
-	{ import = "plugins.extras.lang.python" },
-	{ import = "plugins.extras.lang.latex" },
 }
