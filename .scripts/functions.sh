@@ -225,3 +225,25 @@ gitignore-download() {
 	)
 	curl --url "$DOWNLOAD_BASE_URL/$name.gitignore" >>.gitignore
 }
+
+get-mtype-lang-file() {
+	TREE_BASE_URL="https://api.github.com/repos/monkeytypegame/monkeytype/git/trees/master?recursive=1"
+	DOWNLOAD_BASE_URL="https://raw.githubusercontent.com/monkeytypegame/monkeytype/master"
+
+	name=$(
+		curl --silent $TREE_BASE_URL |
+			jq '.tree[].path' |                                  # get the path of all files
+			sed 's/"//g' |                                       # remove the quotes
+			awk '/^frontend\/static\/languages\// { print }' |   # select languages
+			awk -F 'frontend/static/languages/' '{ print $2 }' | # remove prefix
+			awk '/\.json$/ { print }' |                          # select only the `.json` files
+			awk -F '.json' '{ print $1 }' |                      # remove the `.json` extension
+			awk '!/^_/ { print }' |                              # ignore the ones that start with `_`
+			fzf                                                  # interactive interface for selecting
+	)
+	target_url="$DOWNLOAD_BASE_URL/frontend/static/languages/$name.json"
+	words=$(curl --silent $target_url | jq '.words[]' | sed 's/"//g')
+	tmpfile=$(mktemp)
+	echo $words | tr ' ' '\n' >$tmpfile
+	echo $tmpfile
+}
