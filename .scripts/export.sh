@@ -38,3 +38,5 @@ export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 # Deno
 export DENO_INSTALL="$HOME/.deno/"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export COOKIECUTTER_CONFIG=$HOME/dotfiles/.config/cookieconfig.yaml
