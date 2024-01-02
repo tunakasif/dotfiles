@@ -11,6 +11,9 @@ return {
 		},
 	},
 	{
+		"lunarvim/darkplus.nvim",
+	},
+	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
