@@ -5,6 +5,11 @@ return {
 		---@class PluginLspOpts
 		opts = {
 			format = { timeout_ms = 5000 },
+			diagnostics = {
+				float = {
+					border = "rounded",
+				},
+			},
 		},
 	},
 

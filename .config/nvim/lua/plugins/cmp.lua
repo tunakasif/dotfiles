@@ -18,5 +18,13 @@ return {
 				select = true,
 			}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		})
+		opts.window = {
+			completion = {
+				border = "rounded",
+			},
+			documentation = {
+				border = "rounded",
+			},
+		}
 	end,
 }
