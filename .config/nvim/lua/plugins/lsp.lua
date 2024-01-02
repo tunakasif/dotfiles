@@ -11,6 +11,9 @@ return {
 				},
 			},
 		},
+		keys = {
+			{ "<C-k>", false, mode = { "i", "n", "s", "v" } },
+		},
 	},
 
 	-- mason
