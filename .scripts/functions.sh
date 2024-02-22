@@ -179,7 +179,7 @@ rte() {
 	fi
 
 	content="$($rustureng_exe "$@")"
-	echo $content | less -F
+	echo $content | $PAGER -F
 }
 
 push-nvim-plugin-update() {
