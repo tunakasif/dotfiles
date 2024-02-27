@@ -7,10 +7,10 @@
 # Copyright © 2020-Present Adhiraj Sirohi
 # Copyright © 2020-Present Vasundhara Sharma
 
-set adjust-open "best-fit"
+# set adjust-open "best-fit"
 set synctex true
 set selection-clipboard clipboard
-set recolor true
+# set recolor true
 set guioptions none
 
 # include themes/lighthaus
