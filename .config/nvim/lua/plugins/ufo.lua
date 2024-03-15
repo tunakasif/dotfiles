@@ -72,8 +72,10 @@ return {
 				})
 			end
 			require("ufo").setup({
+				open_fold_hl_timeout = 150,
+				enable_get_fold_virt_text = true,
 				fold_virt_text_handler = handler,
-				close_fold_kinds = { "comment" },
+				close_fold_kinds_for_ft = {},
 				preview = {
 					win_config = {
 						border = { "", "─", "", "", "", "─", "", "" },
