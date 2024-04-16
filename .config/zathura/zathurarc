@@ -11,7 +11,7 @@
 set synctex true
 set selection-clipboard clipboard
 # set recolor true
-set guioptions none
+# set guioptions none
 
 # include themes/lighthaus
 include themes/catppuccin-mocha
