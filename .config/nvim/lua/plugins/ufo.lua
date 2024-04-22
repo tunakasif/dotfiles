@@ -66,6 +66,7 @@ return {
 				lineFoldingOnly = true,
 			}
 			local language_servers = require("lspconfig").util.available_servers()
+			capabilities.offsetEncoding = { "utf-16" }
 			for _, ls in ipairs(language_servers) do
 				require("lspconfig")[ls].setup({
 					capabilities = capabilities,
