@@ -14,6 +14,9 @@ return {
 		"lunarvim/darkplus.nvim",
 	},
 	{
+		{ "rose-pine/neovim", name = "rose-pine" },
+	},
+	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
