@@ -1,9 +1,25 @@
+local util = require("lazyvim.util")
+
 return {
 	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		keys = {
-			-- add a keymap to browse plugin files
+			{
+				"<leader><leader>",
+				util.telescope("files", { hidden = true, no_ignore = false }),
+				desc = "Find files (root dir)",
+			},
+			{
+				"<leader>ff",
+				util.telescope("files", { hidden = true, no_ignore = false }),
+				desc = "Find files (root dir)",
+			},
+			{
+				"<leader>fF",
+				util.telescope("files", { cwd = false, hidden = true, no_ignore = false }),
+				desc = "Find files (cwd)",
+			},
 			{
 				"<leader>fp",
 				function()
