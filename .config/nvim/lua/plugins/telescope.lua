@@ -7,25 +7,13 @@ return {
 		keys = {
 			{
 				"<leader><leader>",
-				util.telescope("files", { hidden = true, no_ignore = false }),
+				util.pick("files", { hidden = true, no_ignore = false }),
 				desc = "Find files (root dir)",
 			},
 			{
 				"<leader>ff",
-				util.telescope("files", { hidden = true, no_ignore = false }),
+				util.pick("files", { hidden = true, no_ignore = false }),
 				desc = "Find files (root dir)",
-			},
-			{
-				"<leader>fF",
-				util.telescope("files", { cwd = false, hidden = true, no_ignore = false }),
-				desc = "Find files (cwd)",
-			},
-			{
-				"<leader>fp",
-				function()
-					require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-				end,
-				desc = "Find Plugin File",
 			},
 		},
 		opts = {
