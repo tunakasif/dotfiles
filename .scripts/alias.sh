@@ -39,3 +39,6 @@ alias ll='eza --icons --long --group-directories-first --git'
 alias llgi='eza --icons --long --group-directories-first --git --git-ignore'
 alias la='eza --icons --all --long --group-directories-first --git'
 alias lagi='eza --icons --all --long --group-directories-first --git --git-ignore'
+
+# cli ai stuff
+alias ghs="gh copilot suggest"
