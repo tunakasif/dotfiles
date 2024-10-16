@@ -16,10 +16,6 @@ update-all() {
 		figlet "brew"
 		brew update && brew upgrade
 	fi
-	if type nix &>/dev/null; then
-		figlet "nix"
-		nix-env -u '*'
-	fi
 }
 
 cds() {
