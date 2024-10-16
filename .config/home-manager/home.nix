@@ -24,6 +24,7 @@
     gum
     hello
     lf
+    ltex-ls
     marksman
     nixfmt-rfc-style
     slides
