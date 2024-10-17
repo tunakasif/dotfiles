@@ -10,13 +10,26 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
   outputs =
     inputs@{
+      systems,
       self,
       darwin,
       nixpkgs,
       home-manager,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
       ...
     }:
     let
@@ -41,6 +54,14 @@
             home-manager.verbose = true;
             home-manager.users.${user.username} = ./hosts/x86_64-darwin/home.nix;
             home-manager.extraSpecialArgs = specialArgs;
+          }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true; # Install Homebrew under the default prefix
+              user = "tunakasif"; # User owning the Homebrew prefix
+              autoMigrate = true; # Automatically migrate existing Homebrew installations
+            };
           }
         ];
         specialArgs = specialArgs;

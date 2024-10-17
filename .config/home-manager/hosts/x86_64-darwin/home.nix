@@ -8,6 +8,6 @@
     homeDirectory = "/Users/${user.username}";
     packages = with pkgs; [ hello ];
   };
-  gum.enable = true;
-  mypkgs.enable = true;
+  gum.enable = false;
+  mypkgs.enable = false;
 }
