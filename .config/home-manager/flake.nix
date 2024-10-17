@@ -1,29 +1,59 @@
 {
-  description = "Home Manager configuration of tunakasif";
-
+  description = "Nix and Home Manager configuration of Tuna Alikaşifoğlu";
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      darwin,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."tunakasif" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      user = {
+        name = "Tuna Alikaşifoğlu";
+        email = "tunakasif@gmail.com";
+        username = "tunakasif";
+      };
+      specialArgs = {
+        inherit user inputs;
+      };
+    in
+    {
+      darwinConfigurations."kasif-macbook-pro" = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [
+          ./hosts/x86_64-darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
+            home-manager.users.${user.username} = ./hosts/x86_64-darwin/home.nix;
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+        ];
+        specialArgs = specialArgs;
+      };
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        modules = [
+          ./hosts/x86_64-linux/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit user;
+        };
       };
     };
 }
