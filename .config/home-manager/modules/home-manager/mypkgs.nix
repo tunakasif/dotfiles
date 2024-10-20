@@ -16,6 +16,8 @@
       stylua
       taplo
       ttyper
+      typst
+      typst-lsp
       wishlist
       yazi
     ];
