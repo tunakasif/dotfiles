@@ -19,6 +19,7 @@
       ttyper
       typst
       typst-lsp
+      uv
       wishlist
       yazi
     ];
