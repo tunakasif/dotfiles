@@ -13,7 +13,6 @@
       ltex-ls
       marksman
       nixfmt-rfc-style
-      poetry
       slides
       stylua
       taplo
