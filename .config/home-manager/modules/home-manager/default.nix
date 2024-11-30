@@ -7,5 +7,6 @@ inputs: {
   imports = [
     ./gum.nix
     ./mypkgs.nix
+    ./otherpkgs.nix
   ];
 }

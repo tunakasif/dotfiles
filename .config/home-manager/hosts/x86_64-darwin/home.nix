@@ -10,4 +10,5 @@
   };
   gum.enable = false;
   mypkgs.enable = false;
+  otherpkgs.enable = false;
 }
