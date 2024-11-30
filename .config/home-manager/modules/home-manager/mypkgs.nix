@@ -16,6 +16,7 @@
       slides
       stylua
       taplo
+      texliveFull
       ttyper
       typst
       typst-lsp
