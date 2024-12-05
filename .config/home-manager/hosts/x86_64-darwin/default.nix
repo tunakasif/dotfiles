@@ -93,6 +93,7 @@ in
       "vlc"
       "warp"
       "whatsapp"
+      "zen-browser"
     ];
   };
 }
