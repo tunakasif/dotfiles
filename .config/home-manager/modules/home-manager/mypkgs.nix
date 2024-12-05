@@ -8,7 +8,9 @@
   config = {
     home.packages = with pkgs; [
       age
+      bat
       dust
+      fd
       lf
       ltex-ls
       marksman
