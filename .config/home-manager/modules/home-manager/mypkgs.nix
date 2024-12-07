@@ -15,6 +15,7 @@
       ltex-ls
       marksman
       nixfmt-rfc-style
+      ruff
       slides
       stylua
       taplo
