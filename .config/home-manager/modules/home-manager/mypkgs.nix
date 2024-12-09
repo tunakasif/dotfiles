@@ -15,6 +15,7 @@
       ltex-ls
       marksman
       nixfmt-rfc-style
+      poetry
       ruff
       slides
       stylua
