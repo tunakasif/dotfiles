@@ -21,7 +21,7 @@ map("v", "p", '"_dP', {}) -- keep yanked
 map("n", "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 map("v", "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 map("n", "<leader>yy", '"+yy', { desc = "Copy current line to system clipboard" })
-map("n", "<leader>y$", '"+y$', { desc = "Copy rest of the line to system clipboard" })
+map("n", "<leader>Y", '"+y$', { desc = "Copy rest of the line to system clipboard" })
 map("n", "<leader>p", '"+p', { desc = "Paste  after from system clipboard" })
 map("n", "<leader>P", '"+P', { desc = "Paste before from system clipboard" })
 map("v", "<leader>p", '"+p', { desc = "Paste  after from system clipboard" })
