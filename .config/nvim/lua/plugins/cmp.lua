@@ -1,30 +1,27 @@
 return {
-	"hrsh7th/nvim-cmp",
-	dependencies = { "hrsh7th/cmp-emoji" },
-	---@param opts cmp.ConfigSchema
-	opts = function(_, opts)
-		local cmp = require("cmp")
-		opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
-		opts.mapping = cmp.mapping.preset.insert({
-			["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-			["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-Space>"] = cmp.mapping.complete(),
-			["<C-e>"] = cmp.mapping.abort(),
-			["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-			["<S-CR>"] = cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = true,
-			}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		})
-		opts.window = {
-			completion = {
-				border = "rounded",
+	"saghen/blink.cmp",
+	dependencies = {
+		{
+			"giuxtaposition/blink-cmp-copilot",
+		},
+	},
+	opts = {
+		sources = {
+			compat = {},
+			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			cmdline = {},
+		},
+		keymap = {
+			preset = "enter",
+			["<C-y>"] = { "select_and_accept" },
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-b>"] = { "scroll_documentation_up", "fallback" },
+			["<C-f>"] = { "scroll_documentation_down", "fallback" },
+			["<Tab>"] = {
+				LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+				"fallback",
 			},
-			documentation = {
-				border = "rounded",
-			},
-		}
-	end,
+		},
+	},
 }
