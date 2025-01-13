@@ -51,7 +51,6 @@ in
       "jq"
       "julia"
       "just"
-      "lazygit"
       "lolcat"
       "make"
       "markdownlint-cli2"

@@ -11,6 +11,7 @@
       bat
       dust
       fd
+      lazygit
       lf
       ltex-ls
       marksman
