@@ -288,3 +288,20 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+toggle_venv() {
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        # If not in a virtual environment, check if the activate script exists
+        if [[ -f ".venv/bin/activate" ]]; then
+            source .venv/bin/activate
+            echo "Activated virtual environment."
+        else
+            echo "Error: .venv/bin/activate not found. Please create a virtual environment."
+        fi
+    else
+        # If in a virtual environment, deactivate it
+        deactivate
+        echo "Deactivated virtual environment."
+    fi
+}
+
