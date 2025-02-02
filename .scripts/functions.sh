@@ -212,14 +212,16 @@ gitignore-download() {
     DOWNLOAD_BASE_URL="https://raw.githubusercontent.com/github/gitignore/main"
 
     name=$(
-        curl $TREE_BASE_URL |
+        curl --silent $TREE_BASE_URL |
             jq '.tree[].path' |                  # get the name of `.gitignore` files
             sed 's/"//g' |                       # remove the quotes
             awk '/\.gitignore$/ { print }' |     # select only the `.gitignore` files
             awk -F '.gitignore' '{ print $1 }' | # remove the `.gitignore` extension
             fzf                                  # interactive interface for selecting
     )
-    curl --url "$DOWNLOAD_BASE_URL/$name.gitignore" >>.gitignore
+    if [[ -n "$name" ]]; then
+        curl --silent --url "$DOWNLOAD_BASE_URL/$name.gitignore" >>.gitignore
+    fi
 }
 
 get-mtype-lang-file() {
