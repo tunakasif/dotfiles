@@ -291,7 +291,7 @@ function yy() {
     rm -f -- "$tmp"
 }
 
-toggle_venv() {
+function toggle-venv() {
     if [[ -z "$VIRTUAL_ENV" ]]; then
         # If not in a virtual environment, check if the activate script exists
         if [[ -f ".venv/bin/activate" ]]; then
