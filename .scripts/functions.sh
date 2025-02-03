@@ -306,3 +306,7 @@ function toggle-venv() {
         echo "Deactivated virtual environment."
     fi
 }
+
+function unique-extentions() {
+    fd -t file . | awk -F '.' '{print $NF}' | sort | uniq
+}
