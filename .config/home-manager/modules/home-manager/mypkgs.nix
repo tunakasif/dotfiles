@@ -17,6 +17,7 @@
       marksman
       nixfmt-rfc-style
       poetry
+      rclone
       ruff
       slides
       stylua
