@@ -1,4 +1,3 @@
-command = /usr/bin/zsh
 click-repeat-interval = 500
 auto-update-channel = tip
 
