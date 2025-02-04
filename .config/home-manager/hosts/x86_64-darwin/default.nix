@@ -81,6 +81,7 @@ in
       "font-devicons"
       "font-fira-code-nerd-font"
       "font-material-icons"
+      "ghostty"
       "github"
       "kitty"
       "obs"
