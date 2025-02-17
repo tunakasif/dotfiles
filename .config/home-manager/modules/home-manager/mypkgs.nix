@@ -19,6 +19,7 @@
       poetry
       rclone
       ruff
+      rustscan
       slides
       stylua
       taplo
