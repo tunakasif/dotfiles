@@ -9,9 +9,8 @@ let
 in
 {
   nix.settings.experimental-features = "nix-command flakes";
-  services.nix-daemon.enable = true;
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-  system.stateVersion = 5;
+  system.stateVersion = 4;
   security.pam.enableSudoTouchIdAuth = true;
   programs.zsh.enable = true;
 
