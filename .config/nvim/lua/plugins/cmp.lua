@@ -7,9 +7,7 @@ return {
 	},
 	opts = {
 		sources = {
-			compat = {},
 			default = { "copilot", "lsp", "path", "snippets", "buffer" },
-			cmdline = {},
 		},
 		keymap = {
 			preset = "enter",
