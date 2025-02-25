@@ -11,7 +11,7 @@ in
   nix.settings.experimental-features = "nix-command flakes";
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 4;
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   programs.zsh.enable = true;
 
   users.knownUsers = [ user.username ];
