@@ -68,6 +68,7 @@ in
       "wget"
     ];
     casks = [
+      "anydesk"
       "brave-browser"
       "calibre"
       "discord"
