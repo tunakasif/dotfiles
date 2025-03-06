@@ -7,6 +7,7 @@
   options.mypkgs = lib.mkEnableOption "mypkgs";
   config = {
     home.packages = with pkgs; [
+      act
       age
       bat
       dust
