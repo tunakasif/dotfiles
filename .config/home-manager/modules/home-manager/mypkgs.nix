@@ -16,6 +16,7 @@
       ltex-ls
       marksman
       nixfmt-rfc-style
+      pandoc
       poetry
       rclone
       ruff
