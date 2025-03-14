@@ -314,11 +314,11 @@ function unique-extentions() {
 function gh-clone-interactive() {
     username="$(gh api /user | jq -r '.login')"
     orgs="$(gh api /user/orgs | jq -r '.[].login' | sort)"
-    owner_selection="$(printf '%s\n%s' "$username" "$orgs" | gum choose)"
-    if [[ -z "$owner_selection" ]]; then
+    owner="$(printf '%s\n%s' "$username" "$orgs" | gum choose)"
+    if [[ -z "$owner" ]]; then
         return 1
     fi
-    repo=$(gh repo list -L 10000 --json name,description,visibility,updatedAt "$owner_selection" |
+    repo=$(gh repo list -L 10000 --json name,description,visibility,updatedAt "$owner" |
         jq -r '.[] | [
             .name,
             .description,
@@ -326,6 +326,9 @@ function gh-clone-interactive() {
             (.updatedAt | fromdate | localtime | strftime("%Y-%m-%d %H:%M:%S"))
         ] | @csv' |
         gum table -c "Name,Description,Visibility,Last Updated" -w 20,60,15,25 | cut -d ',' -f 1)
-    gum confirm "Clone $owner_selection/$repo to $(pwd)?" || return 1
-    gh repo clone "$owner_selection/$repo"
+    if [[ -z "$repo" ]]; then
+        return 1
+    fi
+    gum confirm "Clone $owner/$repo to $(pwd)?" || return 1
+    gh repo clone "$owner/$repo"
 }
