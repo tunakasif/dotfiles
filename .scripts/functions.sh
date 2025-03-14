@@ -310,3 +310,22 @@ function toggle-venv() {
 function unique-extentions() {
     fd -t file . | awk -F '.' '{print $NF}' | sort | uniq
 }
+
+function gh-clone-interactive() {
+    username="$(gh api /user | jq -r '.login')"
+    orgs="$(gh api /user/orgs | jq -r '.[].login' | sort)"
+    owner_selection="$(printf '%s\n%s' "$username" "$orgs" | gum choose)"
+    if [[ -z "$owner_selection" ]]; then
+        return 1
+    fi
+    repo=$(gh repo list -L 10000 --json name,description,visibility,updatedAt "$owner_selection" |
+        jq -r '.[] | [
+            .name,
+            .description,
+            (.visibility | ascii_downcase),
+            (.updatedAt | fromdate | localtime | strftime("%Y-%m-%d %H:%M:%S"))
+        ] | @csv' |
+        gum table -c "Name,Description,Visibility,Last Updated" -w 20,60,15,25 | cut -d ',' -f 1)
+    gum confirm "Clone $owner_selection/$repo to $(pwd)?" || return 1
+    gh repo clone "$owner_selection/$repo"
+}
