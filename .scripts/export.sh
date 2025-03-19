@@ -15,6 +15,7 @@ export KEYTIMEOUT=1 # for vi mode
 # PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=$HOME/.emacs.d/bin:$PATH
