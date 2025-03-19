@@ -10,6 +10,7 @@
       act
       age
       bat
+      bitwarden-cli
       dust
       fd
       lazygit
