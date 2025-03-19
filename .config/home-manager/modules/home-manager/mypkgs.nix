@@ -11,6 +11,7 @@
       age
       bat
       bitwarden-cli
+      cookiecutter
       dust
       fd
       lazygit
