@@ -140,7 +140,7 @@ kittytrans() {
 }
 
 bw-unlock() {
-    session="$(bw unlock $(pass bitwarden) | grep export | awk -F '"' '{print $2}')"
+    session="$(bw unlock $(doppler secrets get --plain BITWARDEN_PASSWORD) | grep export | awk -F '"' '{print $2}')"
     export BW_SESSION="$session"
 }
 
