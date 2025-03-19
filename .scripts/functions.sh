@@ -332,3 +332,15 @@ function gh-clone-interactive() {
     gum confirm "Clone $owner/$repo to $(pwd)?" || return 1
     gh repo clone "$owner/$repo"
 }
+
+function docker-clean-none() {
+    docker images | grep none | awk '{print $3}' | xargs docker rmi -f
+}
+
+function docker-pull-interactive() {
+    for image in $(docker images --format '{{.Repository}}:{{.Tag}}' | sort | gum choose --no-limit); do
+        echo "Pulling $image ..."
+        docker pull -q "$image"
+        echo
+    done
+}
