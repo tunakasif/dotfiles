@@ -29,6 +29,7 @@ in
     onActivation.upgrade = true;
     taps = [
       "charmbracelet/tap"
+      "dopplerhq/cli"
     ];
     brews = [
       "act"
@@ -37,6 +38,7 @@ in
       "cmatrix"
       "commitizen"
       "cookiecutter"
+      "doppler"
       "eza"
       "fd"
       "figlet"
