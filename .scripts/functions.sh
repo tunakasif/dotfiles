@@ -340,7 +340,7 @@ function docker-clean-none() {
 function docker-pull-interactive() {
     for image in $(docker images --format '{{.Repository}}:{{.Tag}}' | sort | gum choose --no-limit); do
         echo "Pulling $image ..."
-        docker pull -q "$image"
+        docker pull "$image"
         echo
     done
 }
