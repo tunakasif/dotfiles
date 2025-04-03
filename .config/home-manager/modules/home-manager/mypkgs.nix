@@ -31,6 +31,7 @@
       ttyper
       typst
       uv
+      vhs
       wishlist
       yazi
     ];
