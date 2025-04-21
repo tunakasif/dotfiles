@@ -24,6 +24,7 @@
       rclone
       ruff
       rustscan
+      serie
       slides
       stylua
       taplo
