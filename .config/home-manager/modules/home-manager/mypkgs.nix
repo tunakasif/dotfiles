@@ -11,6 +11,7 @@
       age
       bat
       bitwarden-cli
+      clock-rs
       cookiecutter
       dust
       fd
@@ -28,6 +29,7 @@
       slides
       stylua
       taplo
+      television
       texliveFull
       ttyper
       typst
