@@ -22,6 +22,18 @@ return {
 			end,
 			javascript = { { "prettierd", "prettier" } },
 			tex = { "latexindent", "trim_whitespace" },
+			toml = function(bufnr)
+				local full = vim.api.nvim_buf_get_name(bufnr)
+				if full == "" then
+					return {}
+				end
+				local name = vim.fn.fnamemodify(full, ":t")
+				if name:match("pyproject.*%.toml") ~= nil then
+					return { "pyproject-fmt", "trim_whitespace" }
+				else
+					return { "trim_whitespace" }
+				end
+			end,
 			["_"] = { "trim_whitespace" },
 		},
 	},
