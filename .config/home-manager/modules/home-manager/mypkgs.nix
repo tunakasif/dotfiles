@@ -21,7 +21,6 @@
       marksman
       nixfmt-rfc-style
       pandoc
-      poetry
       rclone
       ruff
       rustscan
