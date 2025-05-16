@@ -20,7 +20,7 @@ return {
 					return { "isort", "black" }
 				end
 			end,
-			javascript = { { "prettierd", "prettier" } },
+			javascript = { "prettier", "prettierd" },
 			tex = { "latexindent", "trim_whitespace" },
 			toml = function(bufnr)
 				local full = vim.api.nvim_buf_get_name(bufnr)
