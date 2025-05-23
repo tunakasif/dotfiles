@@ -14,6 +14,7 @@ in
   security.pam.services.sudo_local.touchIdAuth = true;
   programs.zsh.enable = true;
 
+  system.primaryUser = "tunakasif";
   users.knownUsers = [ user.username ];
   users.users.${user.username} = {
     name = user.username;

@@ -5,7 +5,7 @@ OS := $(shell uname -s)
 ifeq ($(OS), Linux)
     CMD = home-manager switch --flake .
 else ifeq ($(OS), Darwin)
-    CMD = darwin-rebuild switch --flake .
+    CMD = sudo darwin-rebuild switch --flake .
 else
     CMD = @echo "OS not supported"
 endif
