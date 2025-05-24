@@ -34,6 +34,7 @@ return {
 					return { "trim_whitespace" }
 				end
 			end,
+			typst = { "typstyle", "trim_whitespace" },
 			["_"] = { "trim_whitespace" },
 		},
 	},
