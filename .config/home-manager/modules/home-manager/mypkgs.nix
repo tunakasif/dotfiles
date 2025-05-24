@@ -15,6 +15,7 @@
       cookiecutter
       dust
       fd
+      just
       lazygit
       lf
       ltex-ls
