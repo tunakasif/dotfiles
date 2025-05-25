@@ -13,6 +13,7 @@
       bitwarden-cli
       clock-rs
       cookiecutter
+      devenv
       dust
       fd
       just
