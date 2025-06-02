@@ -17,6 +17,7 @@
       dust
       fd
       just
+      lazydocker
       lazygit
       lf
       ltex-ls
