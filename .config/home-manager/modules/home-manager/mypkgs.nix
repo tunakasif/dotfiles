@@ -16,6 +16,7 @@
       devenv
       dust
       fd
+      glow
       just
       lazydocker
       lazygit
