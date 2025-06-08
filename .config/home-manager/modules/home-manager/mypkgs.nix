@@ -23,6 +23,7 @@
       lf
       ltex-ls
       marksman
+      markdownlint-cli2
       nixfmt-rfc-style
       pandoc
       prettier
