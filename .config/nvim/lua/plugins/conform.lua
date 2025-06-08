@@ -21,6 +21,7 @@ return {
 				end
 			end,
 			javascript = { "prettier", "prettierd" },
+			json = { "prettier", "prettierd" },
 			tex = { "latexindent", "trim_whitespace" },
 			toml = function(bufnr)
 				local full = vim.api.nvim_buf_get_name(bufnr)
