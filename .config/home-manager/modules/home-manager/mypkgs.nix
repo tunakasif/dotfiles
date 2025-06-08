@@ -25,6 +25,8 @@
       marksman
       nixfmt-rfc-style
       pandoc
+      prettier
+      prettierd
       rclone
       ruff
       rustscan
