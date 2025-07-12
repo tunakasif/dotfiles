@@ -31,6 +31,7 @@
       rclone
       ruff
       rustscan
+      scc
       serie
       slides
       stylua
