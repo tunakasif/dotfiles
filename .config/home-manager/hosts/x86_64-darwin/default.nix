@@ -92,6 +92,7 @@ in
       "protonvpn"
       "qbittorrent"
       "raycast"
+      "slack"
       "spotify"
       "vlc"
       "warp"
