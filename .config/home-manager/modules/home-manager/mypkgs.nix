@@ -11,6 +11,7 @@
       age
       bat
       bitwarden-cli
+      bun
       clock-rs
       cookiecutter
       devenv
@@ -39,6 +40,7 @@
       television
       texliveFull
       ttyper
+      turbo
       typst
       uv
       vhs
