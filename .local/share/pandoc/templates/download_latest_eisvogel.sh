@@ -9,5 +9,5 @@ basename=$(basename $zipname .zip)
 
 # extract the latest `eisvogel.tex` from zip file
 # and copy it to the current directory
-unzip -qq -j -o $zipname eisvogel.latex
+unzip -qq -j -o "$zipname" "$basename/eisvogel.latex" "$basename/eisvogel.beamer"
 rm $zipname
