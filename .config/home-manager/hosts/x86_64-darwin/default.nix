@@ -30,6 +30,7 @@ in
     onActivation.upgrade = true;
     taps = [
       "charmbracelet/tap"
+      "d99kris/nchat"
       "dopplerhq/cli"
     ];
     brews = [
@@ -57,6 +58,7 @@ in
       "lolcat"
       "make"
       "markdownlint-cli2"
+      "nchat"
       "neomutt"
       "newsboat"
       "pandoc"
