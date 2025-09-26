@@ -12,6 +12,7 @@ in
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 4;
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.watchIdAuth = true;
   programs.zsh.enable = true;
 
   system.primaryUser = "tunakasif";
