@@ -78,6 +78,7 @@ in
       "calibre"
       "discord"
       "docker"
+      "docker-desktop"
       "firefox"
       "font-academicons"
       "font-caskaydia-cove-nerd-font"
@@ -90,7 +91,6 @@ in
       "github"
       "kitty"
       "obs"
-      "ollama"
       "protonvpn"
       "qbittorrent"
       "raycast"
@@ -100,6 +100,7 @@ in
       "warp"
       "whatsapp"
       "zen"
+      "zotero"
     ];
   };
 }
