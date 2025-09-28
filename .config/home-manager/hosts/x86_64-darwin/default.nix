@@ -75,6 +75,7 @@ in
     ];
     casks = [
       "anydesk"
+      "arc"
       "brave-browser"
       "calibre"
       "discord"
