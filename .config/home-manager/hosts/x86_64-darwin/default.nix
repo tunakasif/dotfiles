@@ -79,7 +79,6 @@ in
       "brave-browser"
       "calibre"
       "discord"
-      "docker"
       "docker-desktop"
       "firefox"
       "font-academicons"
