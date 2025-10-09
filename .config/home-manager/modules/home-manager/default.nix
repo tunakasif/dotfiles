@@ -6,8 +6,8 @@ inputs: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;        # zsh-autosuggestions
-    enableSyntaxHighlighting = true;     # zsh-syntax-highlighting
+    autosuggestion.enable = true;        # zsh-autosuggestions
+    syntaxHighlighting.enable = true;     # zsh-syntax-highlighting
 
     history.size = 10000;
 
@@ -23,7 +23,7 @@ inputs: {
     };
 
     # Extra zshrc snippets
-    initExtra = ''
+    initContent = ''
       export EDITOR=nvim
 
       alias ll="ls -lah"
