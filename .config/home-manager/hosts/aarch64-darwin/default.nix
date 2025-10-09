@@ -15,6 +15,8 @@ in
 
   security.pam.services.sudo_local.touchIdAuth = true;
   security.pam.services.sudo_local.watchIdAuth = true;
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
 
   programs.zsh.enable = true;
 
