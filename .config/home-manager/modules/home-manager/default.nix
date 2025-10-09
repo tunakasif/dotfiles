@@ -5,8 +5,6 @@ inputs: {
 
   # Individual imports
   imports = [
-    ./gum.nix
-    ./mypkgs.nix
-    ./otherpkgs.nix
+    ./new.nix
   ];
 }

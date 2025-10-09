@@ -47,6 +47,14 @@
 	system = "aarch64-darwin";
         modules = [
           ./hosts/aarch64-darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
+            home-manager.users.${user.username} = ./hosts/aarch64-darwin/home.nix;
+            home-manager.extraSpecialArgs = specialArgs;
+          }
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {
