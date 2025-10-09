@@ -43,6 +43,22 @@
       };
     in
     {
+      darwinConfigurations."lts4mac54" = darwin.lib.darwinSystem {
+	system = "aarch64-darwin";
+        modules = [
+          ./hosts/aarch64-darwin
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true; # Install Homebrew under the default prefix
+              user = "tunakasif"; # User owning the Homebrew prefix
+              autoMigrate = true; # Automatically migrate existing Homebrew installations
+            };
+          }
+        ];
+        specialArgs = specialArgs;
+      };
+
       darwinConfigurations."kasif-macbook-pro" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
