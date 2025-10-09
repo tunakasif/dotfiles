@@ -31,6 +31,14 @@ inputs: {
     '';
   };
 
+  programs.neovim = {
+    enable = true;
+  };
+
+  programs.kitty = {
+    enable = true;
+  };
+
   # Individual imports
   imports = [
     ./new.nix
