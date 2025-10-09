@@ -36,6 +36,14 @@ in
     onActivation.upgrade = true;
     taps = [ ];
     brews = [ ];
-    casks = [ ];
+    casks = [
+      "slack"
+      "spotify"
+      "tiles"
+      "visual-studio-code"
+      "whatsapp"
+      "zen"
+      "zotero"
+    ];
   };
 }
