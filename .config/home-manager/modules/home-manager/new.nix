@@ -10,6 +10,7 @@
       bat
       dust
       fd
+      fzf
       gh
       just
       lazygit
