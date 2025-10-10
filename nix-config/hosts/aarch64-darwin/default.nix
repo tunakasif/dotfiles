@@ -41,6 +41,7 @@ in
     brews = [ ];
     casks = [
       "kitty"
+      "raycast"
       "slack"
       "spotify"
       "tiles"
