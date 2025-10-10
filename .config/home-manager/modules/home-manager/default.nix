@@ -28,6 +28,7 @@ inputs: {
 
       alias ll="ls -lah"
       alias gs="git status"
+      eval "$(starship init zsh)"
     '';
   };
 
