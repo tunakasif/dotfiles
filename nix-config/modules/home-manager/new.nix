@@ -9,30 +9,43 @@
     home.packages = with pkgs; [
       bat
       cargo
+      cmatrix
+      commitizen
       cookiecutter
+      delta
+      doppler
       dust
+      fastfetch
       fd
       fzf
       gh
       go
+      hyperfine
+      jq
       just
       lazydocker
       lazygit
       ltex-ls
       markdownlint-cli2
+      markdownlint-cli2
       marksman
       nixfmt-rfc-style
       nodejs_24
       pandoc
+      pnpm
+      pre-commit
       prettier
       prettierd
       ripgrep
       ruff
       stylua
       taplo
+      tealdeer
       texliveFull
+      tmux
       ttyper
       uv
+      wget
       yazi
     ];
   };
