@@ -44,6 +44,7 @@
       tmux
       ttyper
       uv
+      watch
       wget
       yazi
       zsh-fzf-tab
