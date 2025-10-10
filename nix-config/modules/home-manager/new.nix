@@ -17,7 +17,6 @@
       dust
       fastfetch
       fd
-      fzf
       gh
       go
       hyperfine
@@ -47,6 +46,7 @@
       uv
       wget
       yazi
+      zsh-fzf-tab
     ];
   };
 }

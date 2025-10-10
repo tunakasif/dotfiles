@@ -1,4 +1,5 @@
-inputs: {
+{ pkgs, ... }:
+{
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
   xdg.enable = true;
@@ -25,9 +26,17 @@ inputs: {
       ];
       extraConfig = ''
         zstyle :omz:plugins:keychain agents gpg,ssh
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=automatic --group-directories-first --color=always $realpath'
       '';
 
     };
+
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+    ];
 
     # Extra zshrc snippets
     initContent = ''
@@ -46,6 +55,10 @@ inputs: {
 
   programs.btop.enable = true;
   programs.eza.enable = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.neovim.enable = true;
   programs.starship.enable = true;
   programs.zoxide.enable = true;
