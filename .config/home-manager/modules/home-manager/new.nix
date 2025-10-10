@@ -16,6 +16,7 @@
       go
       just
       lazygit
+      nixfmt-rfc-style
       nodejs_24
       pandoc
       ripgrep
