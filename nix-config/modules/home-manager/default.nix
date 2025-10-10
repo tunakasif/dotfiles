@@ -38,6 +38,7 @@ inputs: {
       source "$HOME/dotfiles/.scripts/functions.sh"
       source "$HOME/dotfiles/.scripts/phue.sh"
       source "$HOME/dotfiles/.scripts/kitty.sh"
+      source "$HOME/dotfiles/.scripts/bindkey.sh"
 
       eval "$(starship init zsh)"
     '';
