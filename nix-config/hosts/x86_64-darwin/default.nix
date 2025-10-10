@@ -11,6 +11,7 @@ in
   nix.settings.experimental-features = "nix-command flakes";
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 4;
+  system.defaults.LaunchServices.LSQuarantine = false; # stops new quarantine tags
   security.pam.services.sudo_local.touchIdAuth = true;
   security.pam.services.sudo_local.watchIdAuth = true;
   programs.zsh.enable = true;
