@@ -23,8 +23,6 @@ in
     nerd-fonts.caskaydia-cove
   ];
 
-  programs.zsh.enable = true;
-
   system.primaryUser = "tunakasif";
   users.knownUsers = [ user.username ];
   users.users.${user.username} = {
