@@ -37,6 +37,7 @@ in
     taps = [ ];
     brews = [ ];
     casks = [
+      "kitty"
       "slack"
       "spotify"
       "tiles"
