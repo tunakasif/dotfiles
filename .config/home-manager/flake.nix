@@ -10,6 +10,7 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -25,6 +26,7 @@
       systems,
       self,
       darwin,
+      mac-app-util,
       nixpkgs,
       home-manager,
       nix-homebrew,
@@ -44,9 +46,10 @@
     in
     {
       darwinConfigurations."lts4mac54" = darwin.lib.darwinSystem {
-	system = "aarch64-darwin";
+        system = "aarch64-darwin";
         modules = [
           ./hosts/aarch64-darwin
+          mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -54,6 +57,7 @@
             home-manager.verbose = true;
             home-manager.users.${user.username} = ./hosts/aarch64-darwin/home.nix;
             home-manager.extraSpecialArgs = specialArgs;
+            home-manager.sharedModules = [ mac-app-util.homeManagerModules.default ];
           }
           nix-homebrew.darwinModules.nix-homebrew
           {
