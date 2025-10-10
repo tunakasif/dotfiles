@@ -18,40 +18,35 @@ inputs: {
         "docker"
         "fzf"
         "git"
+        "git-auto-fetch"
+        "gpg-agent"
+        "keychain"
+        "z"
       ];
-      # You can also add your own plugins by dropping files under ~/.config/zsh or with home.file (see below)
+      extraConfig = ''
+        zstyle :omz:plugins:keychain agents gpg,ssh
+      '';
+
     };
 
     # Extra zshrc snippets
     initContent = ''
-      export EDITOR=nvim
-
-      alias ll="ls -lah"
-      alias gs="git status"
-
-
-      function yy() {
-        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-        yazi "$@" --cwd-file="$tmp"
-        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-            builtin cd -- "$cwd"
-        fi
-        rm -f -- "$tmp"
-      }
-
       bindkey -v
-      bindkey -s '^o' 'yy^M'
+      export KEYTIMEOUT=1
+      source "$HOME/dotfiles/.scripts/export.sh"
+      source "$HOME/dotfiles/.scripts/alias.sh"
+      source "$HOME/dotfiles/.scripts/functions.sh"
+      source "$HOME/dotfiles/.scripts/phue.sh"
+      source "$HOME/dotfiles/.scripts/kitty.sh"
+
       eval "$(starship init zsh)"
     '';
   };
 
-  programs.neovim = {
-    enable = true;
-  };
-
-  programs.starship = {
-    enable = true;
-  };
+  programs.exa.enable = true;
+  programs.neovim.enable = true;
+  programs.starship.enable = true;
+  programs.zoxide.enable = true;
 
   # Individual imports
   imports = [
