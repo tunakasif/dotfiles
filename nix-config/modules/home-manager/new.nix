@@ -9,17 +9,28 @@
     home.packages = with pkgs; [
       bat
       cargo
+      cookiecutter
       dust
       fd
       fzf
       gh
       go
       just
+      lazydocker
       lazygit
+      ltex-ls
+      markdownlint-cli2
+      marksman
       nixfmt-rfc-style
       nodejs_24
       pandoc
+      prettier
+      prettierd
       ripgrep
+      ruff
+      stylua
+      taplo
+      texliveFull
       ttyper
       uv
       yazi
