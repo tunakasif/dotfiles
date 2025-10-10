@@ -39,6 +39,10 @@ inputs: {
     enable = true;
   };
 
+  programs.starship = {
+    enable = true;
+  };
+
   # Individual imports
   imports = [
     ./new.nix
