@@ -6,8 +6,8 @@ inputs: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;        # zsh-autosuggestions
-    syntaxHighlighting.enable = true;     # zsh-syntax-highlighting
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     history.size = 10000;
 
