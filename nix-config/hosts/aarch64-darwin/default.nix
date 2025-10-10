@@ -52,6 +52,7 @@ in
       "insync"
       "kitty"
       "obs"
+      "ollama-app"
       "orbstack"
       "protonvpn"
       "qbittorrent"
