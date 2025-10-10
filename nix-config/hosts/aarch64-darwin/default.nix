@@ -40,6 +40,7 @@ in
     taps = [ ];
     brews = [ ];
     casks = [
+      "appcleaner"
       "arc"
       "brave-browser"
       "calibre"
