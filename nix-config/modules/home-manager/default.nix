@@ -44,9 +44,10 @@ inputs: {
     '';
   };
 
-  programs.exa.enable = true;
+  programs.eza.enable = true;
   programs.neovim.enable = true;
   programs.starship.enable = true;
+  programs.tmux.enable = true;
   programs.zoxide.enable = true;
 
   # Individual imports
