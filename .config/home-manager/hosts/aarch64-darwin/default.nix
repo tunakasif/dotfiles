@@ -18,6 +18,11 @@ in
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
+  ];
+
   programs.zsh.enable = true;
 
   system.primaryUser = "tunakasif";
