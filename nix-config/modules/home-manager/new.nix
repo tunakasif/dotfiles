@@ -30,6 +30,7 @@
       marksman
       nixfmt-rfc-style
       nodejs_24
+      openconnect
       pandoc
       pnpm
       pre-commit
