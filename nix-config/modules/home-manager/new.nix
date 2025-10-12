@@ -15,6 +15,7 @@
       delta
       doppler
       dust
+      eza
       fastfetch
       fd
       gh
