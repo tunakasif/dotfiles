@@ -38,10 +38,13 @@ in
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     taps = [ ];
-    brews = [ ];
+    brews = [
+      "bitwarden-cli"
+    ];
     casks = [
       "appcleaner"
       "arc"
+      "bitwarden"
       "brave-browser"
       "calibre"
       "chatgpt"
