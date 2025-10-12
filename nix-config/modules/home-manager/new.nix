@@ -38,6 +38,7 @@
       prettierd
       ripgrep
       ruff
+      speedtest-cli
       stylua
       taplo
       tealdeer
