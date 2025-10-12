@@ -43,7 +43,6 @@ in
       "commitizen"
       "cookiecutter"
       "doppler"
-      "eza"
       "fastfetch"
       "fd"
       "figlet"
