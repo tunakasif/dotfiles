@@ -7,6 +7,7 @@
   options.new = lib.mkEnableOption "new";
   config = {
     home.packages = with pkgs; [
+      act
       bat
       cargo
       cmatrix
