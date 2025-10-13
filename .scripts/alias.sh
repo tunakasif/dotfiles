@@ -9,10 +9,10 @@ alias c="code"
 
 # directory stuff
 alias cdd="cd $HOME/Desktop"
-alias cdgh="cd $HOME/Documents/GitHub"
+alias cdgh="cd $HOME/repos"
 alias cdve="cd $HOME/.cache/pypoetry/virtualenvs"
-alias cddf="cd $HOME/Documents/GitHub/dotfiles"
-alias cdhue="cd $HOME/Documents/GitHub/phue_control"
+alias cddf="cd $HOME/repos/dotfiles"
+alias cdhue="cd $HOME/repos/phue_control"
 alias cdre="cd $HOME/Drive/school/MS/research"
 alias cdcc="cd $HOME/Drive/school/MS/current"
 alias fml='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'

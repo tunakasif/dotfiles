@@ -36,21 +36,21 @@ trash-can() {
 
 pytureng() {
     curr_path=$(pwd)
-    cd "$HOME/Documents/GitHub/pytureng" || exit
+    cd "$HOME/repos/pytureng" || exit
     poetry run python -m pytureng "$@"
     cd "$curr_path" || exit
 }
 
 srs() {
     curr_path=$(pwd)
-    cd "$HOME/Documents/GitHub/BilBot" || exit
+    cd "$HOME/repos/BilBot" || exit
     poetry run python bilkent_bot.py
     cd "$curr_path" || exit
 }
 
 airs() {
     curr_path=$(pwd)
-    cd "$HOME/Documents/GitHub/BilBot" || exit
+    cd "$HOME/repos/BilBot" || exit
     poetry run python bilkent_bot.py --site airs
     cd "$curr_path" || exit
 }
@@ -168,7 +168,7 @@ kill-wp() {
 }
 
 rte() {
-    rustureng_exe="$HOME/Documents/GitHub/rustureng/target/release/rustureng"
+    rustureng_exe="$HOME/repos/rustureng/target/release/rustureng"
     if [ ! -f "$rustureng_exe" ]; then
         echo "rustureng executable does not exist"
         return
