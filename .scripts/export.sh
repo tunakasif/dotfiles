@@ -11,10 +11,7 @@ export CALIBRE_LIBRARY="$HOME/GDrive/AppSync/Calibre"
 export KEYTIMEOUT=1 # for vi mode
 
 # PATH
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
+export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/go/bin"
 
 # Fedora flags
 export LANG="en_US.UTF-8"
@@ -31,7 +28,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 export _Z_EXCLUDE_DIRS="$HOME/Videos/"
 
 # CUDA
-export PATH="/usr/local/cuda/bin:$PATH"
+export PATH="$PATH:/usr/local/cuda/bin"
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 export COOKIECUTTER_CONFIG=$HOME/dotfiles/.config/cookieconfig.yaml

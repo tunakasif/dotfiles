@@ -140,7 +140,7 @@ rte() {
     fi
 
     content="$($rustureng_exe "$@")"
-    echo $content | $PAGER -F
+    echo $content | less -F
 }
 
 install-nerd-font() {
