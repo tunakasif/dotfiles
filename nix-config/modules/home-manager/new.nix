@@ -30,6 +30,7 @@
       markdownlint-cli2
       marksman
       nixfmt-rfc-style
+      nmap
       nodejs_24
       openconnect
       pandoc
