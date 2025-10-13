@@ -55,15 +55,6 @@
   };
 
   programs.btop.enable = true;
-  # programs.eza = {
-  #   enable = true;
-  #   git = true;
-  #   icons = "auto"; # new style: "auto" (true) / null (false)
-  #   extraOptions = [
-  #     "--group-directories-first"
-  #   ];
-  #   enableZshIntegration = true;
-  # };
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
