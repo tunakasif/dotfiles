@@ -26,6 +26,7 @@ return {
 	dependencies = { "neovim/nvim-lspconfig" },
 	config = function()
 		require("ltex_extra").setup({
+			path = ".vscode",
 			server_opts = {
 				settings = {
 					ltex = {
