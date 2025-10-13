@@ -34,9 +34,14 @@ in
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap"; # Remove all Homebrew packages not in the flake
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
+    onActivation = {
+      cleanup = "zap"; # Remove all Homebrew packages not in the flake
+      autoUpdate = true;
+      upgrade = true;
+    };
+    global.brewfile = true;
+    caskArgs.no_quarantine = true;
+
     taps = [ ];
     brews = [
       "bitwarden-cli"
