@@ -1,7 +1,6 @@
 # system stuff
 alias up="sudo dnf upgrade"
 alias upy="sudo dnf upgrade -y"
-alias please='sudo $(fc -ln -1)'
 
 # neovim stuff
 alias e="nvim"
@@ -10,24 +9,14 @@ alias c="code"
 # directory stuff
 alias cdd="cd $HOME/Desktop"
 alias cdgh="cd $HOME/repos"
-alias cdve="cd $HOME/.cache/pypoetry/virtualenvs"
 alias cddf="cd $HOME/repos/dotfiles"
-alias cdhue="cd $HOME/repos/phue_control"
-alias cdre="cd $HOME/Drive/school/MS/research"
-alias cdcc="cd $HOME/Drive/school/MS/current"
-alias fml='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias cdre="cd $HOME/GDrive/school/PhD/research"
+alias cdcc="cd $HOME/GDrive/school/PhD/courses"
 alias xo="xdg-open"
-alias lnwd='ln -s "$(pwd -P)"'
-
-# dictionary stuff
-alias dict_eng_tur="dict -d fd-eng-tur"
-alias dict_tur_eng="dict -d fd-tur-eng"
 
 # config stuff
 alias vimconfig="$EDITOR $HOME/.vimrc"
 alias nvimconfig="$EDITOR $HOME/.config/nvim/"
-alias zshconfig="$EDITOR $HOME/.zshrc; source $HOME/.zshrc"
-alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 
 # kitty stuff
 alias icat='kitty +kitten icat'

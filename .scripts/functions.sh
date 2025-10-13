@@ -34,47 +34,12 @@ trash-can() {
     cd "$HOME/.local/share/Trash" || exit
 }
 
-pytureng() {
-    curr_path=$(pwd)
-    cd "$HOME/repos/pytureng" || exit
-    poetry run python -m pytureng "$@"
-    cd "$curr_path" || exit
-}
-
-srs() {
-    curr_path=$(pwd)
-    cd "$HOME/repos/BilBot" || exit
-    poetry run python bilkent_bot.py
-    cd "$curr_path" || exit
-}
-
-airs() {
-    curr_path=$(pwd)
-    cd "$HOME/repos/BilBot" || exit
-    poetry run python bilkent_bot.py --site airs
-    cd "$curr_path" || exit
-}
-
 ytd() {
     yt-dlp -f $YT_DLP_FORMAT $1
 }
 
 ytfzfd() {
     yt-dlp -f "$YT_DLP_FORMAT" "$(ytfzf -tL $1)"
-}
-
-mine-eth-tmux() {
-    curr_path=$(pwd)
-    location=$HOME/Programs/lolMiner/1.36a
-    cd $location || exit
-    tmux new -d -s eth_miner './mine_eth.sh'
-    cd $curr_path || exit
-}
-
-mine-eth() {
-    location=$HOME/Programs/lolMiner/1.36a
-    cd $location || exit
-    ./mine_eth.sh
 }
 
 my-mail() {
@@ -178,16 +143,6 @@ rte() {
     echo $content | $PAGER -F
 }
 
-push-nvim-plugin-update() {
-    cwd=$(pwd)
-    cd "$HOME/.config/nvim" || return
-    git diff --quiet lazy-lock.json && cd "$cwd" && return
-    git add "lazy-lock.json"
-    git commit -m 'chore(nvim): update `nvim` plugins' -m 'Update Neovim plugins.'
-    git push
-    cd "$cwd" || return
-}
-
 install-nerd-font() {
     # list all the nerd fonts available in the latest release
     # Use GitHub CLI to get the `*.zip` files in the latest release.
@@ -244,42 +199,6 @@ get-mtype-lang-file() {
     tmpfile=$(mktemp)
     echo $words | tr ' ' '\n' >$tmpfile
     echo $tmpfile
-}
-
-switch-cuda() {
-    set -e
-
-    INSTALL_FOLDER="/usr/local"
-    TARGET_VERSION=${1}
-
-    if [[ -z ${TARGET_VERSION} ]]; then
-        echo "The following CUDA installations have been found (in '${INSTALL_FOLDER}'):"
-        find "${INSTALL_FOLDER}/" -maxdepth 1 -name '*cuda-[0-9]*' | while read -r line; do
-            echo "- ${line}"
-        done
-        set +e
-        return
-    elif [[ ! -d "${INSTALL_FOLDER}/cuda-${TARGET_VERSION}" ]]; then
-        echo "No installation of CUDA ${TARGET_VERSION} has been found!"
-        set +e
-        return
-    fi
-
-    cuda_path="${INSTALL_FOLDER}/cuda-${TARGET_VERSION}"
-    new_path=$(echo "$PATH" | awk -v RS=: '!/cuda/' ORS=:)
-    new_path="${cuda_path}/bin:${new_path}"
-
-    new_ld_path=$(echo "$LD_LIBRARY_PATH" | awk -v RS=: '!/cuda/' ORS=:)
-    new_ld_path="${cuda_path}/lib64:${cuda_path}/extras/CUPTI/lib64:${new_ld_path}"
-
-    export CUDA_HOME="${cuda_path}"
-    export CUDA_ROOT="${cuda_path}"
-    export LD_LIBRARY_PATH="${new_ld_path}"
-    export PATH="${new_path}"
-
-    echo "Switched to CUDA ${TARGET_VERSION}."
-
-    set +e
 }
 
 function yy() {
