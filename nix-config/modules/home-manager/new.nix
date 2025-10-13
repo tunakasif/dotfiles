@@ -20,6 +20,7 @@
       fd
       gh
       go
+      gum
       hyperfine
       jq
       just
