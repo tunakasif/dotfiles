@@ -13,8 +13,11 @@ in
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 4;
 
-  security.pam.services.sudo_local.touchIdAuth = true;
-  security.pam.services.sudo_local.watchIdAuth = true;
+  security.pam.services.sudo_local = {
+    reattach = true; # fixes Touch ID not working inside tmux
+    touchIdAuth = true;
+    watchIdAuth = true;
+  };
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 
