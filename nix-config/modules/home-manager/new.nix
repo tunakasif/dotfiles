@@ -19,6 +19,7 @@
       eza
       fastfetch
       fd
+      ffmpeg
       gh
       go
       gum
@@ -55,6 +56,7 @@
       watch
       wget
       yazi
+      yt-dlp
       zsh-fzf-tab
     ];
   };
