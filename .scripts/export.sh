@@ -25,7 +25,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 # export LD_LIBRARY_PATH="usr/local/MATLAB/R2021a/bin/glnxa64/:$LD_LIBRARY_PATH"
 
 # ZSH Plugins
-export _Z_EXCLUDE_DIRS="$HOME/Videos/"
+export _Z_EXCLUDE_DIRS="$HOME/Videos"
+typeset -ga ZSHZ_EXCLUDE_DIRS=("$HOME/Videos")
 
 # CUDA
 export PATH="$PATH:/usr/local/cuda/bin"
