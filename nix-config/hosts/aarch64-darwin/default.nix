@@ -74,6 +74,7 @@ in
       "whatsapp"
       "zen"
       "zotero"
+      "zoom"
     ];
   };
 }
