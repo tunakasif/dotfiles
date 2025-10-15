@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
@@ -39,19 +39,26 @@
     ];
 
     # Extra zshrc snippets
-    initContent = ''
-      bindkey -v
-      export KEYTIMEOUT=1
-      source "$HOME/dotfiles/.scripts/export.sh"
-      source "$HOME/dotfiles/.scripts/alias.sh"
-      source "$HOME/dotfiles/.scripts/functions.sh"
-      source "$HOME/dotfiles/.scripts/phue.sh"
-      source "$HOME/dotfiles/.scripts/kitty.sh"
-      source "$HOME/dotfiles/.scripts/bindkey.sh"
-      source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
+    initContent =
+      let
+        zshConfigEarlyInit = lib.mkOrder 500 ''
+          source "$HOME/dotfiles/.scripts/export.sh"
+        '';
+        zshConfig = lib.mkOrder 1000 ''
+          source "$HOME/dotfiles/.scripts/alias.sh"
+          source "$HOME/dotfiles/.scripts/functions.sh"
+          source "$HOME/dotfiles/.scripts/phue.sh"
+          source "$HOME/dotfiles/.scripts/kitty.sh"
+          source "$HOME/dotfiles/.scripts/bindkey.sh"
+          source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
 
-      eval "$(starship init zsh)"
-    '';
+          eval "$(starship init zsh)"
+        '';
+      in
+      lib.mkMerge [
+        zshConfigEarlyInit
+        zshConfig
+      ];
   };
 
   programs.btop.enable = true;
