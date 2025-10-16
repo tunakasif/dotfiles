@@ -19,7 +19,7 @@
       eza
       fastfetch
       fd
-      ffmpeg
+      ffmpeg-full
       gh
       go
       gum
