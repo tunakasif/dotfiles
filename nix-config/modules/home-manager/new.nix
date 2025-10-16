@@ -21,17 +21,22 @@
       fd
       ffmpeg-full
       gh
+      ghostscript
       go
       gum
       hyperfine
+      imagemagick
       jq
       just
       lazydocker
       lazygit
       ltex-ls
+      lua5_1
+      lua51Packages.luarocks
       markdownlint-cli2
       markdownlint-cli2
       marksman
+      mermaid-cli
       nixfmt-rfc-style
       nmap
       nodejs_24
@@ -51,6 +56,7 @@
       tealdeer
       texliveFull
       tmux
+      tree-sitter
       ttyper
       uv
       watch
