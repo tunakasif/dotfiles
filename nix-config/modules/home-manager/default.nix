@@ -67,6 +67,12 @@
     enableZshIntegration = true;
   };
   programs.neovim.enable = true;
+  programs.opencode = {
+    enable = true;
+    settings = {
+      theme = "catppuccin";
+    };
+  };
   programs.starship.enable = true;
   programs.zoxide.enable = true;
 
