@@ -47,6 +47,7 @@ in
 
     taps = [ ];
     brews = [
+      "asitop"
       "bitwarden-cli"
     ];
     casks = [
