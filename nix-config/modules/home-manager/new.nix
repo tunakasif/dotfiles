@@ -51,6 +51,7 @@
       ripgrep
       ruff
       speedtest-cli
+      statix
       stylua
       taplo
       tealdeer
