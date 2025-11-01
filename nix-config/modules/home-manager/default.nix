@@ -169,6 +169,7 @@
     };
   };
   programs.starship.enable = true;
+  programs.zathura.enable = true;
   programs.zoxide.enable = true;
 
   # Individual imports

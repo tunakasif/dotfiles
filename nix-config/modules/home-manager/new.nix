@@ -64,6 +64,7 @@
       wget
       yazi
       yt-dlp
+      zathura
       zsh-fzf-tab
     ];
   };
