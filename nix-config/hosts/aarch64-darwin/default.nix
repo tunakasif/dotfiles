@@ -22,8 +22,9 @@ in
   system.keyboard.remapCapsLockToEscape = true;
 
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
     nerd-fonts.caskaydia-cove
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   system.primaryUser = "tunakasif";
