@@ -46,8 +46,8 @@
       pre-commit
       prettier
       prettierd
-      (lowPrio python312)
-      (hiPrio python313)
+      (lib.lowPrio python312)
+      (lib.hiPrio python313)
       ripgrep
       ruff
       speedtest-cli
