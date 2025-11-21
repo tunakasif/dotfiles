@@ -39,6 +39,7 @@
         name = "Tuna Alikaşifoğlu";
         email = "tunakasif@gmail.com";
         username = "tunakasif";
+        gaspar_username = "alikasif";
       };
       specialArgs = {
         inherit user inputs;
@@ -99,6 +100,16 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
           ./hosts/x86_64-linux/home.nix
+        ];
+        extraSpecialArgs = {
+          inherit user;
+        };
+      };
+
+      homeConfigurations.${user.gaspar_username} = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        modules = [
+          ./hosts/rcp-haas/home.nix
         ];
         extraSpecialArgs = {
           inherit user;
