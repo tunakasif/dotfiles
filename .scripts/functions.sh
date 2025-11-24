@@ -109,6 +109,23 @@ bw-unlock() {
     export BW_SESSION="$session"
 }
 
+epfl-vpn() {
+    vpn_url="vpn.epfl.ch"
+    vpn_user="tuna.alikasifoglu@epfl.ch"
+
+    echo "Unlocking BitWarden session ..."
+    current_bw_session="$(echo $BW_SESSION)"
+    export BW_SESSION="$(bw unlock $(doppler secrets get --plain BITWARDEN_PASSWORD) | grep export | awk -F '"' '{print $2}')"
+
+    echo "Retrieving VPN credentials ..."
+    vpn_password="$(doppler secrets get EPFL_PASSWORD --plain)"
+    vpn_totp="$(bw get totp 'EPFL Microsoft')"
+
+    echo "Connecting to EPFL VPN ..."
+    echo "$vpn_password\n$vpn_totp\n" | sudo openconnect $vpn_url --user $vpn_user --passwd-on-stdin
+    export BW_SESSION="$current_bw_session"
+}
+
 lintgit() {
     # check if a `.gitlint` config file exists in the directory,
     # if not, use the default config file provided in the dotfiles
