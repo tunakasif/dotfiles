@@ -51,6 +51,7 @@
           source "$HOME/dotfiles/.scripts/kitty.sh"
           source "$HOME/dotfiles/.scripts/bindkey.sh"
           source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
+          [ -f "$HOME/dotfiles/.scripts/secrets.sh" ] && source "$HOME/dotfiles/.scripts/secrets.sh"
 
           eval "$(starship init zsh)"
         '';
