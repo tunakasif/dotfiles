@@ -59,7 +59,6 @@ in
       "calibre"
       "chatgpt"
       "discord"
-      "docker-desktop"
       "firefox"
       "ghostty"
       "google-chrome"
