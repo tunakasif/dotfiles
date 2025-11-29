@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
 command_timeout = 1000
+scan_timeout = 1000
 palette = "catppuccin_mocha"
 # palette = "catppuccin_latte"
 
