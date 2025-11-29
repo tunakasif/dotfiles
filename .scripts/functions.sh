@@ -280,3 +280,12 @@ function docker-pull-interactive() {
         echo
     done
 }
+
+function runai-list-job-interactive() {
+    runai list jobs | fzf --header-lines=2 | awk '{print $1}'
+}
+
+function runai-bash-job-interactive() {
+    job_id=$(runai-list-job-interactive)
+    runai bash "$job_id"
+}

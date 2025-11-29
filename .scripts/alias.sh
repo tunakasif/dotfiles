@@ -31,3 +31,11 @@ alias lagi='eza --icons --all --long --group-directories-first --git --git-ignor
 
 # cli ai stuff
 alias ghs="gh copilot suggest"
+
+# runai
+alias ra='runai'
+alias ral='runai list'
+alias rali='runai-list-job-interactive'
+alias rab='runai bash'
+alias rabi='runai-bash-job-interactive'
+alias radji='runai delete jobs $(rali)'
