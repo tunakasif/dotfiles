@@ -28,6 +28,7 @@
       imagemagick
       jq
       just
+      kubernetes-helm
       lazydocker
       lazygit
       ltex-ls
