@@ -50,6 +50,7 @@ in
     brews = [
       "asitop"
       "bitwarden-cli"
+      "graphviz"
     ];
     casks = [
       "appcleaner"
