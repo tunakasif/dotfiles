@@ -50,9 +50,11 @@ in
     brews = [
       "asitop"
       "bitwarden-cli"
+      "gnupg"
       "graphviz"
     ];
     casks = [
+      "adobe-acrobat-reader"
       "appcleaner"
       "arc"
       "bitwarden"
