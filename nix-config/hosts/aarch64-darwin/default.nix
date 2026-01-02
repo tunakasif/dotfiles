@@ -65,6 +65,7 @@ in
       "firefox"
       "ghostty"
       "google-chrome"
+      "helium-browser"
       "insync"
       "kitty"
       "obs"
