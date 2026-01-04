@@ -20,5 +20,6 @@
     ./shell.nix
     ./btop.nix
     ./packages.nix
+    ./git.nix
   ];
 }
