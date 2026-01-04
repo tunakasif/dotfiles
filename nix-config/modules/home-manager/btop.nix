@@ -1,14 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-{
-  home.stateVersion = "25.05";
-  xdg.enable = true;
-  programs.home-manager.enable = true;
-
+_: {
   programs.btop = {
     enable = true;
     settings = {
@@ -105,19 +95,4 @@
       '';
     };
   };
-  programs.neovim.enable = true;
-  programs.opencode = {
-    enable = true;
-    settings = {
-      theme = "catppuccin";
-    };
-  };
-  programs.zathura.enable = true;
-
-  # Individual imports
-  imports = [
-    ./shell.nix
-    ./btop.nix
-    ./new.nix
-  ];
 }
