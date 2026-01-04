@@ -19,6 +19,6 @@
   imports = [
     ./shell.nix
     ./btop.nix
-    ./new.nix
+    ./programs.nix
   ];
 }
