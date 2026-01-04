@@ -52,6 +52,7 @@
       ripgrep
       ruff
       speedtest-cli
+      scc
       statix
       stylua
       taplo
