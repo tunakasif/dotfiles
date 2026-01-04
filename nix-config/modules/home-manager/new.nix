@@ -32,9 +32,8 @@
       lazydocker
       lazygit
       ltex-ls
-      lua5_1
       lua51Packages.luarocks
-      markdownlint-cli2
+      lua5_1
       markdownlint-cli2
       marksman
       mermaid-cli
@@ -51,8 +50,8 @@
       (lib.hiPrio python313)
       ripgrep
       ruff
-      speedtest-cli
       scc
+      speedtest-cli
       statix
       stylua
       taplo
