@@ -72,30 +72,6 @@
         specialArgs = specialArgs;
       };
 
-      darwinConfigurations."kasif-macbook-pro" = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        modules = [
-          ./hosts/x86_64-darwin
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-            home-manager.users.${user.username} = ./hosts/x86_64-darwin/home.nix;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true; # Install Homebrew under the default prefix
-              user = "tunakasif"; # User owning the Homebrew prefix
-              autoMigrate = true; # Automatically migrate existing Homebrew installations
-            };
-          }
-        ];
-        specialArgs = specialArgs;
-      };
-
       homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
