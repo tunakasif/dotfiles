@@ -53,12 +53,14 @@
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.verbose = true;
-            home-manager.users.${user.username} = ./hosts/aarch64-darwin/home.nix;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.sharedModules = [ mac-app-util.homeManagerModules.default ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              verbose = true;
+              users.${user.username} = ./hosts/aarch64-darwin/home.nix;
+              extraSpecialArgs = specialArgs;
+              sharedModules = [ mac-app-util.homeManagerModules.default ];
+            };
           }
           nix-homebrew.darwinModules.nix-homebrew
           {
@@ -69,7 +71,7 @@
             };
           }
         ];
-        specialArgs = specialArgs;
+        inherit specialArgs;
       };
 
       homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
