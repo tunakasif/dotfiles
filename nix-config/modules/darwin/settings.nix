@@ -47,6 +47,14 @@ in
         { app = "${systemApps}/iPhone Mirroring.app"; }
       ];
     };
+    defaults.finder = {
+      AppleShowAllExtensions = true;
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      _FXShowPosixPathInTitle = false;
+      _FXSortFoldersFirst = true;
+      _FXSortFoldersFirstOnDesktop = true;
+    };
   };
 
   security.pam.services.sudo_local = {
