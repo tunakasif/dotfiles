@@ -57,6 +57,14 @@ in
         _FXSortFoldersFirst = true;
         _FXSortFoldersFirstOnDesktop = true;
       };
+      trackpad = {
+        Clicking = true;
+        TrackpadCornerSecondaryClick = 2; # bottom right corner
+      };
+      menuExtraClock = {
+        ShowDate = 0; # when space allows
+        Show24Hour = true;
+      };
     };
   };
 
