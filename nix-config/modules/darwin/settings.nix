@@ -22,6 +22,7 @@ in
     };
     defaults = {
       iCal."first day of week" = "Monday";
+      LaunchServices.LSQuarantine = false; # disable quarantine for downloaded applications
       dock = {
         autohide = true;
         tilesize = 70;
