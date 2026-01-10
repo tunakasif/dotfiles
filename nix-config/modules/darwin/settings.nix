@@ -21,6 +21,7 @@ in
       remapCapsLockToEscape = true;
     };
     defaults = {
+      iCal."first day of week" = "Monday";
       dock = {
         autohide = true;
         tilesize = 70;
