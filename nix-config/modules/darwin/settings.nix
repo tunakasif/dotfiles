@@ -4,6 +4,10 @@
   inputs,
   ...
 }:
+let
+  systemApps = "/System/Applications";
+  userApps = "/Applications";
+in
 {
   ids.gids.nixbld = 350;
   nix.settings.experimental-features = "nix-command flakes";
@@ -15,6 +19,33 @@
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToEscape = true;
+    };
+    defaults.dock = {
+      autohide = true;
+      largesize = 80;
+      launchanim = true;
+      magnification = true;
+      mineffect = "genie";
+      orientation = "bottom";
+      show-process-indicators = true;
+      show-recents = false;
+      tilesize = 70;
+      persistent-apps = [
+        { app = "${systemApps}/System Settings.app"; }
+        { app = "${userApps}/kitty.app"; }
+        { app = "${userApps}/Helium.app"; }
+        { app = "${systemApps}/Mail.app"; }
+        { app = "${userApps}/Visual Studio Code.app"; }
+        { app = "${systemApps}/Calendar.app"; }
+        { app = "${userApps}/Slack.app"; }
+        { app = "${userApps}/zoom.us.app"; }
+        { app = "${userApps}/Spotify.app"; }
+        { app = "${userApps}/WhatsApp.app"; }
+        { app = "${systemApps}/Messages.app"; }
+        { app = "${systemApps}/FaceTime.app"; }
+        { app = "${userApps}/Zotero.app"; }
+        { app = "${systemApps}/iPhone Mirroring.app"; }
+      ];
     };
   };
 
