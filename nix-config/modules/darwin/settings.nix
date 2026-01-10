@@ -20,40 +20,42 @@ in
       enableKeyMapping = true;
       remapCapsLockToEscape = true;
     };
-    defaults.dock = {
-      autohide = true;
-      largesize = 80;
-      launchanim = true;
-      magnification = true;
-      mineffect = "genie";
-      orientation = "bottom";
-      show-process-indicators = true;
-      show-recents = false;
-      tilesize = 70;
-      persistent-apps = [
-        { app = "${systemApps}/System Settings.app"; }
-        { app = "${userApps}/kitty.app"; }
-        { app = "${userApps}/Helium.app"; }
-        { app = "${systemApps}/Mail.app"; }
-        { app = "${userApps}/Visual Studio Code.app"; }
-        { app = "${systemApps}/Calendar.app"; }
-        { app = "${userApps}/Slack.app"; }
-        { app = "${userApps}/zoom.us.app"; }
-        { app = "${userApps}/Spotify.app"; }
-        { app = "${userApps}/WhatsApp.app"; }
-        { app = "${systemApps}/Messages.app"; }
-        { app = "${systemApps}/FaceTime.app"; }
-        { app = "${userApps}/Zotero.app"; }
-        { app = "${systemApps}/iPhone Mirroring.app"; }
-      ];
-    };
-    defaults.finder = {
-      AppleShowAllExtensions = true;
-      ShowPathbar = true;
-      ShowStatusBar = true;
-      _FXShowPosixPathInTitle = false;
-      _FXSortFoldersFirst = true;
-      _FXSortFoldersFirstOnDesktop = true;
+    defaults = {
+      dock = {
+        autohide = true;
+        tilesize = 70;
+        largesize = 80;
+        magnification = true;
+        launchanim = true;
+        mineffect = "genie";
+        orientation = "bottom";
+        show-process-indicators = true;
+        show-recents = false;
+        persistent-apps = [
+          { app = "${systemApps}/System Settings.app"; }
+          { app = "${userApps}/kitty.app"; }
+          { app = "${userApps}/Helium.app"; }
+          { app = "${systemApps}/Mail.app"; }
+          { app = "${userApps}/Visual Studio Code.app"; }
+          { app = "${systemApps}/Calendar.app"; }
+          { app = "${userApps}/Slack.app"; }
+          { app = "${userApps}/zoom.us.app"; }
+          { app = "${userApps}/Spotify.app"; }
+          { app = "${userApps}/WhatsApp.app"; }
+          { app = "${systemApps}/Messages.app"; }
+          { app = "${systemApps}/FaceTime.app"; }
+          { app = "${userApps}/Zotero.app"; }
+          { app = "${systemApps}/iPhone Mirroring.app"; }
+        ];
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        ShowPathbar = true;
+        ShowStatusBar = true;
+        _FXShowPosixPathInTitle = false;
+        _FXSortFoldersFirst = true;
+        _FXSortFoldersFirstOnDesktop = true;
+      };
     };
   };
 
