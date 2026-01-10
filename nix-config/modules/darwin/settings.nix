@@ -33,6 +33,7 @@ in
         orientation = "bottom";
         show-process-indicators = true;
         show-recents = false;
+        mru-spaces = false;
         persistent-apps = [
           { app = "${systemApps}/System Settings.app"; }
           { app = "${userApps}/kitty.app"; }
@@ -49,6 +50,11 @@ in
           { app = "${userApps}/Zotero.app"; }
           { app = "${systemApps}/iPhone Mirroring.app"; }
         ];
+        # disable hot corners
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 1;
+        wvous-tr-corner = 1;
       };
       finder = {
         AppleShowAllExtensions = true;
