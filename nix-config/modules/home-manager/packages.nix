@@ -8,7 +8,7 @@
   options.new = lib.mkEnableOption "new";
   config = {
     home.packages = with pkgs; [
-      inputs.nix-auth.packages.${pkgs.system}.default
+      inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
       act
       bat
       cargo
@@ -39,7 +39,7 @@
       markdownlint-cli2
       marksman
       mermaid-cli
-      nixfmt-rfc-style
+      nixfmt
       nmap
       nodejs_24
       openconnect
