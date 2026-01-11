@@ -6,6 +6,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-auth.url = "github:numtide/nix-auth";
     darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +26,7 @@
     inputs@{
       systems,
       self,
+      nix-auth,
       darwin,
       mac-app-util,
       nixpkgs,

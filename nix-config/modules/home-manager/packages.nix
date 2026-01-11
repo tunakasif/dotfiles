@@ -1,12 +1,14 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 {
   options.new = lib.mkEnableOption "new";
   config = {
     home.packages = with pkgs; [
+      inputs.nix-auth.packages.${pkgs.system}.default
       act
       bat
       cargo
