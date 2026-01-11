@@ -82,7 +82,7 @@
           ./hosts/x86_64-linux/home.nix
         ];
         extraSpecialArgs = {
-          inherit user;
+          inherit user inputs;
         };
       };
 
@@ -92,7 +92,7 @@
           ./hosts/rcp-haas/home.nix
         ];
         extraSpecialArgs = {
-          inherit user;
+          inherit user inputs;
         };
       };
     };
