@@ -10,7 +10,13 @@ let
 in
 {
   ids.gids.nixbld = 350;
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    trusted-users = [
+      "root"
+      user.username
+    ];
+  };
 
   system = {
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;

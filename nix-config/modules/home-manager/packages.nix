@@ -16,6 +16,7 @@
       commitizen
       cookiecutter
       delta
+      devenv
       doppler
       dust
       eza
