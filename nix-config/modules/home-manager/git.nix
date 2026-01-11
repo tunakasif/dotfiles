@@ -22,7 +22,7 @@
           autoSetupRemote = true;
         };
         pull = {
-          rebase = true;
+          ff = "only";
         };
         fetch = {
           prune = true;
