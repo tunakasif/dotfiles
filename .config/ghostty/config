@@ -1,7 +1,7 @@
 click-repeat-interval = 500
 auto-update-channel = tip
 
-theme = dark:catppuccin-mocha,light:catppuccin-latte
-font-family = "CaskaydiaCove Nerd Font"
-font-size = 15
-background-opacity = 0.8
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+font-family = "CaskaydiaCove Nerd Font Mono"
+font-size = 16
+background-opacity = 1.0
