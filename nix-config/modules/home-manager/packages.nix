@@ -63,6 +63,7 @@
       tmux
       tree-sitter
       ttyper
+      unzip
       uv
       watch
       wget
