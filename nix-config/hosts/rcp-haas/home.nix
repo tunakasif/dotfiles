@@ -20,35 +20,35 @@ in
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
   };
-
-  programs.vscode = {
-    enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      charliermarsh.ruff
-      editorconfig.editorconfig
-      github.copilot
-      github.copilot-chat
-      ms-python.debugpy
-      ms-python.mypy-type-checker
-      ms-python.python
-      ms-python.vscode-pylance
-      ms-toolsai.jupyter
-      ms-toolsai.jupyter-keymap
-      ms-toolsai.jupyter-renderers
-      ms-toolsai.vscode-jupyter-cell-tags
-      ms-toolsai.vscode-jupyter-slideshow
-      ms-vscode-remote.remote-ssh
-      ms-vscode-remote.vscode-remote-extensionpack
-      njpwerner.autodocstring
-      tamasfe.even-better-toml
-      yzhang.markdown-all-in-one
-    ];
-  };
-
-  programs.zsh = {
-    initContent = ''
-      export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gaspar_username}
-      alias cdsh="cd $SCRATCH_HOME"
-    '';
+  programs = {
+    zsh = {
+      initContent = ''
+        export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gaspar_username}
+        alias cdsh="cd $SCRATCH_HOME"
+      '';
+    };
+    vscode = {
+      enable = true;
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        charliermarsh.ruff
+        editorconfig.editorconfig
+        github.copilot
+        github.copilot-chat
+        ms-python.debugpy
+        ms-python.mypy-type-checker
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.vscode-remote-extensionpack
+        njpwerner.autodocstring
+        tamasfe.even-better-toml
+        yzhang.markdown-all-in-one
+      ];
+    };
   };
 }
