@@ -33,3 +33,6 @@ export PATH="$PATH:/usr/local/cuda/bin"
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 export COOKIECUTTER_CONFIG=$HOME/dotfiles/.config/cookieconfig.yaml
+
+# runai
+export SUPPRESS_DEPRECATION_MESSAGE=true
