@@ -1,6 +1,12 @@
-{ pkgs, user, ... }:
+{
+  pkgs,
+  config,
+  user,
+  ...
+}:
 let
   organization = "lts4-dislearn";
+  vscodeExtDir = "${config.home.homeDirectory}/.vscode/extensions";
 in
 {
   imports = [
@@ -10,6 +16,9 @@ in
     username = user.gaspar_username;
     homeDirectory = "/home/${user.gaspar_username}";
     packages = with pkgs; [ hello ];
+
+    # ~/.vscode-server/extensions (so point it at HM-managed extensions)
+    file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
   };
 
   programs.vscode = {
@@ -19,7 +28,6 @@ in
       editorconfig.editorconfig
       github.copilot
       github.copilot-chat
-      ms-pyright.pyright
       ms-python.debugpy
       ms-python.mypy-type-checker
       ms-python.python
