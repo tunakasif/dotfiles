@@ -87,7 +87,10 @@
       };
 
       homeConfigurations.${user.gaspar_username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
         modules = [
           ./hosts/rcp-haas/home.nix
         ];
