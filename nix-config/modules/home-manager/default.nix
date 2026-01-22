@@ -66,6 +66,7 @@
     ./shell.nix
     ./btop.nix
     ./packages.nix
+    ./rust.nix
     ./git.nix
   ];
 }

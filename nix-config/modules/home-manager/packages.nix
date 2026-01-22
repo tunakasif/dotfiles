@@ -11,7 +11,6 @@
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
       act
       bat
-      cargo
       cmatrix
       commitizen
       cookiecutter
