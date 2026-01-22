@@ -5,7 +5,6 @@
   ...
 }:
 {
-  options.new = lib.mkEnableOption "new";
   config = {
     home.packages = with pkgs; [
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
