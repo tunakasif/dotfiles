@@ -9,6 +9,7 @@ export FZF_DEFAULT_OPTS="--layout=reverse \
 export DISABLE_UPDATE_PROMPT=true # disable oh-my-zsh update prompt
 export CALIBRE_LIBRARY="$HOME/GDrive/AppSync/Calibre"
 export KEYTIMEOUT=1 # for vi mode
+export STARSHIP_LOG=error
 
 # PATH
 export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/.local/bin:$HOME/bin:$HOME/go/bin"
