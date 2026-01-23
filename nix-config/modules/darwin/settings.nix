@@ -46,6 +46,7 @@ in
           { app = "${userApps}/Helium.app"; }
           { app = "${systemApps}/Mail.app"; }
           { app = "${userApps}/Visual Studio Code.app"; }
+          { app = "${userApps}/Cursor.app"; }
           { app = "${systemApps}/Calendar.app"; }
           { app = "${userApps}/Slack.app"; }
           { app = "${userApps}/zoom.us.app"; }
