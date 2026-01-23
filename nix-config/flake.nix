@@ -46,12 +46,15 @@
       specialArgs = {
         inherit user inputs;
       };
+      nixpkgsConfig = {
+        allowUnfree = true;
+      };
     in
     {
       darwinConfigurations."lts4mac54" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          { nixpkgs.config.allowUnfree = true; }
+          { nixpkgs.config = nixpkgsConfig; }
           ./hosts/aarch64-darwin
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
@@ -78,7 +81,10 @@
       };
 
       homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config = nixpkgsConfig;
+        };
         modules = [
           ./hosts/x86_64-linux/home.nix
         ];
@@ -90,7 +96,7 @@
       homeConfigurations.${user.gaspar_username} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
-          config.allowUnfree = true;
+          config = nixpkgsConfig;
         };
         modules = [
           ./hosts/rcp-haas/home.nix
