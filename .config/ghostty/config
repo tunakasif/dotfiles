@@ -4,4 +4,7 @@ auto-update-channel = tip
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-size = 16
-background-opacity = 1.0
+background-opacity = 0.7
+maximize = true
+
+keybind = cmd+backquote=toggle_background_opacity
