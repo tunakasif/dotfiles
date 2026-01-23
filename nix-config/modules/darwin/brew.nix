@@ -18,7 +18,7 @@ _: {
       "mas"
     ];
     casks = [
-      "adobe-acrobat-reader"
+      # "adobe-acrobat-reader"
       "appcleaner"
       "arc"
       "antigravity"
