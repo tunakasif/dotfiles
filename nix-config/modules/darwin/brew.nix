@@ -15,6 +15,7 @@ _: {
       "bitwarden-cli"
       "gnupg"
       "graphviz"
+      "mas"
     ];
     casks = [
       "adobe-acrobat-reader"
