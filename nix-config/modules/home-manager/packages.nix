@@ -13,6 +13,7 @@
       cmatrix
       commitizen
       cookiecutter
+      crush
       delta
       devenv
       doppler

@@ -51,6 +51,7 @@
       darwinConfigurations."lts4mac54" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
+          { nixpkgs.config.allowUnfree = true; }
           ./hosts/aarch64-darwin
           mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
