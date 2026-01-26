@@ -27,6 +27,11 @@ in
         alias cdsh="cd $SCRATCH_HOME"
       '';
     };
+    git.settings = {
+      safe = {
+        directory = "*";
+      };
+    };
     vscode = {
       enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions; [
