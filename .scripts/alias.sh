@@ -32,6 +32,9 @@ alias lagi='eza --icons --all --long --group-directories-first --git --git-ignor
 # cli ai stuff
 alias ghs="gh copilot suggest"
 
+# rcp
+alias ssh-rcp-zsh='ssh -t rcp-haas001 ". ~/.cargo/env; nix-user-chroot ~/.nix ~/.nix-profile/bin/zsh -l"'
+
 # runai
 alias ra='runai'
 alias ral='runai list'
