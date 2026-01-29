@@ -34,6 +34,7 @@ _: {
       "helium-browser"
       "insync"
       "kitty"
+      "notunes"
       "obs"
       "ollama-app"
       "orbstack"
