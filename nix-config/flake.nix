@@ -42,6 +42,7 @@
         email = "tunakasif@gmail.com";
         username = "tunakasif";
         gasparUsername = "alikasif";
+        workLaptopHost = "lts4mac54";
       };
       specialArgs = {
         inherit user inputs;
@@ -51,7 +52,7 @@
       };
     in
     {
-      darwinConfigurations."lts4mac54" = darwin.lib.darwinSystem {
+      darwinConfigurations.${user.workLaptopHost} = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           { nixpkgs.config = nixpkgsConfig; }
@@ -72,7 +73,7 @@
           {
             nix-homebrew = {
               enable = true; # Install Homebrew under the default prefix
-              user = "tunakasif"; # User owning the Homebrew prefix
+              user = "${user.username}"; # User owning the Homebrew prefix
               autoMigrate = true; # Automatically migrate existing Homebrew installations
             };
           }
