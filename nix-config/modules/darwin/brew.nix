@@ -41,6 +41,7 @@ _: {
       "protonvpn"
       "qbittorrent"
       "raycast"
+      "skim"
       "slack"
       "spotify"
       "tiles"
