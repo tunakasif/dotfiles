@@ -10,6 +10,7 @@
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
       act
       bat
+      bibtex-tidy
       cmatrix
       commitizen
       cookiecutter
