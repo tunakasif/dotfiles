@@ -19,6 +19,12 @@ in
     ];
   };
 
+  networking = {
+    hostName = user.workLaptopHost;
+    localHostName = user.workLaptopHost;
+    computerName = user.workLaptopHost;
+  };
+
   system = {
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
     stateVersion = 4;
