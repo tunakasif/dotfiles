@@ -12,6 +12,7 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
+			bib = { "bibtex_tidy" },
 			lua = { "stylua" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
@@ -37,6 +38,21 @@ return {
 			end,
 			typst = { "typstyle", "trim_whitespace" },
 			["_"] = { "trim_whitespace" },
+		},
+		formatters = {
+			bibtex_tidy = {
+				command = "bibtex-tidy",
+				stdin = true,
+				args = {
+					"--align=14",
+					"--blank-lines",
+					"--curly",
+					"--duplicates",
+					"--no-merge",
+					"--no-wrap",
+					"--sort=year,key,name",
+				},
+			},
 		},
 	},
 }
