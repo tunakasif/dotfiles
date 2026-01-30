@@ -38,6 +38,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.yaml" },
 		{ import = "lazyvim.plugins.extras.test.core" },
 		{ import = "lazyvim.plugins.extras.vscode" },
+		{ import = "lazyvim.plugins.extras.ui.smear-cursor" },
 
 		-- import/override with your plugins
 		{ import = "plugins" },
