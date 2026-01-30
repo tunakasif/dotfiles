@@ -13,8 +13,8 @@ in
     ../../modules/home-manager
   ];
   home = {
-    username = user.gaspar_username;
-    homeDirectory = "/home/${user.gaspar_username}";
+    username = user.gasparUsername;
+    homeDirectory = "/home/${user.gasparUsername}";
     packages = with pkgs; [ hello ];
 
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
@@ -23,7 +23,7 @@ in
   programs = {
     zsh = {
       initContent = ''
-        export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gaspar_username}
+        export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gasparUsername}
         alias cdsh="cd $SCRATCH_HOME"
       '';
     };

@@ -41,7 +41,7 @@
         name = "Tuna Alikaşifoğlu";
         email = "tunakasif@gmail.com";
         username = "tunakasif";
-        gaspar_username = "alikasif";
+        gasparUsername = "alikasif";
       };
       specialArgs = {
         inherit user inputs;
@@ -93,7 +93,7 @@
         };
       };
 
-      homeConfigurations.${user.gaspar_username} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${user.gasparUsername} = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = nixpkgsConfig;
