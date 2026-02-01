@@ -34,6 +34,7 @@
       kubernetes-helm
       lazydocker
       lazygit
+      less
       ltex-ls
       lua51Packages.luarocks
       lua5_1
