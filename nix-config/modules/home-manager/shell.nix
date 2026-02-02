@@ -45,6 +45,8 @@
       initContent =
         let
           zshConfigEarlyInit = lib.mkOrder 500 ''
+            ZSH_DISABLE_COMPFIX="true"
+            export ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-${pkgs.zsh.version}"
             source "$HOME/dotfiles/.scripts/export.sh"
           '';
           zshConfig = lib.mkOrder 1000 ''
@@ -71,4 +73,8 @@
     starship.enable = true;
     zoxide.enable = true;
   };
+
+  home.activation.createZshCacheDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "${config.xdg.cacheHome}/zsh"
+  '';
 }
