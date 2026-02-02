@@ -15,11 +15,16 @@ return {
 			bib = { "bibtex_tidy" },
 			lua = { "stylua" },
 			python = function(bufnr)
+				local formatters = {}
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
-					return { "ruff_fix", "ruff_format" }
+					formatters = { "ruff_format", "ruff_fix" }
 				else
-					return { "isort", "black" }
+					formatters = { "isort", "black" }
 				end
+				if require("conform").get_formatter_info("mypy", bufnr).available then
+					table.insert(formatters, "mypy")
+				end
+				return formatters
 			end,
 			javascript = { "prettier", "prettierd" },
 			json = { "prettier", "prettierd" },

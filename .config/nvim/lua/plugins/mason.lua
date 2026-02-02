@@ -19,6 +19,7 @@ local mason_packages = {
 	"markdown-toc",
 	"markdownlint-cli2",
 	"marksman",
+	"mypy",
 	"neocmakelsp",
 	"nil",
 	"prettier",
