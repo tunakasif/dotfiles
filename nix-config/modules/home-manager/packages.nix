@@ -25,6 +25,7 @@
       ffmpeg-full
       gh
       ghostscript
+      glow
       go
       gum
       hyperfine
