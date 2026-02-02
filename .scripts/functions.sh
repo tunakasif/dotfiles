@@ -289,3 +289,17 @@ function runai-bash-job-interactive() {
     job_id=$(runai-list-job-interactive)
     runai bash "$job_id"
 }
+
+function ocrun() {
+    PROVIDER='opencode'
+    model_list=$(opencode models $PROVIDER | awk -F "$PROVIDER/" '{print $2}')
+    selected_model="$(gum filter --placeholder "Select a model" <<<"$model_list")"
+    if [ -z "$selected_model" ]; then # if no model is selected, exit
+        exit 1
+    fi
+    opencode run \
+        --log-level INFO \
+        --model "$PROVIDER/$selected_model" \
+        "$(gum write --placeholder 'Enter your prompt...')" |
+        glow -
+}
