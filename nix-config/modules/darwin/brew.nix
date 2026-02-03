@@ -34,6 +34,7 @@ _: {
       "helium-browser"
       "insync"
       "kitty"
+      "linear-linear"
       "notunes"
       "obs"
       "ollama-app"
