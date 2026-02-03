@@ -292,14 +292,41 @@ function runai-bash-job-interactive() {
 
 function ocrun() {
     PROVIDER='opencode'
+
+    # model selection
     model_list=$(opencode models $PROVIDER | awk -F "$PROVIDER/" '{print $2}')
     selected_model="$(gum filter --placeholder "Select a model" <<<"$model_list")"
     if [ -z "$selected_model" ]; then # if no model is selected, exit
-        exit 1
+        return 1
     fi
+
+    # variant selection
+    escaped=$(echo "$PROVIDER/$selected_model" | sed 's/\//\\\//g')
+    beginning='print "$&\n" while /'
+    end='\s*(\{(?:[^{}]|(?1))*\})/gs'
+
+    verbose_model_output=$(opencode models opencode --verbose | perl -0777 -ne "$beginning$escaped$end")
+    variants=$(echo "$verbose_model_output" | tail -n +2 | jq -r '.variants | keys[]')
+
+    if [ -z "$variants" ]; then
+        selected_variant="default"
+    else
+        # if response is negative, set variant to default with gum confirm
+        if ! gum confirm "Do you want to select a variant for $selected_model?" --default=No; then
+            selected_variant="default"
+        else
+            selected_variant="$(gum filter --placeholder "Select a variant for $selected_model" <<<$variants)"
+            if [ -z "$selected_variant" ]; then
+                return 1
+            fi
+        fi
+    fi
+
+    # run
+    gum log -l info "using model: $PROVIDER/$selected_model (variant: $selected_variant)"
     opencode run \
-        --log-level INFO \
         --model "$PROVIDER/$selected_model" \
+        --variant "$selected_variant" \
         "$(gum write --placeholder 'Enter your prompt...')" |
         glow -
 }
