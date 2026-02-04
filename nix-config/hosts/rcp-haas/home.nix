@@ -20,7 +20,9 @@ in
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
   };
-  my.opencode.enable = false;
+  my.ai = {
+    enable = false;
+  };
   programs = {
     zsh = {
       initContent = ''

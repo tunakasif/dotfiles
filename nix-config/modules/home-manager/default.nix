@@ -16,6 +16,6 @@
     ./packages.nix
     ./rust.nix
     ./git.nix
-    ./opencode.nix
+    ./ai.nix
   ];
 }
