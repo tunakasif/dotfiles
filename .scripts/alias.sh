@@ -29,6 +29,9 @@ alias llgi='eza --icons --long --group-directories-first --git --git-ignore'
 alias la='eza --icons --all --long --group-directories-first --git'
 alias lagi='eza --icons --all --long --group-directories-first --git --git-ignore'
 
+# lazy stuff, lazygit & lazydocker
+alias lg='lazygit'
+alias ldo='lazydocker'
 
 # rcp
 alias ssh-rcp-zsh='ssh -t rcp-haas001 ". ~/.cargo/env; nix-user-chroot ~/.nix ~/.nix-profile/bin/zsh -l"'
