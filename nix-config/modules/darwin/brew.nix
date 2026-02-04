@@ -45,6 +45,7 @@ _: {
       "skim"
       "slack"
       "spotify"
+      "thunderbird"
       "tiles"
       "visual-studio-code"
       "vlc"
