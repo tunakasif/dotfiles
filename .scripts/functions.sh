@@ -290,6 +290,18 @@ function runai-bash-job-interactive() {
     runai bash "$job_id"
 }
 
+function rcp-nix-shell() {
+    pod_info="$(kubectl get pod)"
+    header="$(echo "$pod_info" | head -n 1)"
+    pods="$(echo "$pod_info" | tail -n +2)"
+    if [ -z "$pods" ]; then
+        echo "No pods found."
+        return 1
+    fi
+    selected_pod="$(echo $pods | sed 's/ /\t/g' | gum filter --header="$header" --select-if-one | awk '{print $1}')"
+    kubectl exec --stdin --tty $selected_pod -- /home/$EPFL_USER/.nix-profile/bin/zsh -l
+}
+
 function ocrun() {
     PROVIDER='opencode'
 
