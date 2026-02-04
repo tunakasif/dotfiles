@@ -29,8 +29,6 @@ alias llgi='eza --icons --long --group-directories-first --git --git-ignore'
 alias la='eza --icons --all --long --group-directories-first --git'
 alias lagi='eza --icons --all --long --group-directories-first --git --git-ignore'
 
-# cli ai stuff
-alias ghs="gh copilot suggest"
 
 # rcp
 alias ssh-rcp-zsh='ssh -t rcp-haas001 ". ~/.cargo/env; nix-user-chroot ~/.nix ~/.nix-profile/bin/zsh -l"'
