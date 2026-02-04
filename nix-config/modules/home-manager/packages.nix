@@ -58,7 +58,6 @@
       stylua
       taplo
       tealdeer
-      texliveFull
       tmux
       tree-sitter
       ttyper

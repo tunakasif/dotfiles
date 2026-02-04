@@ -17,5 +17,6 @@
     ./rust.nix
     ./git.nix
     ./ai.nix
+    ./latex.nix
   ];
 }
