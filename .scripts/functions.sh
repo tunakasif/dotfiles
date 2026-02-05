@@ -291,14 +291,14 @@ function runai-bash-job-interactive() {
 }
 
 function rcp-nix-shell() {
-    pod_info="$(kubectl get pod)"
-    header="$(echo "$pod_info" | head -n 1)"
-    pods="$(echo "$pod_info" | tail -n +2)"
+    pods="$(kubectl get pod --no-headers)"
     if [ -z "$pods" ]; then
-        echo "No pods found."
         return 1
     fi
-    selected_pod="$(echo $pods | sed 's/ /\t/g' | gum filter --header="$header" --select-if-one | awk '{print $1}')"
+    selected_pod="$(echo $pods | gum filter --header="Select Pod:" --select-if-one | awk '{print $1}')"
+    if [ -z "$selected_pod" ]; then
+        return 1
+    fi
     kubectl exec --stdin --tty $selected_pod -- /home/$EPFL_USER/.nix-profile/bin/zsh -l
 }
 
