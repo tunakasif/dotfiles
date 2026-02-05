@@ -29,6 +29,7 @@ in
   programs = {
     zsh = {
       initContent = ''
+        export SHELL="$HOME/.nix-profile/bin/zsh"
         export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gasparUsername}
         alias cdsh="cd $SCRATCH_HOME"
       '';
