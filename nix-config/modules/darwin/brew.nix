@@ -16,6 +16,7 @@ _: {
       "gnupg"
       "graphviz"
       "mas"
+      "terminal-notifier"
     ];
     casks = [
       # "adobe-acrobat-reader"
