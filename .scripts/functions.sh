@@ -302,6 +302,21 @@ function rcp-nix-shell() {
     kubectl exec --stdin --tty $selected_pod -- /home/$EPFL_USER/.nix-profile/bin/zsh -l
 }
 
+function rcp-notify() {
+    pods="$(kubectl get pod --no-headers)"
+    if [ -z "$pods" ]; then
+        return 1
+    fi
+    selected_pod="$(echo $pods | gum filter --header="Select Pod:" --select-if-one | awk '{print $1}')"
+    kubectl wait --timeout=-1s --for=condition=Ready pod/$selected_pod &&
+        echo "$selected_pod is ready!" |
+        terminal-notifier \
+            -sender "com.apple.Terminal" \
+            -contentImage 'https://wiki.rcp.epfl.ch/public/images/epfl.png' \
+            -title 'RCP' \
+            -sound default
+}
+
 function ocrun() {
     PROVIDER='opencode'
 
