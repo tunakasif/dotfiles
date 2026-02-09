@@ -11,6 +11,7 @@
       act
       bat
       bibtex-tidy
+      clang-tools
       cmatrix
       commitizen
       cookiecutter
