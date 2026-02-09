@@ -13,6 +13,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			bib = { "bibtex_tidy" },
+			cpp = { "clang-format" },
 			lua = { "stylua" },
 			python = function(bufnr)
 				local formatters = {}
