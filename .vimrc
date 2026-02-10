@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
@@ -32,7 +33,7 @@ call plug#end()
 
 "theme
 set background=dark
-colorscheme gruvbox
+colorscheme catppuccin_mocha
 
 "general settings
 let python_highlight_all=1
@@ -53,6 +54,7 @@ set foldenable
 set foldlevelstart=99
 set splitbelow
 set splitright
+set termguicolors
 
 "remap split navigations
 nnoremap <C-J> <C-W><C-J>
