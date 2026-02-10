@@ -57,6 +57,10 @@ set laststatus=2
 set noshowmode
 set termguicolors
 
+"cursor
+let &t_SI = "\e[6 q"  " Set cursor to line in insert mode
+let &t_EI = "\e[2 q"  " Set cursor to block in normal mode
+
 "remap split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
