@@ -9,13 +9,16 @@ _: {
     global.brewfile = true;
     caskArgs.no_quarantine = true;
 
-    taps = [ ];
+    taps = [
+      "d99kris/nchat"
+    ];
     brews = [
       "asitop"
       "bitwarden-cli"
       "gnupg"
       "graphviz"
       "mas"
+      "d99kris/nchat/nchat"
       "terminal-notifier"
     ];
     casks = [
