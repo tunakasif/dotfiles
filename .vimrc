@@ -1,4 +1,4 @@
-"install vim-plug and add `autoload` to it 
+"install vim-plug and add `autoload` to it
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'christoomey/vim-sort-motion' 
+Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
@@ -20,12 +20,12 @@ Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'rust-lang/rust.vim'
-Plug 'sheerun/vim-polyglot' 
-Plug 'tpope/vim-commentary' 
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 
 call plug#end()
