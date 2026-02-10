@@ -15,6 +15,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'lervag/vimtex'
 Plug 'nvie/vim-flake8'
@@ -24,8 +25,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 
@@ -54,6 +53,8 @@ set foldenable
 set foldlevelstart=99
 set splitbelow
 set splitright
+set laststatus=2
+set noshowmode
 set termguicolors
 
 "remap split navigations
@@ -68,9 +69,11 @@ noremap <silent> <C-Right> :vertical resize -2<CR>
 noremap <silent> <C-Up> :resize +2<CR>
 noremap <silent> <C-Down> :resize -2<CR>
 
-"airline settings
-let g:airline_section_z = airline#section#create(['linenr', '/%L', ':%v'])
-let g:airline_powerline_fonts = 1
+"lightline
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 "indent
 au BufRead,BufNewFile *.md setlocal textwidth=79
