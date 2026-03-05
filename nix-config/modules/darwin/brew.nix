@@ -22,7 +22,6 @@ _: {
       "adobe-acrobat-reader"
       "appcleaner"
       "arc"
-      "antigravity"
       "bitwarden"
       "brave-browser"
       "calibre"
