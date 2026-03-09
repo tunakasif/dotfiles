@@ -25,6 +25,7 @@
       ffmpeg-full
       gh
       ghostscript
+      glab
       glow
       go
       gum
