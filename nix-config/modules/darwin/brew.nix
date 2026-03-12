@@ -29,7 +29,7 @@ _: {
       "cursor"
       "discord"
       "firefox"
-      "ghostty@tip"
+      "ghostty"
       "google-chrome"
       "helium-browser"
       "insync"
