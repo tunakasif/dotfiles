@@ -35,6 +35,14 @@ in
         description = "Enable opencode configuration";
       };
     };
+
+    claude = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = cfg.enable;
+        description = "Enable claude code configuration";
+      };
+    };
   };
 
   config = lib.mkMerge [
@@ -45,6 +53,9 @@ in
     })
 
     (lib.mkIf cfg.opencode.enable {
+      programs.claude-code = {
+        enable = true;
+      };
       programs.opencode = {
         enable = true;
         package = pkgsOpencode12.opencode;
