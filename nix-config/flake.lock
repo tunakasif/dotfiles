@@ -290,6 +290,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-opencode-1-2": {
+      "locked": {
+        "lastModified": 1773628058,
+        "narHash": "sha256-hpXH0z3K9xv0fHaje136KY872VT2T5uwxtezlAskQgY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f8573b9c935cfaa162dd62cc9e75ae2db86f85df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f8573b9c935cfaa162dd62cc9e75ae2db86f85df",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1761236834,
@@ -396,6 +412,7 @@
         "nix-auth": "nix-auth",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-opencode-1-2": "nixpkgs-opencode-1-2",
         "systems": "systems_3"
       }
     },

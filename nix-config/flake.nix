@@ -21,6 +21,7 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    nixpkgs-opencode-1-2.url = "github:NixOS/nixpkgs/f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
   };
   outputs =
     inputs@{
@@ -34,6 +35,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      nixpkgs-opencode-1-2,
       ...
     }:
     let
