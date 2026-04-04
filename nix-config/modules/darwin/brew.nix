@@ -49,6 +49,7 @@ _: {
       "tiles"
       "visual-studio-code"
       "vlc"
+      "wealthfolio"
       "whatsapp"
       "zen"
       "zoom"
