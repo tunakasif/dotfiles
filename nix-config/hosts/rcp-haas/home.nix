@@ -22,7 +22,7 @@ in
   };
   my = {
     ai = {
-      enable = false;
+      crush.enable = false;
     };
     latex = "medium";
   };
