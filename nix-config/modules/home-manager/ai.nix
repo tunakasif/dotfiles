@@ -20,14 +20,6 @@ in
       description = "Master switch for AI-related tools";
     };
 
-    crush = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = cfg.enable;
-        description = "Enable crush AI tool";
-      };
-    };
-
     opencode = {
       enable = lib.mkOption {
         type = lib.types.bool;
@@ -46,12 +38,6 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.crush.enable {
-      home.packages = with pkgs; [
-        crush
-      ];
-    })
-
     (lib.mkIf cfg.opencode.enable {
       programs.claude-code = {
         enable = true;

@@ -21,9 +21,6 @@ in
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
   };
   my = {
-    ai = {
-      crush.enable = false;
-    };
     latex = "medium";
   };
   programs = {
