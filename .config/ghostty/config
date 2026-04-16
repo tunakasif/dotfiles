@@ -1,5 +1,5 @@
 click-repeat-interval = 500
-auto-update-channel = tip
+auto-update-channel = stable
 
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 font-family = "CaskaydiaCove Nerd Font Mono"
