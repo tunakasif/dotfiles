@@ -34,6 +34,7 @@ _: {
       "helium-browser"
       "insync"
       "kitty"
+      "latexit"
       "linear-linear"
       "notunes"
       "obs"
