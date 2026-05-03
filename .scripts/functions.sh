@@ -122,8 +122,8 @@ epfl-vpn() {
     vpn_totp="$(bw get totp 'EPFL Microsoft')"
 
     echo "Connecting to EPFL VPN ..."
-    echo "$vpn_password\n$vpn_totp\n" | sudo openconnect $vpn_url --user $vpn_user --passwd-on-stdin
-    export BW_SESSION="$current_bw_session"
+    cookie=$(echo "$vpn_password\n$vpn_totp\n" | openconnect $vpn_url --cookieonly --user $vpn_user --passwd-on-stdin)
+    sudo openconnect $vpn_url --cookie="$cookie"
 }
 
 lintgit() {
