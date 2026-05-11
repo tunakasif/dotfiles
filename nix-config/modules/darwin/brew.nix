@@ -3,7 +3,7 @@ _: {
     enable = true;
     onActivation = {
       cleanup = "zap"; # Remove all Homebrew packages not in the flake
-      autoUpdate = true;
+      autoUpdate = false;
       upgrade = true;
     };
     global.brewfile = true;
