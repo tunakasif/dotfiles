@@ -2,7 +2,7 @@
   ...
 }:
 {
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
   xdg.enable = true;
   programs = {
     home-manager.enable = true;
