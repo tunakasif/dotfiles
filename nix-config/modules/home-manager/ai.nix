@@ -45,9 +45,11 @@ in
       programs.opencode = {
         enable = true;
         package = pkgsOpencode12.opencode;
+        tui = {
+          theme = "catppuccin";
+        };
         settings = {
           plugin = [ "opencode-claude-auth" ];
-          theme = "catppuccin";
           mcp = {
             filesystem = {
               enabled = true;
