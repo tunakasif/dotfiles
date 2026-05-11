@@ -6,7 +6,10 @@
   xdg.enable = true;
   programs = {
     home-manager.enable = true;
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      sideloadInitLua = true;
+    };
     zathura.enable = true;
   };
 
