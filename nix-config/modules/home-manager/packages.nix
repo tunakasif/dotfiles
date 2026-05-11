@@ -22,7 +22,7 @@
       eza
       fastfetch
       fd
-      ffmpeg-full
+      # ffmpeg-full
       gh
       ghostscript
       glab
@@ -69,7 +69,7 @@
       wget
       yazi
       yt-dlp
-      zathura
+      # zathura
       zsh-fzf-tab
     ];
 

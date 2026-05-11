@@ -10,7 +10,7 @@
       enable = true;
       sideloadInitLua = true;
     };
-    zathura.enable = true;
+    # zathura.enable = true;
   };
 
   imports = [
