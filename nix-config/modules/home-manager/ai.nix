@@ -1,16 +1,6 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.my.ai;
-  pkgsOpencode12 = import inputs.nixpkgs-opencode-1-2 {
-    inherit (pkgs) system;
-    config.allowUnfree = true;
-  };
 in
 {
   options.my.ai = {
@@ -44,12 +34,10 @@ in
       };
       programs.opencode = {
         enable = true;
-        package = pkgsOpencode12.opencode;
         tui = {
           theme = "catppuccin";
         };
         settings = {
-          plugin = [ "opencode-claude-auth" ];
           mcp = {
             filesystem = {
               enabled = true;
