@@ -25,6 +25,7 @@ _: {
       "brave-browser"
       "calibre"
       "chatgpt"
+      "claude"
       "cursor"
       "discord"
       "firefox"
