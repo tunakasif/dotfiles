@@ -17,6 +17,7 @@ _: {
       "gnupg"
       "graphviz"
       "mas"
+      "pi-coding-agent"
       "terminal-notifier"
     ];
     casks = [
