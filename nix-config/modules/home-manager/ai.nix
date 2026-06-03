@@ -28,12 +28,12 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.opencode.enable {
+    (lib.mkIf cfg.enable {
       programs.claude-code = {
-        enable = true;
+        enable = cfg.claude.enable;
       };
       programs.opencode = {
-        enable = true;
+        enable = cfg.opencode.enable;
         tui = {
           theme = "catppuccin";
         };
