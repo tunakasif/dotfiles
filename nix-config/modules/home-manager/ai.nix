@@ -31,6 +31,75 @@ in
     (lib.mkIf cfg.enable {
       programs.claude-code = {
         enable = cfg.claude.enable;
+        settings = {
+          theme = "auto";
+          includeCoAuthoredBy = false;
+          permissions = {
+            defaultMode = "acceptEdits";
+            allow = [
+              # Safe inspection
+              "Bash(pwd)"
+              "Bash(ls *)"
+              "Bash(tree *)"
+              "Bash(find *)"
+              "Bash(fd *)"
+              "Bash(rg *)"
+              "Bash(grep *)"
+              "Bash(cat *)"
+
+              # Git read-only
+              "Bash(git status *)"
+              "Bash(git diff *)"
+              "Bash(git log *)"
+              "Bash(git branch *)"
+              "Bash(git show *)"
+
+              # Python project workflows
+              "Bash(uv sync *)"
+              "Bash(uv run *)"
+              "Bash(pytest *)"
+              "Bash(ruff check *)"
+              "Bash(ruff format *)"
+              "Bash(pyright *)"
+            ];
+
+            ask = [
+              # Mutating VCS operations should stay visible.
+              "Bash(git add *)"
+              "Bash(git commit *)"
+              "Bash(git push *)"
+              "Bash(git reset *)"
+              "Bash(git clean *)"
+
+              # Package installs / external execution.
+              "Bash(curl *)"
+              "Bash(wget *)"
+              "Bash(npm *)"
+              "Bash(npx *)"
+              "Bash(pip *)"
+              "Bash(uv pip *)"
+            ];
+
+            deny = [
+              # Secrets and credentials
+              "Read(./.env)"
+              "Read(./.env.*)"
+              "Read(./secrets/**)"
+              "Read(./.aws/**)"
+              "Read(./.config/gh/hosts.yml)"
+              "Read(./id_rsa)"
+              "Read(./id_ed25519)"
+
+              # Dangerous shell patterns
+              "Bash(sudo *)"
+              "Bash(su *)"
+              "Bash(rm -rf / *)"
+              "Bash(rm -rf ~ *)"
+              "Bash(chmod 777 *)"
+              "Bash(git push --force *)"
+            ];
+          };
+        };
       };
       programs.opencode = {
         enable = cfg.opencode.enable;
