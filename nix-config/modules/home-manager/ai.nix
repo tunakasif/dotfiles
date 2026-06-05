@@ -34,6 +34,7 @@ in
         settings = {
           theme = "auto";
           includeCoAuthoredBy = false;
+          model = "claude-opus-4-8";
           permissions = {
             defaultMode = "acceptEdits";
             allow = [
