@@ -2,11 +2,16 @@
   pkgs,
   config,
   user,
+  lib,
   ...
 }:
 let
   organization = "lts4-dislearn";
   vscodeExtDir = "${config.home.homeDirectory}/.vscode/extensions";
+  claudeSettings = builtins.toJSON {
+    hasCompletedOnboarding = true;
+    theme = "auto";
+  };
 in
 {
   imports = [
@@ -19,6 +24,26 @@ in
 
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
+
+    # init claude settings
+    activation.seedClaudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            file="$HOME/.claude.json"
+
+            if [ ! -e "$file" ]; then
+              cat > "$file" <<'EOF'
+      ${claudeSettings}
+      EOF
+              chmod u+rw "$file"
+            fi
+    '';
+    activation.claudeSettingsDetach = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      target="$HOME/.claude/settings.json"
+      if [ -L "$target" ]; then
+        real="$(readlink -f "$target")"   # resolve to the /nix/store file
+        run rm -f "$target"
+        run install -m644 "$real" "$target"
+      fi
+    '';
   };
   my = {
     latex = "medium";
