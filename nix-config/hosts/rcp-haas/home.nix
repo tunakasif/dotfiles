@@ -36,13 +36,19 @@ in
               chmod u+rw "$file"
             fi
     '';
-    activation.claudeSettingsDetach = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      target="$HOME/.claude/settings.json"
-      if [ -L "$target" ]; then
-        real="$(readlink -f "$target")"   # resolve to the /nix/store file
-        run rm -f "$target"
-        run install -m644 "$real" "$target"
-      fi
+    activation.settingsDetach = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      targets=(
+        "$HOME/.claude/settings.json"
+        "$HOME/.config/gh/config.yml"
+      )
+
+      for target in "''${targets[@]}"; do
+        if [ -L "$target" ]; then
+          real="$(readlink -f "$target")" # resolve to the /nix/store file
+          run rm -f "$target"
+          run install -m644 "$real" "$target"
+        fi
+      done
     '';
   };
   my = {
