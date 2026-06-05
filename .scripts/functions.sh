@@ -290,16 +290,66 @@ function runai-bash-job-interactive() {
     runai bash "$job_id"
 }
 
+function rcp-select-pod() {
+    local pods name
+
+    pods="$(kubectl get pod --no-headers)" || return 1
+    [ -z "$pods" ] && return 1
+
+    if [ "$#" -eq 1 ]; then
+        echo "$pods" | awk '{print $1}' | grep -Fx "$1" || {
+            echo "No pod with name: $1" >&2
+            # list pods as comma separated values for better readability
+            echo "Available pods: [$(echo "$pods" | awk '{print $1}' | paste -sd ", " -)]" >&2
+            return 1
+        }
+        return 0
+    elif [ "$#" -ne 0 ]; then
+        echo "Usage: rcp-select-pod [pod-name]" >&2
+        return 1
+    fi
+
+    selected_pod=$(echo "$pods" | gum filter --header="Select Pod:" --select-if-one | awk '{print $1}')
+    echo "$selected_pod"
+}
+
+function rcp-auth-pod() {
+    # interactive selection of a pod
+    selected_pod="$(rcp-select-pod $@)"
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+
+    # copy the ssh keys to the pod, for git signing etc.
+    pod_home="$(kubectl exec "$selected_pod" -- sh -c 'printf %s "$HOME"')"
+    kubectl exec $selected_pod -- sh -c 'mkdir -p "$HOME/.ssh/"'
+    kubectl cp "$HOME/.ssh/id_rsa" "$selected_pod:$pod_home/.ssh/id_rsa"
+    kubectl cp "$HOME/.ssh/id_rsa.pub" "$selected_pod:$pod_home/.ssh/id_rsa.pub"
+
+    # login to github cli using the token stored in doppler secrets
+    kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic 'doppler secrets get GH_CLI_PAT --plain | gh auth login --with-token'
+}
+
 function rcp-nix-shell() {
-    pods="$(kubectl get pod --no-headers)"
-    if [ -z "$pods" ]; then
+    # interactive selection of a pod
+    selected_pod="$(rcp-select-pod $@)"
+    if [ $? -ne 0 ]; then
         return 1
     fi
-    selected_pod="$(echo $pods | gum filter --header="Select Pod:" --select-if-one | awk '{print $1}')"
-    if [ -z "$selected_pod" ]; then
+
+    # open a nix-shell in the pod
+    pod_home="$(kubectl exec "$selected_pod" -- sh -c 'printf %s "$HOME"')"
+    kubectl exec --stdin --tty $selected_pod -- "$pod_home/.nix-profile/bin/zsh" -l
+}
+
+function rcp-nix-shell-with-auth() {
+    # interactive selection of a pod
+    selected_pod="$(rcp-select-pod $@)"
+    if [ $? -ne 0 ]; then
         return 1
     fi
-    kubectl exec --stdin --tty $selected_pod -- /home/$EPFL_USER/.nix-profile/bin/zsh -l
+
+    rcp-auth-pod "$selected_pod" && rcp-nix-shell "$selected_pod"
 }
 
 function rcp-notify() {
