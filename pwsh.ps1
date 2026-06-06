@@ -20,4 +20,3 @@ function fml {
 };
 # function fml { lf -last-dir-path ~\.lfdir\last_dir; $LASTDIR = (cat ~\.lfdir\last_dir); echo $LASTDIR };
 function sudo { powershell.exe Start-Process -Verb RunAs wt };
-

@@ -40,4 +40,3 @@ stash:
 pop:
 	@echo "Popping stash..."
 	@git stash pop || { echo "Failed to pop stash"; exit 1; }
-

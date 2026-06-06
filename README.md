@@ -41,4 +41,3 @@ My dotfiles to configure programs I use.
 ### Syncing
 
 - [`InSync`](./.Insync/) *Cloud sync with `.gitignore`, [home page](https://www.insynchq.com/).*
-

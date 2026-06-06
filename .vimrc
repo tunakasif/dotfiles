@@ -81,4 +81,3 @@ let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 "indent
 au BufRead,BufNewFile *.md setlocal textwidth=79
-

@@ -77,7 +77,7 @@ cmd extract ${{
         *.7z) 7z x $f;;
     esac
 }}
-map x extract 
+map x extract
 
 # compress current file or selected files with tar and gunzip
 cmd tar ${{

@@ -1,5 +1,5 @@
-source "$HOME/.scripts/export.sh"       
-source "$HOME/.scripts/alias.sh"       
+source "$HOME/.scripts/export.sh"
+source "$HOME/.scripts/alias.sh"
 source "$HOME/.scripts/catppuccin-mocha-zsh-syntax-highlighting.zsh"
 
 plugins=(
@@ -25,4 +25,3 @@ source "$HOME/.scripts/bindkey.sh"
 # eval
 eval $(thefuck --alias)
 eval "$(starship init zsh)"
-
