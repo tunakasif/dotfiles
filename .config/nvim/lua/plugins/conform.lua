@@ -12,6 +12,7 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
+			bash = { "shfmt", "shellcheck" },
 			bib = { "bibtex_tidy" },
 			cpp = { "clang-format" },
 			lua = { "stylua" },
@@ -30,6 +31,8 @@ return {
 			javascript = { "prettier", "prettierd" },
 			json = { "prettier", "prettierd" },
 			rust = { "rustfmt" },
+			sh = { "shfmt", "shellcheck" },
+			shell = { "shfmt", "shellcheck" },
 			tex = { "latexindent", "trim_whitespace" },
 			toml = function(bufnr)
 				local full = vim.api.nvim_buf_get_name(bufnr)
@@ -44,6 +47,7 @@ return {
 				end
 			end,
 			typst = { "typstyle", "trim_whitespace" },
+			zsh = { "shfmt", "shellcheck" },
 			["_"] = { "trim_whitespace" },
 		},
 		formatters = {
