@@ -1,0 +1,68 @@
+# Run once:  pre-commit install
+# Update pins:  pre-commit autoupdate
+# Run on all files:  pre-commit run --all-files
+
+exclude: |
+  (?x)^(
+    \*.lock|
+    .*lazy-lock\.json|
+    \.local/share/pandoc/templates/eisvogel\..*|
+    \.config/mpv/scripts/sponsorblock.*|
+    \.config/ranger/(commands_full\.py|rifle\.conf)|
+    \.config/lf/icons
+  )$
+
+repos:
+  # --- General hygiene ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: check-toml
+      - id: check-yaml
+      - id: check-json
+        exclude: ^\.config/Code/
+
+  # --- Secret scanning ---
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  # --- Lua ---
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.5.2
+    hooks:
+      - id: stylua
+
+  # --- Shell: bash/sh only (zsh scripts in .scripts/ are unsupported by these tools) ---
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.13.1-1
+    hooks:
+      - id: shfmt
+        exclude: (^\.scripts/|^\.config/ranger/|\.zshrc$|\.zsh$)
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.11.0
+    hooks:
+      - id: shellcheck
+        exclude: (^\.scripts/|^\.config/ranger/|\.zshrc$|\.zsh$)
+
+  # --- Nix (uses the local nixfmt installed via home-manager) ---
+  - repo: local
+    hooks:
+      - id: nixfmt
+        name: nixfmt
+        entry: nixfmt
+        language: system
+        files: \.nix$
+
+  # --- Commit message: Conventional Commits (reuses your existing .gitlint) ---
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
