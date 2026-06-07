@@ -108,6 +108,9 @@ in
           theme = "catppuccin";
         };
         settings = {
+          plugin = [
+            "opencode-claude-auth@latest"
+          ];
           mcp = {
             filesystem = {
               enabled = true;
