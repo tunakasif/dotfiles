@@ -39,6 +39,7 @@ _: {
       "insync"
       "kitty"
       "latexit"
+      "logi-options+"
       "notunes"
       "obs"
       "ollama-app"
