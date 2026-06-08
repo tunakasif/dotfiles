@@ -32,10 +32,12 @@
       hyperfine
       imagemagick
       jq
+      jujutsu
       just
       kubernetes-helm
       lazydocker
       lazygit
+      lazyjj
       less
       ltex-ls
       lua51Packages.luarocks
