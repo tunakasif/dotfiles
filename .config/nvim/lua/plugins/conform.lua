@@ -30,7 +30,7 @@ return {
 			end,
 			javascript = { "prettier", "prettierd" },
 			json = { "prettier", "prettierd" },
-			nix = { "nixfmt", "statix" },
+			nix = { "alejandra" },
 			rust = { "rustfmt" },
 			sh = { "shfmt", "shellcheck" },
 			shell = { "shfmt", "shellcheck" },
