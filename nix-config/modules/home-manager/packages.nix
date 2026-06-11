@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
       act
+      alejandra
       bat
       bibtex-tidy
       clang-tools
