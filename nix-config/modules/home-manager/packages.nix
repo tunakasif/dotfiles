@@ -63,6 +63,7 @@
       taplo
       tealdeer
       tmux
+      tree
       tree-sitter
       ttyper
       unzip
