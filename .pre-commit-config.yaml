@@ -53,13 +53,10 @@ repos:
         exclude: (^\.scripts/|^\.config/ranger/|\.zshrc$|\.zsh$)
 
   # --- Nix (uses the local nixfmt installed via home-manager) ---
-  - repo: local
+  - repo: https://github.com/kamadorueda/alejandra
+    rev: 4.0.0
     hooks:
-      - id: nixfmt
-        name: nixfmt
-        entry: nixfmt
-        language: system
-        files: \.nix$
+      - id: alejandra-system
 
   # --- Commit message: Conventional Commits (reuses your existing .gitlint) ---
   - repo: https://github.com/jorisroovers/gitlint
