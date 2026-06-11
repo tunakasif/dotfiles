@@ -4,14 +4,14 @@ return {
 		{
 			"<leader>fs",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,
 			mode = "",
 			desc = "Format buffer",
 		},
 	},
-	opts = {
-		formatters_by_ft = {
+	opts = function(_, opts)
+		opts.formatters_by_ft = vim.tbl_extend("force", opts.formatters_by_ft or {}, {
 			bash = { "shfmt", "shellcheck" },
 			bib = { "bibtex_tidy" },
 			cpp = { "clang-format" },
@@ -30,6 +30,7 @@ return {
 			end,
 			javascript = { "prettier", "prettierd" },
 			json = { "prettier", "prettierd" },
+			nix = { "nixfmt", "statix" },
 			rust = { "rustfmt" },
 			sh = { "shfmt", "shellcheck" },
 			shell = { "shfmt", "shellcheck" },
@@ -49,8 +50,8 @@ return {
 			typst = { "typstyle", "trim_whitespace" },
 			zsh = { "shfmt", "shellcheck" },
 			["_"] = { "trim_whitespace" },
-		},
-		formatters = {
+		})
+		opts.formatters = vim.tbl_extend("force", opts.formatters or {}, {
 			bibtex_tidy = {
 				command = "bibtex-tidy",
 				stdin = true,
@@ -64,6 +65,6 @@ return {
 					"--sort=year,key,name",
 				},
 			},
-		},
-	},
+		})
+	end,
 }
