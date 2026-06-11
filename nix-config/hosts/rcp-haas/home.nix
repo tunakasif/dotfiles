@@ -4,29 +4,27 @@
   user,
   lib,
   ...
-}:
-let
+}: let
   organization = "lts4-dislearn";
   vscodeExtDir = "${config.home.homeDirectory}/.vscode/extensions";
   claudeSettings = builtins.toJSON {
     hasCompletedOnboarding = true;
     theme = "auto";
   };
-in
-{
+in {
   imports = [
     ../../modules/home-manager
   ];
   home = {
     username = user.gasparUsername;
     homeDirectory = "/home/${user.gasparUsername}";
-    packages = with pkgs; [ hello ];
+    packages = with pkgs; [hello];
 
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
 
     # init claude settings
-    activation.seedClaudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    activation.seedClaudeSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
             file="$HOME/.claude.json"
 
             if [ ! -e "$file" ]; then
@@ -36,7 +34,7 @@ in
               chmod u+rw "$file"
             fi
     '';
-    activation.settingsDetach = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    activation.settingsDetach = lib.hm.dag.entryAfter ["linkGeneration"] ''
       targets=(
         "$HOME/.claude/settings.json"
         "$HOME/.config/gh/config.yml"

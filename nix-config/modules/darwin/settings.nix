@@ -3,12 +3,10 @@
   user,
   inputs,
   ...
-}:
-let
+}: let
   systemApps = "/System/Applications";
   userApps = "/Applications";
-in
-{
+in {
   ids.gids.nixbld = 350;
   nix.settings = {
     download-buffer-size = 524288000;
@@ -48,21 +46,21 @@ in
         show-recents = false;
         mru-spaces = false;
         persistent-apps = [
-          { app = "${systemApps}/System Settings.app"; }
-          { app = "${userApps}/Ghostty.app"; }
-          { app = "${userApps}/Helium.app"; }
-          { app = "${systemApps}/Mail.app"; }
-          { app = "${userApps}/Visual Studio Code.app"; }
-          { app = "${userApps}/Cursor.app"; }
-          { app = "${systemApps}/Calendar.app"; }
-          { app = "${userApps}/Slack.app"; }
-          { app = "${userApps}/zoom.us.app"; }
-          { app = "${userApps}/Spotify.app"; }
-          { app = "${userApps}/WhatsApp.app"; }
-          { app = "${systemApps}/Messages.app"; }
-          { app = "${systemApps}/FaceTime.app"; }
-          { app = "${userApps}/Zotero.app"; }
-          { app = "${systemApps}/iPhone Mirroring.app"; }
+          {app = "${systemApps}/System Settings.app";}
+          {app = "${userApps}/Ghostty.app";}
+          {app = "${userApps}/Helium.app";}
+          {app = "${systemApps}/Mail.app";}
+          {app = "${userApps}/Visual Studio Code.app";}
+          {app = "${userApps}/Cursor.app";}
+          {app = "${systemApps}/Calendar.app";}
+          {app = "${userApps}/Slack.app";}
+          {app = "${userApps}/zoom.us.app";}
+          {app = "${userApps}/Spotify.app";}
+          {app = "${userApps}/WhatsApp.app";}
+          {app = "${systemApps}/Messages.app";}
+          {app = "${systemApps}/FaceTime.app";}
+          {app = "${userApps}/Zotero.app";}
+          {app = "${systemApps}/iPhone Mirroring.app";}
         ];
         # disable hot corners
         wvous-bl-corner = 1;

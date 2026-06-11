@@ -3,8 +3,7 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   config = {
     home.packages = with pkgs; [
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -77,7 +76,7 @@
       zsh-fzf-tab
     ];
 
-    home.activation.uvPython = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    home.activation.uvPython = lib.hm.dag.entryAfter ["writeBoundary"] ''
       UV_PATH="/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$PATH"
       PATH="$UV_PATH" ${pkgs.uv}/bin/uv python install 3.11 3.12 3.13
       PATH="$UV_PATH" ${pkgs.uv}/bin/uv python pin --global 3.12

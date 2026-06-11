@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.my;
-in
-{
+in {
   options.my = {
     latex = lib.mkOption {
       type = lib.types.enum [
@@ -22,7 +20,11 @@ in
 
   config = lib.mkIf (cfg.latex != "disabled") {
     home.packages = with pkgs; [
-      (if cfg.latex == "full" then texliveFull else texliveMedium)
+      (
+        if cfg.latex == "full"
+        then texliveFull
+        else texliveMedium
+      )
     ];
   };
 }

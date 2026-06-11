@@ -12,7 +12,7 @@ _: {
     };
     caskArgs.no_quarantine = true;
 
-    taps = [ ];
+    taps = [];
     brews = [
       "asitop"
       "bitwarden-cli"

@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.ai;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.ai;
+in {
   options.my.ai = {
     enable = lib.mkOption {
       type = lib.types.bool;

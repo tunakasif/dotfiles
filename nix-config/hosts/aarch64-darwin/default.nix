@@ -1,15 +1,13 @@
-{ user, ... }:
-let
+{user, ...}: let
   uid = 501; # User ID created by MacOS for the user use `id -u` to get it.
-in
-{
+in {
   imports = [
     ../../modules/darwin
   ];
 
   # Host-specific user configuration
   users = {
-    knownUsers = [ user.username ];
+    knownUsers = [user.username];
     users.${user.username} = {
       name = user.username;
       description = user.name;

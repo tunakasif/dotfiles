@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   programs = {
     zsh = {
       enable = true;
@@ -31,7 +30,6 @@
           zstyle :omz:plugins:keychain agents gpg,ssh
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=automatic --group-directories-first --color=always $realpath'
         '';
-
       };
 
       plugins = [
@@ -42,25 +40,24 @@
       ];
 
       # Extra zshrc snippets
-      initContent =
-        let
-          zshConfigEarlyInit = lib.mkOrder 500 ''
-            ZSH_DISABLE_COMPFIX="true"
-            export ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-${pkgs.zsh.version}"
-            source "$HOME/dotfiles/.scripts/export.sh"
-          '';
-          zshConfig = lib.mkOrder 1000 ''
-            source "$HOME/dotfiles/.scripts/alias.sh"
-            source "$HOME/dotfiles/.scripts/functions.sh"
-            source "$HOME/dotfiles/.scripts/phue.sh"
-            source "$HOME/dotfiles/.scripts/kitty.sh"
-            source "$HOME/dotfiles/.scripts/bindkey.sh"
-            source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
-            [ -f "$HOME/dotfiles/.scripts/secrets.sh" ] && source "$HOME/dotfiles/.scripts/secrets.sh"
+      initContent = let
+        zshConfigEarlyInit = lib.mkOrder 500 ''
+          ZSH_DISABLE_COMPFIX="true"
+          export ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-${pkgs.zsh.version}"
+          source "$HOME/dotfiles/.scripts/export.sh"
+        '';
+        zshConfig = lib.mkOrder 1000 ''
+          source "$HOME/dotfiles/.scripts/alias.sh"
+          source "$HOME/dotfiles/.scripts/functions.sh"
+          source "$HOME/dotfiles/.scripts/phue.sh"
+          source "$HOME/dotfiles/.scripts/kitty.sh"
+          source "$HOME/dotfiles/.scripts/bindkey.sh"
+          source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
+          [ -f "$HOME/dotfiles/.scripts/secrets.sh" ] && source "$HOME/dotfiles/.scripts/secrets.sh"
 
-            eval "$(starship init zsh)"
-          '';
-        in
+          eval "$(starship init zsh)"
+        '';
+      in
         lib.mkMerge [
           zshConfigEarlyInit
           zshConfig
@@ -74,7 +71,7 @@
     zoxide.enable = true;
   };
 
-  home.activation.createZshCacheDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.createZshCacheDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p "${config.xdg.cacheHome}/zsh"
   '';
 }

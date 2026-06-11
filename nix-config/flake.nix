@@ -22,89 +22,86 @@
       flake = false;
     };
   };
-  outputs =
-    inputs@{
-      systems,
-      self,
-      nix-auth,
-      darwin,
-      mac-app-util,
-      nixpkgs,
-      home-manager,
-      nix-homebrew,
-      homebrew-core,
-      homebrew-cask,
-      ...
-    }:
-    let
-      user = {
-        name = "Tuna Alikaşifoğlu";
-        email = "tunakasif@gmail.com";
-        username = "tunakasif";
-        gasparUsername = "alikasif";
-        workLaptopHost = "lts4mac54";
+  outputs = inputs @ {
+    systems,
+    self,
+    nix-auth,
+    darwin,
+    mac-app-util,
+    nixpkgs,
+    home-manager,
+    nix-homebrew,
+    homebrew-core,
+    homebrew-cask,
+    ...
+  }: let
+    user = {
+      name = "Tuna Alikaşifoğlu";
+      email = "tunakasif@gmail.com";
+      username = "tunakasif";
+      gasparUsername = "alikasif";
+      workLaptopHost = "lts4mac54";
+    };
+    specialArgs = {
+      inherit user inputs;
+    };
+    nixpkgsConfig = {
+      allowUnfree = true;
+    };
+  in {
+    darwinConfigurations.${user.workLaptopHost} = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        {nixpkgs.config = nixpkgsConfig;}
+        ./hosts/aarch64-darwin
+        mac-app-util.darwinModules.default
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            verbose = true;
+            users.${user.username} = ./hosts/aarch64-darwin/home.nix;
+            extraSpecialArgs = specialArgs;
+            sharedModules = [mac-app-util.homeManagerModules.default];
+          };
+        }
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true; # Install Homebrew under the default prefix
+            user = "${user.username}"; # User owning the Homebrew prefix
+            autoMigrate = true; # Automatically migrate existing Homebrew installations
+          };
+        }
+      ];
+      inherit specialArgs;
+    };
+
+    homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = nixpkgsConfig;
       };
-      specialArgs = {
+      modules = [
+        ./hosts/x86_64-linux/home.nix
+      ];
+      extraSpecialArgs = {
         inherit user inputs;
       };
-      nixpkgsConfig = {
-        allowUnfree = true;
-      };
-    in
-    {
-      darwinConfigurations.${user.workLaptopHost} = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          { nixpkgs.config = nixpkgsConfig; }
-          ./hosts/aarch64-darwin
-          mac-app-util.darwinModules.default
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              verbose = true;
-              users.${user.username} = ./hosts/aarch64-darwin/home.nix;
-              extraSpecialArgs = specialArgs;
-              sharedModules = [ mac-app-util.homeManagerModules.default ];
-            };
-          }
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true; # Install Homebrew under the default prefix
-              user = "${user.username}"; # User owning the Homebrew prefix
-              autoMigrate = true; # Automatically migrate existing Homebrew installations
-            };
-          }
-        ];
-        inherit specialArgs;
-      };
+    };
 
-      homeConfigurations.${user.username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = nixpkgsConfig;
-        };
-        modules = [
-          ./hosts/x86_64-linux/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit user inputs;
-        };
+    homeConfigurations.${user.gasparUsername} = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = nixpkgsConfig;
       };
-
-      homeConfigurations.${user.gasparUsername} = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = nixpkgsConfig;
-        };
-        modules = [
-          ./hosts/rcp-haas/home.nix
-        ];
-        extraSpecialArgs = {
-          inherit user inputs;
-        };
+      modules = [
+        ./hosts/rcp-haas/home.nix
+      ];
+      extraSpecialArgs = {
+        inherit user inputs;
       };
     };
+  };
 }
