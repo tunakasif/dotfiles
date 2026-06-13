@@ -5,6 +5,14 @@
   ...
 }: {
   programs = {
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          inherit (user) name email;
+        };
+      };
+    };
     git = {
       enable = true;
       settings = {
