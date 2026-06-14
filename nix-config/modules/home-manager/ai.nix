@@ -32,11 +32,11 @@ in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.claude-code = {
-        enable = cfg.claude.enable;
+        inherit (cfg.claude) enable;
         settings = {
           theme = "auto";
           includeCoAuthoredBy = false;
-          model = "claude-opus-4-8";
+          model = "opus";
           permissions = {
             defaultMode = "acceptEdits";
             allow = [
