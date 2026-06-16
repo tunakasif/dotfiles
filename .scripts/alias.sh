@@ -34,7 +34,7 @@ alias lg='lazygit'
 alias ldo='lazydocker'
 
 # rcp
-alias ssh-rcp-zsh='ssh -t rcp-haas001 ". ~/.cargo/env; nix-user-chroot ~/.nix ~/.nix-profile/bin/zsh -l"'
+alias ssh-rcp-zsh='ssh -t rcp-haas001 ". ~/.cargo/env; export PATH=\"/home/alikasif/.pixi/bin:$PATH\"; zsh -l"'
 
 # runai
 alias ra='runai'
