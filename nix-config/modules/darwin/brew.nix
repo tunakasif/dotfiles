@@ -10,7 +10,6 @@ _: {
       autoUpdate = true;
       brewfile = true;
     };
-    caskArgs.no_quarantine = true;
 
     taps = [];
     brews = [
