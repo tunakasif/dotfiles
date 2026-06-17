@@ -27,10 +27,22 @@ in {
         description = "Enable claude code configuration";
       };
     };
+
+    codex = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = cfg.enable;
+        description = "Enable codex configuration";
+      };
+    };
   };
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
+      programs.codex = {
+        inherit (cfg.claude) enable;
+      };
+
       programs.claude-code = {
         inherit (cfg.claude) enable;
         settings = {
