@@ -13,14 +13,6 @@
     };
     mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
   };
   outputs = inputs @ {
     systems,
@@ -31,8 +23,6 @@
     nixpkgs,
     home-manager,
     nix-homebrew,
-    homebrew-core,
-    homebrew-cask,
     ...
   }: let
     user = {
@@ -72,6 +62,7 @@
             enable = true; # Install Homebrew under the default prefix
             user = "${user.username}"; # User owning the Homebrew prefix
             autoMigrate = true; # Automatically migrate existing Homebrew installations
+            mutableTaps = true; # Homebrew manages taps so autoUpdate/upgrade can fetch latest formulae
           };
         }
       ];
