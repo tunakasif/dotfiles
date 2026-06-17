@@ -38,6 +38,7 @@ _: {
       "kitty"
       "latexit"
       "logi-options+"
+      "monitorcontrol"
       "notunes"
       "obs"
       "ollama-app"
