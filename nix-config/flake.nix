@@ -88,7 +88,7 @@
         config = nixpkgsConfig;
       };
       modules = [
-        ./hosts/rcp-haas/home.nix
+        ./hosts/rcp/home.nix
       ];
       extraSpecialArgs = {
         inherit user inputs;
