@@ -75,7 +75,7 @@
         config = nixpkgsConfig;
       };
       modules = [
-        ./hosts/x86_64-linux/home.nix
+        ./hosts/dellxps/home.nix
       ];
       extraSpecialArgs = {
         inherit user inputs;
