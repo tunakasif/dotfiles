@@ -43,7 +43,7 @@
       system = "aarch64-darwin";
       modules = [
         {nixpkgs.config = nixpkgsConfig;}
-        ./hosts/aarch64-darwin
+        ./hosts/lts4mac54
         mac-app-util.darwinModules.default
         home-manager.darwinModules.home-manager
         {
@@ -51,7 +51,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             verbose = true;
-            users.${user.username} = ./hosts/aarch64-darwin/home.nix;
+            users.${user.username} = ./hosts/lts4mac54/home.nix;
             extraSpecialArgs = specialArgs;
             sharedModules = [mac-app-util.homeManagerModules.default];
           };
