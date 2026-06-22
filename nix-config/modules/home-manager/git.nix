@@ -16,7 +16,10 @@
     git = {
       enable = true;
       settings = {
-        gpg.format = "ssh";
+        gpg = {
+          format = "ssh";
+          ssh.allowedSignersFile = "${config.home.homeDirectory}/.config/git/allowed_signers";
+        };
         tag.gpgsign = true;
         commit.gpgsign = true;
         user = {
