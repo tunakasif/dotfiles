@@ -17,6 +17,7 @@ _: {
       "bitwarden-cli"
       "gnupg"
       "graphviz"
+      "herdr"
       "pi-coding-agent"
       "terminal-notifier"
     ];
