@@ -1,0 +1,60 @@
+# ~/.pixi/manifests/pixi-global.toml
+version = 1
+
+[envs.cli]
+channels = ["conda-forge"]
+dependencies = {
+  bat = "*",
+  btop = "*",
+  dust = "*",
+  eza = "*",
+  fd-find = "*",
+  fzf = "*",
+  gdu = "*",
+  gh = "*",
+  jq = "*",
+  lazygit = "*",
+  nodejs = "*",
+  nvim = "*",
+  pre-commit = "*",
+  ripgrep = "*",
+  starship = "*",
+  tmux = "*",
+  tree-sitter-cli = "*",
+  yazi = "*",
+  yq = "*",
+  zoxide = "*",
+}
+exposed = {
+  bat = "bat",
+  btop = "btop",
+  dust = "dust",
+  eza = "eza",
+  fd = "fd",
+  fzf = "fzf",
+  gdu = "gdu",
+  gh = "gh",
+  jq = "jq",
+  lazygit = "lazygit",
+  node = "node",
+  npm = "npm",
+  npx = "npx",
+  nvim = "nvim",
+  pre-commit = "pre-commit",
+  rg = "rg",
+  starship = "starship",
+  tmux = "tmux",
+  tree-sitter = "tree-sitter",
+  yazi = "yazi",
+  yq = "yq",
+  zoxide = "zoxide",
+}
+
+[envs.python]
+channels = ["conda-forge"]
+dependencies = {
+  uv = "*",
+}
+exposed = {
+  uv = "uv",
+}
