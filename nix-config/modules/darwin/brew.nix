@@ -51,6 +51,7 @@ _: {
       "slack"
       "spotify"
       "thunderbird"
+      "telegram"
       "tiles"
       "visual-studio-code"
       "vlc"
