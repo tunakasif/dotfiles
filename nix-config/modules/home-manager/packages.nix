@@ -23,6 +23,7 @@
       fastfetch
       fd
       # ffmpeg-full
+      gdu
       gh
       ghostscript
       glab
