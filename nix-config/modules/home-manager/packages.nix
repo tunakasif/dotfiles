@@ -15,6 +15,7 @@
       cmatrix
       commitizen
       cookiecutter
+      d2
       delta
       devenv
       doppler
