@@ -23,7 +23,8 @@ repos:
         args: [--fix=lf]
       - id: check-merge-conflict
       - id: check-added-large-files
-      - id: check-toml
+      - id: check-toml # add ignore pixi-global
+        exclude: ^pixi/pixi-global\.toml$
       - id: check-yaml
       - id: check-json
         exclude: ^\.config/Code/
