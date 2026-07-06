@@ -122,6 +122,24 @@ in {
           theme = "catppuccin";
         };
         settings = {
+          provider = {
+            cefprovider = {
+              npm = "@ai-sdk/openai-compatible";
+              name = "RCP AI Inference as a Service";
+              options = {
+                baseURL = "https://inference-rcp.epfl.ch/v1";
+              };
+              models = {
+                "moonshotai/Kimi-K2.7-Code" = {
+                  name = "moonshotai/Kimi-K2.7-Code";
+                  modalities = {
+                    input = ["image" "text"];
+                    output = ["text"];
+                  };
+                };
+              };
+            };
+          };
           plugin = [
             "opencode-claude-auth@latest"
           ];
