@@ -35,10 +35,22 @@ in {
         description = "Enable codex configuration";
       };
     };
+
+    pi = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = cfg.enable;
+        description = "Enable pi configuration";
+      };
+    };
   };
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
+      programs.pi-coding-agent = {
+        inherit (cfg.claude) enable;
+      };
+
       programs.codex = {
         inherit (cfg.claude) enable;
       };
