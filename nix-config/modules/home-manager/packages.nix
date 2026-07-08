@@ -60,7 +60,6 @@
       ruff
       scc
       speedtest-cli
-      statix
       stylua
       taplo
       tealdeer
