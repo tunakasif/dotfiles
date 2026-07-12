@@ -47,7 +47,7 @@ in {
         mru-spaces = false;
         persistent-apps = [
           {app = "${systemApps}/System Settings.app";}
-          {app = "${userApps}/Ghostty.app";}
+          {app = "${userApps}/kitty.app";}
           {app = "${userApps}/Helium.app";}
           {app = "${systemApps}/Mail.app";}
           {app = "${userApps}/Visual Studio Code.app";}
