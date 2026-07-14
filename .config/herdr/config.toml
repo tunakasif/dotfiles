@@ -10,6 +10,7 @@ show_agent_labels_on_pane_borders = true
 name = "catppuccin"
 auto_switch = false
 
+# allow j/k navigation in the workspace picker
 [keys]
 workspace_picker = "prefix+w"
 
@@ -19,6 +20,31 @@ navigate_workspace_up = "k"
 # Avoid conflicts with the default pane navigation:
 navigate_pane_down = "ctrl+j"
 navigate_pane_up = "ctrl+k"
+
+# allow resizing panes with alt+arrow keys
+[[keys.command]]
+key = "alt+left"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane resize --direction left --amount 0.05 --current"
+description = "Resize pane left"
+
+[[keys.command]]
+key = "alt+down"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane resize --direction down --amount 0.05 --current"
+description = "Resize pane down"
+
+[[keys.command]]
+key = "alt+up"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane resize --direction up --amount 0.05 --current"
+description = "Resize pane up"
+
+[[keys.command]]
+key = "alt+right"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane resize --direction right --amount 0.05 --current"
+description = "Resize pane right"
 
 # herdr-navigator plugin keybindings
 [[keys.command]]
