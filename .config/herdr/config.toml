@@ -1,0 +1,46 @@
+onboarding = false
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[keys]
+workspace_picker = "prefix+w"
+
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+
+# Avoid conflicts with the default pane navigation:
+navigate_pane_down = "ctrl+j"
+navigate_pane_up = "ctrl+k"
+
+# herdr-navigator plugin keybindings
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "willfish.herdr-navigator.left"
+description = "navigate left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "willfish.herdr-navigator.down"
+description = "navigate down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "willfish.herdr-navigator.up"
+description = "navigate up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "willfish.herdr-navigator.right"
+description = "navigate right"
