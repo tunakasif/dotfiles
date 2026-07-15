@@ -13,7 +13,6 @@
       bibtex-tidy
       clang-tools
       cmatrix
-      commitizen
       cookiecutter
       d2
       delta
