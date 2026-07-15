@@ -17,7 +17,6 @@ _: {
       "bitwarden-cli"
       "gnupg"
       "graphviz"
-      "herdr"
       "terminal-notifier"
     ];
     casks = [

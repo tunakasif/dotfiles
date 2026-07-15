@@ -31,6 +31,7 @@
       glow
       go
       gum
+      herdr
       hyperfine
       imagemagick
       jq
