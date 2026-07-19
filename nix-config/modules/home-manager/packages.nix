@@ -20,6 +20,7 @@
       doppler
       dust
       eza
+      fast
       fastfetch
       fd
       # ffmpeg-full
@@ -59,7 +60,7 @@
       ripgrep
       ruff
       scc
-      speedtest-cli
+      speedtest-go
       stylua
       taplo
       tealdeer
