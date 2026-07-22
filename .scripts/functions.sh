@@ -212,7 +212,7 @@ get-mtype-lang-file() {
             fzf                                                  # interactive interface for selecting
     )
     target_url="$DOWNLOAD_BASE_URL/frontend/static/languages/$name.json"
-    words=$(curl --silent $target_url | jq '.words[]' | sed 's/"//g')
+    words=$(curl --silent $target_url | jq -r '.words[]')
     tmpfile=$(mktemp)
     echo $words | tr ' ' '\n' >$tmpfile
     echo $tmpfile
