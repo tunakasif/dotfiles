@@ -68,6 +68,7 @@ _: {
       "iMovie" = 408981434;
 
       "Bitwarden" = 1352778147;
+      "Coca" = 1000808993;
       "Dark Reader for Safari" = 1438243180;
       "Klack" = 6446206067;
       "SponsorBlock for Safari" = 1573461917;
