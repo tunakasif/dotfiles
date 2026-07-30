@@ -18,6 +18,7 @@ _: {
       "gnupg"
       "graphviz"
       "terminal-notifier"
+      "tuicr"
     ];
     casks = [
       "adobe-acrobat-reader"
