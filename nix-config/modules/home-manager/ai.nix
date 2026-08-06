@@ -99,8 +99,6 @@ in {
               "Bash(git clean *)"
 
               # Package installs / external execution.
-              "Bash(curl *)"
-              "Bash(wget *)"
               "Bash(npm *)"
               "Bash(npx *)"
               "Bash(pip *)"
