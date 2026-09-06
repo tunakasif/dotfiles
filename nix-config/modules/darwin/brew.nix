@@ -43,6 +43,7 @@ _: {
       "obs"
       "ollama-app"
       "orbstack"
+      "ppsspp-emulator"
       "protonvpn"
       "qbittorrent"
       "raycast"
