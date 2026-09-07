@@ -23,7 +23,7 @@ dependencies = {
   tree-sitter-cli = "*",
   yazi = "*",
   yq = "*",
-  zoxide = "*",
+  zoxide = "*"
 }
 exposed = {
   bat = "bat",
@@ -47,14 +47,14 @@ exposed = {
   tree-sitter = "tree-sitter",
   yazi = "yazi",
   yq = "yq",
-  zoxide = "zoxide",
+  zoxide = "zoxide"
 }
 
 [envs.python]
 channels = ["conda-forge"]
 dependencies = {
-  uv = "*",
+  uv = "*"
 }
 exposed = {
-  uv = "uv",
+  uv = "uv"
 }
