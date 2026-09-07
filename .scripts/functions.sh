@@ -361,8 +361,7 @@ function rcp-notify() {
     kubectl wait --timeout=-1s --for=condition=Ready pod/$selected_pod &&
         echo "$selected_pod is ready!" |
         terminal-notifier \
-            -sender "com.apple.Terminal" \
-            -contentImage 'https://wiki.rcp.epfl.ch/public/images/epfl.png' \
+            -contentImage "$HOME/Pictures/epfl/epfl.png" \
             -title 'RCP' \
             -sound default
 }
