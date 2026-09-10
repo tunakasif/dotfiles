@@ -30,6 +30,7 @@ return {
 			end,
 			javascript = { "prettier", "prettierd" },
 			json = { "prettier", "prettierd" },
+			matlab = { "mh_style" },
 			nix = { "alejandra" },
 			rust = { "rustfmt" },
 			sh = { "shfmt", "shellcheck" },
