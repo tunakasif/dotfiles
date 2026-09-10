@@ -146,6 +146,33 @@ in {
                     input = ["image" "text"];
                     output = ["text"];
                   };
+                  cost = {
+                    input = 0.4771;
+                    output = 1.4312;
+                  };
+                  limit = {
+                    context = 200000;
+                    output = 50000;
+                  };
+                };
+                "deepseek-ai/DeepSeek-V4-Flash-0731" = {
+                  name = "deepseek-ai/DeepSeek-V4-Flash-0731";
+                  modalities = {
+                    input = ["text"];
+                    output = ["text"];
+                  };
+                  cost = {
+                    input = 0.0824;
+                    output = 0.2473;
+                  };
+                  limit = {
+                    context = 900000;
+                    output = 100000;
+                  };
+                  reasoning = true;
+                  options = {
+                    reasoning_effort = "max";
+                  };
                 };
               };
             };
