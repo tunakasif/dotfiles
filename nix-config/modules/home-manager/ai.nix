@@ -58,6 +58,16 @@ in {
       programs.claude-code = {
         inherit (cfg.claude) enable;
         settings = {
+          extraKnownMarketplaces.ponytail = {
+            source = {
+              source = "github";
+              repo = "DietrichGebert/ponytail";
+            };
+            autoUpdate = true;
+          };
+          enabledPlugins = {
+            "ponytail@ponytail" = true;
+          };
           theme = "auto";
           includeCoAuthoredBy = false;
           model = "opus";
