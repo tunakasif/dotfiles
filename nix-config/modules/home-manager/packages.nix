@@ -55,6 +55,7 @@
       pandoc
       pnpm
       pre-commit
+      prek
       prettier
       prettierd
       ripgrep
