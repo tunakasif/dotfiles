@@ -14,6 +14,7 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-homebrew.inputs.brew-src.url = "github:Homebrew/brew/6.0.13";
+    claude-code-nix.url = "github:sadjow/claude-code-nix";
   };
   outputs = inputs @ {
     systems,
@@ -24,6 +25,7 @@
     nixpkgs,
     home-manager,
     nix-homebrew,
+    claude-code-nix,
     ...
   }: let
     user = {
@@ -43,7 +45,12 @@
     darwinConfigurations.${user.workLaptopHost} = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        {nixpkgs.config = nixpkgsConfig;}
+        {
+          nixpkgs = {
+            config = nixpkgsConfig;
+            overlays = [claude-code-nix.overlays.default];
+          };
+        }
         ./hosts/lts4mac54
         mac-app-util.darwinModules.default
         home-manager.darwinModules.home-manager
