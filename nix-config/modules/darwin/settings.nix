@@ -8,26 +8,28 @@
   userApps = "/Applications";
 in {
   ids.gids.nixbld = 350;
-  nix.settings = {
-    download-buffer-size = 524288000;
-    experimental-features = "nix-command flakes";
-    trusted-users = [
-      "root"
-      "@admin"
-      user.username
-    ];
-  };
-  nix.linux-builder = {
-    enable = true;
-    package = pkgs.darwin.linux-builder-vz;
-    systems = ["aarch64-linux" "x86_64-linux"];
-    ephemeral = true;
-    maxJobs = 4;
-    config.virtualisation = {
-      cores = 6;
-      darwin-builder = {
-        diskSize = 80 * 1024; # CUDA layers are big
-        memorySize = 8 * 1024;
+  nix = {
+    settings = {
+      download-buffer-size = 524288000;
+      experimental-features = "nix-command flakes";
+      trusted-users = [
+        "root"
+        "@admin"
+        user.username
+      ];
+    };
+    linux-builder = {
+      enable = true;
+      package = pkgs.darwin.linux-builder-vz;
+      systems = ["aarch64-linux" "x86_64-linux"];
+      ephemeral = true;
+      maxJobs = 4;
+      config.virtualisation = {
+        cores = 6;
+        darwin-builder = {
+          diskSize = 80 * 1024; # CUDA layers are big
+          memorySize = 8 * 1024;
+        };
       };
     };
   };
