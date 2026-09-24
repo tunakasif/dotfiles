@@ -26,6 +26,7 @@ local mason_packages = {
 	"pyright",
 	"ruff",
 	"shfmt",
+	"statix",
 	"stylua",
 	"tailwindcss-language-server",
 	"taplo",
