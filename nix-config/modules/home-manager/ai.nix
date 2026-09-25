@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -47,9 +48,45 @@ in {
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
+      xdg.configFile."ponytail/config.json".text = builtins.toJSON {defaultMode = "off";};
+      home.file."${config.programs.pi-coding-agent.configDir}/claude-bridge.json".text = builtins.toJSON {
+        provider = {
+          plan = "max";
+          pathToClaudeCodeExecutable = lib.getExe pkgs.claude-code;
+        };
+        askClaude.enabled = false;
+        startupNoticeShown = "2026-09-25";
+      };
       programs = {
         pi-coding-agent = {
           inherit (cfg.pi) enable;
+          extraPackages = [pkgs.nodejs];
+          settings = {
+            defaultProvider = "openai-codex";
+            defaultModel = "gpt-6-astra";
+            defaultThinkingLevel = "xhigh";
+            enabledModels = [
+              "openai-codex/gpt-6-astra"
+              "claude-bridge/claude-fable-5-1"
+              "claude-bridge/claude-opus-5"
+            ];
+            packages = [
+              "npm:pi-claude-bridge"
+              "npm:pi-subagents"
+              "npm:pi-messenger"
+              "npm:pi-web-access"
+              "npm:pi-mcp-adapter"
+              "npm:pi-lens"
+              "npm:pi-footer"
+              "npm:pi-btw"
+              "npm:@juicesharp/rpiv-todo"
+              "npm:@juicesharp/rpiv-ask-user-question"
+              "npm:@dietrichgebert/ponytail"
+              "npm:@sherif-fanous/pi-catppuccin"
+            ];
+            theme = "catppuccin-mocha";
+            enableInstallTelemetry = false;
+          };
         };
 
         codex = {
