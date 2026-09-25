@@ -1,7 +1,6 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERM=xterm-256color
-export YT_DLP_FORMAT='bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best'
 export FZF_DEFAULT_OPTS="--layout=reverse \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \

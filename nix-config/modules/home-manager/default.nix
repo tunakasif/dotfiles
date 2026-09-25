@@ -18,5 +18,6 @@
     ./git.nix
     ./ai.nix
     ./latex.nix
+    ./yt-dlp.nix
   ];
 }

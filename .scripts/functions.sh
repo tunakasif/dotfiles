@@ -34,14 +34,6 @@ trash-can() {
     cd "$HOME/.local/share/Trash" || exit
 }
 
-ytd() {
-    yt-dlp -f $YT_DLP_FORMAT $1
-}
-
-ytfzfd() {
-    yt-dlp -f "$YT_DLP_FORMAT" "$(ytfzf -tL $1)"
-}
-
 my-mail() {
     mw -Y
     neomutt
@@ -405,4 +397,81 @@ function ocrun() {
         --variant "$selected_variant" \
         "$(gum write --placeholder 'Enter your prompt...')" |
         glow -
+}
+
+ytd() {
+    local url=${1:?usage: ytd <url> [yt-dlp args…]}
+    local metadata menu choice container format
+    shift
+
+    metadata=$(gum spin --show-output --title "Fetching formats…" -- yt-dlp -J "$url") || return
+    menu=$(jq -r '
+        def format_size:
+            if . >= 1e9 then "\(. / 1e9 * 10 | round / 10)GB"
+            else "\(. / 1e6 | round)MB"
+            end;
+
+        def file_size: .filesize // .filesize_approx // 0;
+        def dynamic_range: .dynamic_range // "SDR";
+        def video_only: (.acodec // "none") == "none";
+        def columns:
+            map(tostring | . + " " * ([8 - length, 0] | max)) | add;
+
+        def format_label($audio; $container):
+            [
+                $container,
+                "\(.height)p",
+                (.vcodec // "?" | split(".")[0]),
+                dynamic_range,
+                "\(.fps // 0 | round)fps",
+                (file_size + (if video_only then ($audio | file_size) else 0 end) | format_size)
+            ] | columns;
+
+        # gum displays the label and returns the value after the tab.
+        def selection($audio; $container):
+            "\t\($container) \(.format_id)\(if video_only and $audio then "+\($audio.format_id)" else "" end)";
+
+        [.formats[] | select(.vcodec != "none" and .height != null)] as $all_videos
+        # Prefer non-HLS streams, falling back to HLS when necessary.
+        | ($all_videos
+            | map(select((.protocol // "") | startswith("m3u8") | not))
+            | if length > 0 then . else $all_videos end
+        ) as $videos
+        | [.formats[] | select(.acodec != "none" and (.vcodec // "none") == "none")] as $audio
+        | ($audio | max_by([.language_preference // 0, .abr // .tbr // 0])) as $best_audio
+        | (($audio | map(select(.ext == "m4a")) | max_by(.abr // .tbr // 0)) // $best_audio) as $m4a_audio
+        # The compatibility preset uses H.264 in MP4, at most 1080p.
+        | ($videos
+            | map(select(.ext == "mp4" and ((.vcodec // "") | startswith("avc1")) and .height <= 1080))
+            | max_by([.height, .fps // 0, .tbr // 0])
+        ) as $compatible_video
+        # At each resolution, prefer HDR, then bitrate; list highest resolution first.
+        | ($videos
+            | group_by(.height)
+            | reverse
+            | map(max_by([(dynamic_range != "SDR"), .tbr // 0]))
+        ) as $best_videos
+        | ($compatible_video | select(.)
+            | format_label($m4a_audio; "mp4") + "most compatible (WhatsApp etc.), no subs" + selection($m4a_audio; "mp4")),
+          ($best_videos[0]
+            | format_label($best_audio; "mkv") + "best quality, thumbnail + all subs" + selection($best_audio; "mkv")),
+          (["mkv", "choose resolution…"] | columns) + "\tpick",
+          "",
+          ($best_videos[] | format_label($best_audio; "mkv") + selection($best_audio; "mkv"))
+    ' <<<"$metadata") || return
+
+    # A blank line separates the presets from the resolution choices.
+    choice=$(gum choose --label-delimiter $'\t' \
+        --header "$(jq -r '.title' <<<"$metadata")" <<<"${menu%%$'\n\n'*}") || return
+    if [[ $choice == pick ]]; then
+        choice=$(gum choose --label-delimiter $'\t' \
+            --header "Resolution (mkv)" <<<"${menu#*$'\n\n'}") || return
+    fi
+
+    read -r container format <<<"$choice"
+    case $container in
+    mp4) set -- --merge-output-format mp4 --no-embed-subs "$@" ;;
+    mkv) set -- --merge-output-format mkv --embed-thumbnail --embed-subs --sub-langs all,-live_chat "$@" ;;
+    esac
+    yt-dlp -f "$format" --embed-metadata "$@" -- "$url"
 }
