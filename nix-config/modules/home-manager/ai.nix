@@ -48,11 +48,11 @@ in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.pi-coding-agent = {
-        inherit (cfg.claude) enable;
+        inherit (cfg.pi) enable;
       };
 
       programs.codex = {
-        inherit (cfg.claude) enable;
+        inherit (cfg.codex) enable;
       };
 
       programs.claude-code = {
@@ -137,7 +137,7 @@ in {
         };
       };
       programs.opencode = {
-        enable = cfg.opencode.enable;
+        inherit (cfg.opencode) enable;
         tui = {
           theme = "catppuccin";
         };
