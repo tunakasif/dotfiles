@@ -9,6 +9,7 @@
       inputs.nix-auth.packages.${pkgs.stdenv.hostPlatform.system}.default
       act
       alejandra
+      aria2
       bat
       bibtex-tidy
       clang-tools
