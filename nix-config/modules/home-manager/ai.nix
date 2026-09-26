@@ -79,6 +79,7 @@ in {
               "npm:pi-lens"
               "npm:pi-footer"
               "npm:pi-btw"
+              "npm:@upstash/context7-pi"
               "npm:@juicesharp/rpiv-todo"
               "npm:@juicesharp/rpiv-ask-user-question"
               "npm:@dietrichgebert/ponytail"
