@@ -75,7 +75,6 @@ in {
               "npm:pi-subagents"
               "npm:pi-messenger"
               "npm:pi-web-access"
-              "npm:pi-mcp-adapter"
               "npm:pi-lens"
               "npm:pi-footer"
               "npm:pi-btw"
