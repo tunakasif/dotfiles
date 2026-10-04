@@ -41,6 +41,14 @@
         merge = {
           conflictStyle = "zdiff3";
         };
+        diff.tool = "difftastic";
+        difftool.difftastic.cmd = ''${config.programs.difftastic.package}/bin/difft "$LOCAL" "$REMOTE"'';
+        alias = {
+          # Structural diffs with difftastic
+          ddiff = "-c diff.external=difft diff";
+          dshow = "-c diff.external=difft show --ext-diff";
+          dlog = "-c diff.external=difft log -p --ext-diff";
+        };
       };
       ignores = [
         ".direnv/"
@@ -64,6 +72,15 @@
       options = {
         navigate = true;
         line-numbers = true;
+      };
+    };
+
+    difftastic = {
+      enable = true;
+      options = {
+        color = "always";
+        sort-paths = true;
+        tab-width = 4;
       };
     };
   };
