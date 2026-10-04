@@ -38,6 +38,9 @@
           prune = true;
           pruneTags = true;
         };
+        merge = {
+          conflictStyle = "zdiff3";
+        };
       };
       ignores = [
         ".direnv/"
