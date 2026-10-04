@@ -30,6 +30,7 @@ _: {
       "claude"
       "cursor"
       "discord"
+      "element"
       "firefox"
       "ghostty"
       "google-chrome"
