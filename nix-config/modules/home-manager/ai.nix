@@ -69,7 +69,7 @@ in {
               "openai-codex/gpt-6-astra"
               "openai-codex/gpt-6.1-sol"
               "claude-bridge/claude-fable-5-1"
-              "claude-bridge/claude-opus-5"
+              "claude-bridge/claude-opus-5-5"
             ];
             packages = [
               "npm:pi-claude-bridge"
