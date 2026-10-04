@@ -67,6 +67,7 @@ in {
             defaultThinkingLevel = "xhigh";
             enabledModels = [
               "openai-codex/gpt-6-astra"
+              "openai-codex/gpt-6.1-sol"
               "claude-bridge/claude-fable-5-1"
               "claude-bridge/claude-opus-5"
             ];
