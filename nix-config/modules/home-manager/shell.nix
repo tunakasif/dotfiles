@@ -28,7 +28,7 @@
         ];
         extraConfig = ''
           zstyle :omz:plugins:keychain agents gpg,ssh
-          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=automatic --group-directories-first --color=always $realpath'
+          zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --group-directories-first --color=always $realpath'
         '';
       };
 
