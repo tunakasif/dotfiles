@@ -11,6 +11,9 @@ in {
 
   # Register the nix-maintained zsh as a valid login shell.
   environment.shells = [pkgs.zsh];
+  environment.variables = {
+    NODE_EXTRA_CA_CERTS = "/etc/ssl/cert.pem";
+  };
 
   # Host-specific user configuration
   users = {
