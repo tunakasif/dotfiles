@@ -15,6 +15,7 @@
       clang-tools
       cmatrix
       cookiecutter
+      croc
       d2
       delta
       devenv
