@@ -345,9 +345,7 @@ function rcp-nix-shell-with-auth() {
 }
 
 function rcp-notify() (
-    local pods selected_pod row ready pod_status age watch_dir watcher= waiter=
-    local read_timeout=0.1
-    set -- ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏
+    local pods selected_pod row ready pod_status age frame waiter=
     pods=$(kubectl get pods --no-headers) || return
     if [[ -z "$pods" ]]; then
         printf 'No pods in the current namespace.\n' >&2
@@ -355,44 +353,33 @@ function rcp-notify() (
     fi
     selected_pod=$(gum filter --header="Select Pod:" --select-if-one <<<"$pods") || return
     [[ -n "$selected_pod" ]] || return 1
-    read -r selected_pod ready pod_status age <<<"$selected_pod"
-    age=${age##* }
+    read -r selected_pod row <<<"$selected_pod"
 
-    watch_dir=$(mktemp -d) || return
-    trap 'if [[ -n "$watcher" ]]; then kill "$watcher" 2>/dev/null; wait "$watcher" 2>/dev/null; fi
-          if [[ -n "$waiter" ]]; then kill "$waiter" 2>/dev/null; wait "$waiter" 2>/dev/null; fi
-          rm -f "$watch_dir/pods"; rmdir "$watch_dir"
+    trap 'if [[ -n "$waiter" ]]; then kill "$waiter" 2>/dev/null; wait "$waiter" 2>/dev/null; fi
           if [[ -t 2 ]]; then printf "\r\033[K\033[?25h" >&2; fi' EXIT
     trap 'exit 130' INT
     trap 'exit 143' TERM
 
-    mkfifo "$watch_dir/pods" || return
-    kubectl get pods "$selected_pod" --watch --no-headers >"$watch_dir/pods" &
-    watcher=$!
-    exec 3<"$watch_dir/pods"
     kubectl wait --timeout=-1s --for=condition=Ready "pod/$selected_pod" >/dev/null &
     waiter=$!
     [[ ! -t 2 ]] || printf '\033[?25l' >&2
 
+    # A watch emits only pod changes; poll to refresh AGE even when nothing changes.
     while kill -0 "$waiter" 2>/dev/null; do
-        if read -r -t "$read_timeout" row <&3; then
-            read -r row ready pod_status age <<<"$row"
-            age=${age##* }
-        elif ! kill -0 "$watcher" 2>/dev/null; then
+        row=$(kubectl get pods "$selected_pod" --no-headers) || return
+        read -r row ready pod_status age <<<"$row"
+        age=${age##* }
+        for frame in ⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏; do
             kill -0 "$waiter" 2>/dev/null || break
-            wait "$watcher"
-            [[ ! -t 2 ]] || printf '\r\033[K' >&2
-            printf 'Pod watch ended before readiness.\n' >&2
-            return 1
-        fi
-        if [[ -t 2 ]]; then
-            printf '\r\033[35m%s\033[0m %s · %s \033[2m· %s\033[0m\033[K' \
-                "$1" "$selected_pod" "$pod_status" "$age" >&2
-        fi
-        set -- "$@" "$1"
-        shift
+            if [[ -t 2 ]]; then
+                printf '\r\033[35m%s\033[0m %s · %s \033[2m· %s\033[0m\033[K' \
+                    "$frame" "$selected_pod" "$pod_status" "$age" >&2
+            fi
+            sleep 0.1
+        done
     done
     wait "$waiter" || return
+    waiter=
 
     [[ ! -t 2 ]] || printf '\r\033[K' >&2
     printf '%s\n' "$selected_pod"
