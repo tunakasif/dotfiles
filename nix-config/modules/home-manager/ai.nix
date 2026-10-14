@@ -110,6 +110,7 @@ in {
             theme = "auto";
             includeCoAuthoredBy = false;
             model = "opus";
+            effortLevel = "xhigh";
             permissions = {
               defaultMode = "acceptEdits";
               allow = [
