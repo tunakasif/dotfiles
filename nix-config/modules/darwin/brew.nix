@@ -58,6 +58,7 @@ _: {
       "vlc"
       "wealthfolio"
       "whatsapp"
+      "zed"
       "zen"
       "zoom"
       "zotero"
