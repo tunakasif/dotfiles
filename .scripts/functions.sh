@@ -318,8 +318,13 @@ function rcp-auth-pod() {
     kubectl cp "$HOME/.ssh/id_rsa" "$selected_pod:$pod_home/.ssh/id_rsa"
     kubectl cp "$HOME/.ssh/id_rsa.pub" "$selected_pod:$pod_home/.ssh/id_rsa.pub"
 
-    # login to github cli using the token stored in doppler secrets
-    kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic 'doppler secrets get GH_CLI_PAT --plain | gh auth login --with-token'
+    # login to github cli and copy Claude credentials, using secrets stored in doppler
+    kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic '
+        mkdir -p "$HOME/.claude"
+        doppler secrets get GH_CLI_PAT --plain --project dotfiles | gh auth login --with-token
+        doppler secrets get EPFL_RCP_CLAUDE_CREDENTIALS_JSON --plain --project dotfiles > "$HOME/.claude/.credentials.json"
+        doppler secrets get EPFL_RCP_PI_AUTH_JSON --plain --project dotfiles > "$HOME/.pi/agent/auth.json"
+    '
 }
 
 function rcp-nix-shell() {
