@@ -57,6 +57,8 @@ in {
       initContent = ''
         export SHELL="$HOME/.nix-profile/bin/zsh"
         export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gasparUsername}
+        export _ZO_DATA_DIR=/mnt/${organization}/scratch/home/${user.gasparUsername}/.local/share/zoxide/
+
         alias cdsh="cd $SCRATCH_HOME"
       '';
     };
