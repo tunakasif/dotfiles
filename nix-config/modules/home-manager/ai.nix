@@ -108,6 +108,7 @@ in {
               "ponytail@ponytail" = true;
             };
             theme = "auto";
+            tui = "fullscreen";
             includeCoAuthoredBy = false;
             model = "opus";
             effortLevel = "xhigh";
