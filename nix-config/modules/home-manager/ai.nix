@@ -121,7 +121,7 @@ in {
               };
             };
             permissions = {
-              defaultMode = "acceptEdits";
+              defaultMode = "auto";
               allow = [
                 # Safe inspection
                 "Bash(pwd)"
