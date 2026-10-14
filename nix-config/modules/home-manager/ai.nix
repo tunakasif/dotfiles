@@ -62,12 +62,12 @@ in {
           inherit (cfg.pi) enable;
           extraPackages = [pkgs.nodejs];
           settings = {
-            defaultProvider = "openai-codex";
+            defaultProvider = "openai";
             defaultModel = "gpt-6-astra";
             defaultThinkingLevel = "xhigh";
             enabledModels = [
-              "openai-codex/gpt-6-astra"
-              "openai-codex/gpt-6.1-sol"
+              "openai/gpt-6-astra"
+              "openai/gpt-6.1-sol"
               "claude-bridge/claude-fable-5-1"
               "claude-bridge/claude-opus-5-5"
             ];
