@@ -112,6 +112,14 @@ in {
             includeCoAuthoredBy = false;
             model = "opus";
             effortLevel = "xhigh";
+            modelSettings = {
+              claude-opus-5-5 = {
+                effortLevel = "xhigh";
+              };
+              claude-fable-5-1 = {
+                effortLevel = "xhigh";
+              };
+            };
             permissions = {
               defaultMode = "acceptEdits";
               allow = [
