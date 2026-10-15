@@ -324,6 +324,7 @@ function rcp-auth-pod() {
         doppler secrets get GH_CLI_PAT --plain --project dotfiles | gh auth login --with-token
         doppler secrets get EPFL_RCP_CLAUDE_CREDENTIALS_JSON --plain --project dotfiles > "$HOME/.claude/.credentials.json"
         doppler secrets get EPFL_RCP_PI_AUTH_JSON --plain --project dotfiles > "$HOME/.pi/agent/auth.json"
+        nohup zsh -ic "watch-claude-credentials" </dev/null >/tmp/claude-watch.log 2>&1 &!
     '
 }
 
