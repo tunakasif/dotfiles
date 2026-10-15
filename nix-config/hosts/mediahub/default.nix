@@ -12,8 +12,6 @@
   };
   networking = {
     hostName = user.mediaServerName;
-    localHostName = user.mediaServerName;
-    computerName = user.mediaServerName;
     networkmanager.enable = true;
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
