@@ -9,6 +9,10 @@ in {
     ../../modules/darwin
   ];
 
+  homebrew.casks = [
+    "insta360-link-controller"
+  ];
+
   # Register the nix-maintained zsh as a valid login shell.
   environment.shells = [pkgs.zsh];
   environment.variables = {
