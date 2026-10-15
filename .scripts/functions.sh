@@ -322,9 +322,12 @@ function rcp-auth-pod() {
     kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic '
         mkdir -p "$HOME/.claude"
         doppler secrets get GH_CLI_PAT --plain --project dotfiles | gh auth login --with-token
+
         doppler secrets get EPFL_RCP_CLAUDE_CREDENTIALS_JSON --plain --project dotfiles > "$HOME/.claude/.credentials.json"
+        nohup zsh -ic "watch-credentials "$HOME/.claude/.credentials.json" EPFL_RCP_CLAUDE_CREDENTIALS_JSON" </dev/null >/tmp/claude-watch.log 2>&1 &!
+
         doppler secrets get EPFL_RCP_PI_AUTH_JSON --plain --project dotfiles > "$HOME/.pi/agent/auth.json"
-        nohup zsh -ic "watch-claude-credentials" </dev/null >/tmp/claude-watch.log 2>&1 &!
+        nohup zsh -ic "watch-credentials "$HOME/.pi/auth.json" EPFL_RCP_PI_AUTH_JSON" </dev/null >/tmp/pi-watch.log 2>&1 &!
     '
 }
 

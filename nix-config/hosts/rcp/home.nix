@@ -64,20 +64,20 @@ in {
 
         alias cdsh="cd $SCRATCH_HOME"
 
-        watch-claude-credentials() {
-        local file="$HOME/.claude/.credentials.json"
+        watch-credentials() {
+            local file="$1" secret="$2" changed
 
-        inotifywait -m -q -e close_write,moved_to --format '%f' "$HOME/.claude" |
-        while IFS= read -r changed; do
-            [[ "$changed" == ".credentials.json" && -s "$file" ]] || continue
+            inotifywait -m -q -e close_write,moved_to --format '%w%f' "$(dirname "$file")" |
+            while IFS= read -r changed; do
+            [[ "$changed" == "$file" && -s "$file" ]] || continue
 
-            doppler secrets set EPFL_RCP_CLAUDE_CREDENTIALS_JSON \
-            --no-check-version \
-            --project dotfiles \
-            --config dev \
-            --type json \
-            --silent < "$file"
-        done
+            doppler secrets set "$secret" \
+                --no-check-version \
+                --project dotfiles \
+                --config dev \
+                --type json \
+                --silent < "$file"
+            done
         }
       '';
     };
