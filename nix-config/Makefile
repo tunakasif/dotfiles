@@ -3,7 +3,7 @@
 OS := $(shell uname -s)
 
 ifeq ($(OS), Linux)
-    CMD = home-manager switch --flake .
+    CMD = $(if $(wildcard /etc/NIXOS),sudo nixos-rebuild,home-manager) switch --flake .
 else ifeq ($(OS), Darwin)
     CMD = sudo darwin-rebuild switch --flake .
 else
