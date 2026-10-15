@@ -327,7 +327,7 @@ function rcp-auth-pod() {
         nohup zsh -ic "watch-credentials "$HOME/.claude/.credentials.json" EPFL_RCP_CLAUDE_CREDENTIALS_JSON" </dev/null >/tmp/claude-watch.log 2>&1 &!
 
         doppler secrets get EPFL_RCP_PI_AUTH_JSON --plain --project dotfiles > "$HOME/.pi/agent/auth.json"
-        nohup zsh -ic "watch-credentials "$HOME/.pi/auth.json" EPFL_RCP_PI_AUTH_JSON" </dev/null >/tmp/pi-watch.log 2>&1 &!
+        nohup zsh -ic "watch-credentials "$HOME/.pi/agent/auth.json" EPFL_RCP_PI_AUTH_JSON" </dev/null >/tmp/pi-watch.log 2>&1 &!
     '
 }
 
