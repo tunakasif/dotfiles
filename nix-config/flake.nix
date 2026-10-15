@@ -33,6 +33,7 @@
       username = "tunakasif";
       gasparUsername = "alikasif";
       workLaptopHost = "lts4mac54";
+      mediaServerName = "mediahub";
     };
     specialArgs = {
       inherit user inputs;
@@ -72,6 +73,14 @@
             mutableTaps = true; # Homebrew manages taps so autoUpdate/upgrade can fetch latest formulae
           };
         }
+      ];
+      inherit specialArgs;
+    };
+
+    nixosConfigurations.${user.mediaServerName} = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/mediahub
       ];
       inherit specialArgs;
     };
