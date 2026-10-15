@@ -50,9 +50,13 @@
     isNormalUser = true;
     description = user.name;
     extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.zsh;
   };
 
-  programs.firefox.enable = true;
+  programs = {
+    firefox.enable = true;
+    zsh.enable = true;
+  };
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
