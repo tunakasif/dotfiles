@@ -88,9 +88,10 @@
     claude-code
     gcc
     gh
+    git
     gnumake
     gnupg
-    git
+    kitty
     neovim
     pi-coding-agent
     thunderbird
