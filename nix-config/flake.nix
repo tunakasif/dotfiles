@@ -81,6 +81,16 @@
       system = "x86_64-linux";
       modules = [
         ./hosts/mediahub
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            verbose = true;
+            users.${user.username} = ./hosts/mediahub/home.nix;
+            extraSpecialArgs = specialArgs;
+          };
+        }
       ];
       inherit specialArgs;
     };
