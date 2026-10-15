@@ -20,6 +20,19 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  hardware.nvidia = {
+    # The Pascal GTX 1050 Ti requires the closed kernel module and 580 legacy branch.
+    branch = "legacy_580";
+    open = false;
+    # Keep the desktop on Intel; FFmpeg accesses NVIDIA directly through CUDA/NVENC.
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
   services = {
     openssh = {
       enable = true;
@@ -34,10 +47,13 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
-    xserver.xkb = {
-      layout = "tr";
-      variant = "";
-      options = "caps:escape";
+    xserver = {
+      videoDrivers = ["nvidia"];
+      xkb = {
+        layout = "tr";
+        variant = "";
+        options = "caps:escape";
+      };
     };
 
     pcscd.enable = true;
