@@ -33,6 +33,7 @@
     };
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
     xserver.xkb = {
       layout = "tr";
       variant = "";
