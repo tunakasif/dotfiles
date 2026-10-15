@@ -56,6 +56,7 @@ in {
     latex = "medium";
   };
   programs = {
+    direnv.config.whitelist.prefix = ["/"];
     zsh = {
       initContent = ''
         export SHELL="$HOME/.nix-profile/bin/zsh"
