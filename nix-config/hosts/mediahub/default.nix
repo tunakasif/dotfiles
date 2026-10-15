@@ -63,7 +63,7 @@
   users.users.${user.username} = {
     isNormalUser = true;
     description = user.name;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7i6tFgftK8ibglU2kUm9VLvecBjJLBraPvwJncxpWg/xfkc1vs8tpslcaOL9W1duVGRfsUU4kIn9PR+aMgqzj24WdFPPCg1V8SazAgvHWAcaw1xA+5wupQntRT8JLeqgAyfLuYmouqYmt9IrfHnIO6zJetc0wSn3Z2DXsJNfsFntKQH/X2V6L80AKOQ26obexYtT0LocMQMa3KSuZo8SswF5hPQgh8/pplPm8dC8NLVzk7u9Bz1ZMjsNOIL4t0bEGI/1tb4Rxx9Z9IeZOQxJqAKBtU6Rgvz8jgOglM35jUGbzO6m4zwNFnl7eo5ReQemlZ07YK50e/pQVFJPHxpx2fRzT1j+rERKnPC9Fy6ZNKBMD642zMBwqluqtnYG96ZE5RFfkmSQRLQT37c6j2qSCKtHPYAqdRdC0V3+JuuvHNBv0Dlz5Ko1PRWhaCtTiJ8WnyuqzaMvzHo+qSBi28UNziuylu8shAlhFoRubPALqRc15wy4pgwVhJhN7p1Ec/tk= tunakasif@gmail.com"
@@ -101,5 +101,12 @@
     wget
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.caskaydia-cove
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+  ];
+
+  virtualisation.docker.enable = true;
   system.stateVersion = "26.05";
 }
