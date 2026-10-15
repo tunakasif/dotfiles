@@ -26,6 +26,7 @@
       options = "caps:escape";
     };
 
+    pcscd.enable = true;
     printing.enable = true;
     pulseaudio.enable = false;
     pipewire = {
@@ -55,18 +56,31 @@
 
   programs = {
     firefox.enable = true;
+    nix-ld.enable = true;
     zsh.enable = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+        pinentryPackage = pkgs.pinentry-gnome3;
+      };
+    };
   };
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     claude-code
+    gcc
     gh
+    gnumake
+    gnupg
     git
     neovim
     pi-coding-agent
     thunderbird
+    tree-sitter
     vim
+    vscode
     wget
   ];
 
