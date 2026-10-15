@@ -12,6 +12,9 @@ endif
 
 all: stash update build pop
 
+cmd:
+	@echo "Build command:\n$(CMD)"
+
 build:
 	$(CMD)
 
