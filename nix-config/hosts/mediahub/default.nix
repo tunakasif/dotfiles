@@ -84,6 +84,12 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = ["kitty.desktop"];
+  };
+  environment.sessionVariables.TERMINAL = "kitty";
+
   environment.systemPackages = with pkgs; [
     claude-code
     gcc
