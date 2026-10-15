@@ -18,7 +18,10 @@ in {
   home = {
     username = user.gasparUsername;
     homeDirectory = "/home/${user.gasparUsername}";
-    packages = with pkgs; [hello];
+    packages = with pkgs; [
+      inotify-tools
+      doppler
+    ];
 
     # ~/.vscode-server/extensions (so point it at HM-managed extensions)
     file.".vscode-server/extensions".source = config.lib.file.mkOutOfStoreSymlink vscodeExtDir;
@@ -60,6 +63,22 @@ in {
         export _ZO_DATA_DIR=/mnt/${organization}/scratch/home/${user.gasparUsername}/.local/share/zoxide/
 
         alias cdsh="cd $SCRATCH_HOME"
+
+        watch-claude-credentials() {
+        local file="$HOME/.claude/.credentials.json"
+
+        inotifywait -m -q -e close_write,moved_to --format '%f' "$HOME/.claude" |
+        while IFS= read -r changed; do
+            [[ "$changed" == ".credentials.json" && -s "$file" ]] || continue
+
+            doppler secrets set EPFL_RCP_CLAUDE_CREDENTIALS_JSON \
+            --no-check-version \
+            --project dotfiles \
+            --config dev \
+            --type json \
+            --silent < "$file"
+        done
+        }
       '';
     };
     git.settings = {
