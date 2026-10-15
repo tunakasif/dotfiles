@@ -13,11 +13,24 @@
   networking = {
     hostName = user.mediaServerName;
     networkmanager.enable = true;
+    firewall.extraCommands = ''
+      iptables -A nixos-fw -s 192.168.1.0/24 -p tcp --dport 22 -j nixos-fw-accept
+    '';
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
   time.timeZone = "Europe/Zurich";
   i18n.defaultLocale = "en_US.UTF-8";
   services = {
+    openssh = {
+      enable = true;
+      openFirewall = false;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+        AllowUsers = [user.username];
+      };
+    };
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     xserver.xkb = {
@@ -52,6 +65,9 @@
     description = user.name;
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7i6tFgftK8ibglU2kUm9VLvecBjJLBraPvwJncxpWg/xfkc1vs8tpslcaOL9W1duVGRfsUU4kIn9PR+aMgqzj24WdFPPCg1V8SazAgvHWAcaw1xA+5wupQntRT8JLeqgAyfLuYmouqYmt9IrfHnIO6zJetc0wSn3Z2DXsJNfsFntKQH/X2V6L80AKOQ26obexYtT0LocMQMa3KSuZo8SswF5hPQgh8/pplPm8dC8NLVzk7u9Bz1ZMjsNOIL4t0bEGI/1tb4Rxx9Z9IeZOQxJqAKBtU6Rgvz8jgOglM35jUGbzO6m4zwNFnl7eo5ReQemlZ07YK50e/pQVFJPHxpx2fRzT1j+rERKnPC9Fy6ZNKBMD642zMBwqluqtnYG96ZE5RFfkmSQRLQT37c6j2qSCKtHPYAqdRdC0V3+JuuvHNBv0Dlz5Ko1PRWhaCtTiJ8WnyuqzaMvzHo+qSBi28UNziuylu8shAlhFoRubPALqRc15wy4pgwVhJhN7p1Ec/tk= tunakasif@gmail.com"
+    ];
   };
 
   programs = {
