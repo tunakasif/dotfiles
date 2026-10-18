@@ -16,6 +16,31 @@
       enable = true;
       group = "media";
     };
+    bazarr = {
+      enable = true;
+      group = "media";
+      # Keep API keys, provider credentials, and language profiles in Bazarr's UI.
+      settings = {
+        general = {
+          use_sonarr = true;
+          use_radarr = true;
+          single_language = false;
+          subfolder = "current";
+          wanted_search_frequency = 6;
+          wanted_search_frequency_movie = 6;
+        };
+        sonarr = {
+          ip = "127.0.0.1";
+          port = 8989;
+          only_monitored = false;
+        };
+        radarr = {
+          ip = "127.0.0.1";
+          port = 7878;
+          only_monitored = false;
+        };
+      };
+    };
     prowlarr.enable = true;
     flaresolverr.enable = true;
     qbittorrent = {
@@ -42,12 +67,13 @@
   systemd.services = {
     radarr.serviceConfig.UMask = lib.mkForce "0007";
     sonarr.serviceConfig.UMask = lib.mkForce "0007";
+    bazarr.serviceConfig.UMask = "0007";
     qbittorrent.serviceConfig.UMask = "0007";
   };
 
   # Keep web UIs and Jellyfin discovery on the LAN, not globally open.
   networking.firewall.extraCommands = ''
-    iptables -A nixos-fw -s 192.168.1.0/24 -p tcp -m multiport --dports 8096,7878,8989,9696,8080 -j nixos-fw-accept
+    iptables -A nixos-fw -s 192.168.1.0/24 -p tcp -m multiport --dports 8096,7878,8989,9696,8080,6767 -j nixos-fw-accept
     iptables -A nixos-fw -s 192.168.1.0/24 -p udp --dport 7359 -j nixos-fw-accept
   '';
 }
