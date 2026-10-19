@@ -5,6 +5,14 @@
   ...
 }: {
   programs = {
+    worktrunk = {
+      enable = true;
+      enableZshIntegration = true;
+      claudeCodeIntegration.enable = true;
+      settings = {
+        skip-shell-integration-prompt = true;
+      };
+    };
     jujutsu = {
       enable = true;
       settings = {
