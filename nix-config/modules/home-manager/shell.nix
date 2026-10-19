@@ -18,6 +18,7 @@
       oh-my-zsh = {
         enable = true;
         plugins = [
+          "alias-finder"
           "docker"
           "fzf"
           "git"
@@ -28,6 +29,7 @@
         ];
         extraConfig = ''
           zstyle :omz:plugins:keychain agents gpg,ssh
+          zstyle ':omz:plugins:alias-finder' autoload yes
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --group-directories-first --color=always $realpath'
         '';
       };
