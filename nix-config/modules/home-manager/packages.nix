@@ -34,6 +34,7 @@
       go
       gum
       herdr
+      hunk
       hyperfine
       imagemagick
       jq
