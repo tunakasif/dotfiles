@@ -10,6 +10,15 @@
   networking = {
     hostName = user.mediaServerName;
     networkmanager.enable = true;
+    firewall.interfaces.wt0.allowedTCPPorts = [
+      22
+      6767
+      7878
+      8080
+      8096
+      8989
+      9696
+    ];
     firewall.extraCommands = ''
       iptables -A nixos-fw -s 192.168.1.0/24 -p tcp --dport 22 -j nixos-fw-accept
     '';
@@ -31,6 +40,11 @@
   };
 
   services = {
+    netbird.clients.wt0 = {
+      port = 51820;
+      interface = "wt0";
+      ui.enable = false;
+    };
     openssh = {
       enable = true;
       openFirewall = false;
