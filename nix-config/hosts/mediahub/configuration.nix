@@ -41,9 +41,16 @@
         AllowUsers = [user.username];
       };
     };
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      autoSuspend = false;
+    };
     desktopManager.gnome.enable = true;
-    logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
+    logind.settings.Login = {
+      IdleAction = "ignore";
+      HandleLidSwitch = "ignore";
+      HandleLidSwitchExternalPower = "ignore";
+    };
     xserver = {
       videoDrivers = ["nvidia"];
       xkb = {
