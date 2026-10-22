@@ -11,12 +11,16 @@ _: {
       brewfile = true;
     };
 
-    taps = [];
+    taps = [
+      "netbirdio/tap"
+    ];
     brews = [
       "asitop"
       "bitwarden-cli"
       "gnupg"
       "graphviz"
+      "jcode"
+      "netbirdio/tap/netbird"
       "terminal-notifier"
       "tuicr"
     ];
@@ -41,6 +45,7 @@ _: {
       "logi-options+"
       "monitorcontrol"
       "notunes"
+      "netbirdio/tap/netbird-ui"
       "obs"
       "ollama-app"
       "orbstack"
