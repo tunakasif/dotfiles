@@ -41,6 +41,8 @@
 
   services = {
     netbird.clients.wt0 = {
+      autoStart = true;
+      openFirewall = true;
       port = 51820;
       interface = "wt0";
       ui.enable = false;
