@@ -56,6 +56,7 @@ in {
     latex = "medium";
   };
   programs = {
+    codex.settings.cli_auth_credentials_store = "file";
     direnv.config.whitelist.prefix = ["/"];
     zsh = {
       initContent = ''
