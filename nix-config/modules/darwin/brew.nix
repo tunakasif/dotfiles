@@ -43,6 +43,7 @@ _: {
       "kitty"
       "latexit"
       "logi-options+"
+      "microsoft-teams"
       "monitorcontrol"
       "notunes"
       "netbirdio/tap/netbird-ui"
