@@ -318,19 +318,9 @@ function rcp-auth-pod() {
     kubectl cp "$HOME/.ssh/id_rsa" "$selected_pod:$pod_home/.ssh/id_rsa"
     kubectl cp "$HOME/.ssh/id_rsa.pub" "$selected_pod:$pod_home/.ssh/id_rsa.pub"
 
-    # login to github cli and copy AI credentials, using secrets stored in doppler
+    # login to github cli
     kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic '
-        mkdir -p "$HOME/.claude" "$HOME/.codex"
         doppler secrets get GH_CLI_PAT --plain --project dotfiles | gh auth login --with-token
-
-        doppler secrets get EPFL_RCP_CLAUDE_CREDENTIALS_JSON --plain --project dotfiles > "$HOME/.claude/.credentials.json"
-        nohup zsh -ic "watch-credentials "$HOME/.claude/.credentials.json" EPFL_RCP_CLAUDE_CREDENTIALS_JSON" </dev/null >/tmp/claude-watch.log 2>&1 &!
-
-        doppler secrets get EPFL_RCP_PI_AUTH_JSON --plain --project dotfiles > "$HOME/.pi/agent/auth.json"
-        nohup zsh -ic "watch-credentials "$HOME/.pi/agent/auth.json" EPFL_RCP_PI_AUTH_JSON" </dev/null >/tmp/pi-watch.log 2>&1 &!
-
-        doppler secrets get EPFL_RCP_CODEX_AUTH_JSON --plain --project dotfiles > "$HOME/.codex/auth.json"
-        nohup zsh -ic "watch-credentials "$HOME/.codex/auth.json" EPFL_RCP_CODEX_AUTH_JSON" </dev/null >/tmp/codex-watch.log 2>&1 &!
     '
 }
 
