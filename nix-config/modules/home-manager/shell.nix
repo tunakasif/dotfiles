@@ -18,18 +18,14 @@
       oh-my-zsh = {
         enable = true;
         plugins = [
-          "alias-finder"
           "docker"
-          "fzf"
           "git"
           "git-auto-fetch"
           "gpg-agent"
           "keychain"
-          "z"
         ];
         extraConfig = ''
           zstyle :omz:plugins:keychain agents gpg,ssh
-          zstyle ':omz:plugins:alias-finder' autoload yes
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --group-directories-first --color=always $realpath'
         '';
       };
@@ -56,8 +52,6 @@
           source "$HOME/dotfiles/.scripts/bindkey.sh"
           source "$HOME/dotfiles/.scripts/nix-brew-pathfix.sh"
           [ -f "$HOME/dotfiles/.scripts/secrets.sh" ] && source "$HOME/dotfiles/.scripts/secrets.sh"
-
-          eval "$(starship init zsh)"
         '';
       in
         lib.mkMerge [
