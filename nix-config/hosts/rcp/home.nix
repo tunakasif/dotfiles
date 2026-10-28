@@ -21,7 +21,7 @@ in {
     ];
   };
   my = {
-    ai.enabled = false;
+    ai.enable = false;
     latex = "medium";
   };
   programs = {
