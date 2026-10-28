@@ -326,6 +326,8 @@ function rcp-auth-pod() {
         ln -s $HAAS_HOME/.pi/ $HOME/
         ln -s $HAAS_HOME/.codex $HOME/
         ln -s $HAAS_HOME/.claude $HOME/
+        ln -s $HAAS_HOME/.claude.json $HOME/
+        ln -s $HAAS_HOME/.config/ponytail $HOME/.config
         ln -s $HAAS_HOME/.vscode-server $HOME/
     '
 }
