@@ -17,13 +17,15 @@
       # Oh My Zsh
       oh-my-zsh = {
         enable = true;
-        plugins = [
-          "docker"
-          "git"
-          "git-auto-fetch"
-          "gpg-agent"
-          "keychain"
-        ];
+        plugins =
+          [
+            "docker"
+            "git"
+            "git-auto-fetch"
+          ]
+          # macOS uses its SSH agent; the GPG SSH-support probe is slow.
+          ++ lib.optional (!pkgs.stdenv.hostPlatform.isDarwin) "gpg-agent"
+          ++ ["keychain"];
         extraConfig = ''
           zstyle :omz:plugins:keychain agents gpg,ssh
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --group-directories-first --color=always $realpath'
@@ -40,8 +42,16 @@
       # Extra zshrc snippets
       initContent = let
         zshConfigEarlyInit = lib.mkOrder 500 ''
+          # Homebrew exports FPATH; inherited plugin paths invalidate OMZ's cache.
+          typeset +x FPATH
+          # brew shellenv can be a no-op in nested shells, so add completions here too.
+          if [[ -n "$HOMEBREW_PREFIX" ]]; then
+            fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+          fi
+
           ZSH_DISABLE_COMPFIX="true"
-          export ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-${pkgs.zsh.version}"
+          ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-$ZSH_VERSION"
+          export GPG_TTY="$TTY"
           source "$HOME/dotfiles/.scripts/export.sh"
         '';
         zshConfig = lib.mkOrder 1000 ''
