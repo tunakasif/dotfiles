@@ -27,6 +27,9 @@
           ++ lib.optional (!pkgs.stdenv.hostPlatform.isDarwin) "gpg-agent"
           ++ ["keychain"];
         extraConfig = ''
+          # Resolve symlinks so the unique fpath array removes duplicate directories.
+          fpath=("''${(@)fpath:A}")
+
           zstyle :omz:plugins:keychain agents gpg,ssh
           zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --group-directories-first --color=always $realpath'
         '';
