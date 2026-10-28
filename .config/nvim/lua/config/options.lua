@@ -9,6 +9,8 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.wrap = true
 
+vim.g.snacks_animate = false
+
 vim.g.lazyvim_picker = "telescope"
 
 vim.g.lazyvim_python_lsp = "pyright"
