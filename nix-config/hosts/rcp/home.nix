@@ -34,12 +34,6 @@ in {
         export SCRATCH_HOME=/mnt/${organization}/scratch/home/${user.gasparUsername}
         export _ZO_DATA_DIR=/mnt/${organization}/scratch/home/${user.gasparUsername}/.local/share/zoxide/
 
-        # symlink agent and vscode-server to home
-        ln -s $HAAS_HOME/.pi/ $HOME/
-        ln -s $HAAS_HOME/.codex $HOME/
-        ln -s $HAAS_HOME/.claude $HOME/
-        ln -s $HAAS_HOME/.vscode-server $HOME/
-
         alias cdsh="cd $SCRATCH_HOME"
       '';
     };

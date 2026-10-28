@@ -321,6 +321,12 @@ function rcp-auth-pod() {
     # login to github cli
     kubectl exec "$selected_pod" -- "$pod_home/.nix-profile/bin/zsh" -lic '
         doppler secrets get GH_CLI_PAT --plain --project dotfiles | gh auth login --with-token
+
+        # symlink agent and vscode-server to home
+        ln -s $HAAS_HOME/.pi/ $HOME/
+        ln -s $HAAS_HOME/.codex $HOME/
+        ln -s $HAAS_HOME/.claude $HOME/
+        ln -s $HAAS_HOME/.vscode-server $HOME/
     '
 }
 
