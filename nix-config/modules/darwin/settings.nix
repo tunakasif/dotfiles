@@ -115,4 +115,11 @@ in {
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
   ];
+
+  programs = {
+    zsh = {
+      enable = true;
+      enableGlobalCompInit = false;
+    };
+  };
 }
