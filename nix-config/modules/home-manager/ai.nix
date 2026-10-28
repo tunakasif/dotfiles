@@ -187,9 +187,6 @@ in {
         };
         opencode = {
           inherit (cfg.opencode) enable;
-          tui = {
-            theme = "catppuccin";
-          };
           settings = {
             provider = {
               cefprovider = {
@@ -236,9 +233,6 @@ in {
                 };
               };
             };
-            plugin = [
-              "opencode-claude-auth@latest"
-            ];
             mcp = {
               filesystem = {
                 enabled = true;
