@@ -59,6 +59,7 @@ _: {
       "spotify"
       "thunderbird"
       "telegram"
+      "t3-code"
       "tiles"
       "visual-studio-code"
       "vlc"
