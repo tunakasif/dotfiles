@@ -11,7 +11,10 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     claude-code-nix.url = "github:sadjow/claude-code-nix";
   };
