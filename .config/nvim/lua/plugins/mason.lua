@@ -14,7 +14,7 @@ local mason_packages = {
 	"hadolint",
 	"js-debug-adapter",
 	"json-lsp",
-	"ltex-ls",
+	"ltex-ls-plus",
 	"lua-language-server",
 	"markdown-toc",
 	"markdownlint-cli2",

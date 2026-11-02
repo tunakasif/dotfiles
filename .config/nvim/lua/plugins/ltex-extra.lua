@@ -25,15 +25,15 @@ return {
 	ft = { "markdown", "tex", "gitcommit" },
 	dependencies = { "neovim/nvim-lspconfig" },
 	config = function()
-		require("ltex_extra").setup({
-			path = ".vscode",
-			server_opts = {
-				settings = {
-					ltex = {
-						checkFrequency = "save",
-						dictionary = {
-							["en-US"] = words,
-						},
+		vim.lsp.config("ltex_plus", {
+			on_attach = function()
+				require("ltex_extra").setup({ path = ".vscode" })
+			end,
+			settings = {
+				ltex = {
+					checkFrequency = "save",
+					dictionary = {
+						["en-US"] = words,
 					},
 				},
 			},

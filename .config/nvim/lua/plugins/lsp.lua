@@ -5,7 +5,7 @@ return {
 		---@class PluginLspOpts
 		opts = {
 			servers = {
-				ltex = {
+				ltex_plus = {
 					settings = {
 						ltex = {
 							checkFrequency = "save",

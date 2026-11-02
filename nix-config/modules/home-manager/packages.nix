@@ -45,7 +45,7 @@
       lazygit
       lazyjj
       less
-      ltex-ls
+      ltex-ls-plus
       lua51Packages.luarocks
       lua5_1
       markdownlint-cli2
