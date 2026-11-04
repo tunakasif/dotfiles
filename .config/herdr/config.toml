@@ -9,7 +9,7 @@ status_indicators = "symbols"
 
 [theme]
 name = "catppuccin"
-auto_switch = false
+auto_switch = true
 
 # allow j/k navigation in the workspace picker
 [keys]
