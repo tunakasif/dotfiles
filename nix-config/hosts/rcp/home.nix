@@ -18,6 +18,7 @@ in {
       doppler
       opencode
       pi-coding-agent
+      t3code
     ];
   };
   my = {
