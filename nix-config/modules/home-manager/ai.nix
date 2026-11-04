@@ -5,6 +5,10 @@
   ...
 }: let
   cfg = config.my.ai;
+  mkReasoningVariant = effort: {
+    id = effort;
+    settings.reasoningEffort = effort;
+  };
 in {
   options.my.ai = {
     enable = lib.mkOption {
@@ -188,95 +192,53 @@ in {
         opencode = {
           inherit (cfg.opencode) enable;
           settings = {
-            provider = {
-              cefprovider = {
-                npm = "@ai-sdk/openai-compatible";
-                name = "RCP AI Inference as a Service";
-                options = {
-                  baseURL = "https://inference-rcp.epfl.ch/v1";
-                };
-                models = {
-                  "moonshotai/Kimi-K2.7-Code" = {
-                    name = "moonshotai/Kimi-K2.7-Code";
-                    modalities = {
-                      input = ["image" "text"];
-                      output = ["text"];
-                    };
-                    cost = {
-                      input = 0.4771;
-                      output = 1.4312;
-                    };
-                    limit = {
-                      context = 200000;
-                      output = 50000;
-                    };
+            providers."epfl-rcp-aiaas" = {
+              name = "RCP AI Inference as a Service";
+              package = "aisdk:@ai-sdk/openai-compatible";
+              settings.baseURL = "https://inference-rcp.epfl.ch/v1";
+              models = {
+                "epfl-aiaas/large" = {
+                  name = "RCP AIaaS Large";
+                  modelID = "epfl-aiaas/large";
+
+                  capabilities = {
+                    input = ["image" "text"];
+                    output = ["text"];
                   };
-                  "deepseek-ai/DeepSeek-V4-Flash-0731" = {
-                    name = "deepseek-ai/DeepSeek-V4-Flash-0731";
-                    modalities = {
-                      input = ["text"];
-                      output = ["text"];
-                    };
-                    cost = {
-                      input = 0.0824;
-                      output = 0.2473;
-                    };
-                    limit = {
-                      context = 900000;
-                      output = 100000;
-                    };
-                    reasoning = true;
-                    options = {
-                      reasoning_effort = "max";
-                    };
+
+                  cost = {
+                    input = 0.1664;
+                    output = 0.4991;
+                    cache.read = 0.0166;
                   };
+
+                  settings = {};
                 };
-              };
-            };
-            mcp = {
-              filesystem = {
-                enabled = true;
-                type = "local";
-                command = [
-                  "npx"
-                  "-y"
-                  "@modelcontextprotocol/server-filesystem"
-                  "."
-                ];
-              };
-              fetch = {
-                enabled = true;
-                type = "local";
-                command = [
-                  "uvx"
-                  "mcp-server-fetch"
-                ];
-              };
-              git = {
-                enabled = true;
-                type = "local";
-                command = [
-                  "uvx"
-                  "mcp-server-git"
-                ];
-              };
-              rg = {
-                enabled = true;
-                type = "local";
-                command = [
-                  "npx"
-                  "-y"
-                  "mcp-ripgrep"
-                ];
-              };
-              pdf-reader = {
-                enabled = false;
-                type = "local";
-                command = [
-                  "npx"
-                  "-y"
-                  "@sylphx/pdf-reader-mcp"
-                ];
+
+                "epfl-aiaas/small" = {
+                  name = "RCP AIaaS Small";
+                  modelID = "epfl-aiaas/small";
+
+                  capabilities = {
+                    input = ["image" "text"];
+                    output = ["text"];
+                  };
+
+                  cost = {
+                    input = 0.1671;
+                    output = 0.5014;
+                    cache.read = 0.0167;
+                  };
+
+                  settings.reasoningEffort = "none";
+                  variants = map mkReasoningVariant [
+                    "none"
+                    "low"
+                    "high"
+                    "xhigh"
+                    "max"
+                  ];
+                };
               };
             };
           };
