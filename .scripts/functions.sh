@@ -397,6 +397,17 @@ function rcp-notify() (
         -contentImage "$HOME/Pictures/epfl/epfl.png" >/dev/null
 )
 
+rcp-code() { # kcode <pod> [path] [namespace] [container]
+    local pod=$1 dir=${2:-/} ctx ns ctr hex
+    ctx=$(kubectl config current-context)
+    ns=${3:-$(kubectl config view --minify -o jsonpath='{..namespace}')}
+    ns=${ns:-default}
+    ctr=${4:-$(kubectl get pod "$pod" -n "$ns" -o jsonpath='{.spec.containers[0].name}')}
+    hex=$(jq -nc --arg c "$ctx" --arg p "$pod" --arg n "$ns" --arg k "$ctr" \
+        '{context:$c, podname:$p, namespace:$n, name:$k}' | tr -d '\n' | od -An -tx1 | tr -d ' \n')
+    code --folder-uri "vscode-remote://k8s-container+${hex}${dir}"
+}
+
 function ocrun() {
     PROVIDER='opencode'
 
