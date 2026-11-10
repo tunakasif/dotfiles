@@ -21,6 +21,7 @@ local mason_packages = {
 	"marksman",
 	"mypy",
 	"neocmakelsp",
+	"nil",
 	"prettier",
 	"pyproject-fmt",
 	"pyright",
