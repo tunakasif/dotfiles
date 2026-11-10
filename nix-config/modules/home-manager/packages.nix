@@ -33,6 +33,7 @@
       glow
       go
       gum
+      helix
       herdr
       hunk
       hyperfine
