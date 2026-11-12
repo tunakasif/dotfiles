@@ -27,7 +27,6 @@ _: {
     casks = [
       "adobe-acrobat-reader"
       "appcleaner"
-      "arc"
       "brave-browser"
       "calibre"
       "chatgpt"
