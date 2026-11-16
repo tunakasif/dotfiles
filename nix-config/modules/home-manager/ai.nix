@@ -88,6 +88,8 @@ in {
               "npm:@juicesharp/rpiv-ask-user-question"
               "npm:@dietrichgebert/ponytail"
               "npm:@sherif-fanous/pi-catppuccin"
+              # Keep the full repo: EGM skills read sibling agents/ and resources/.
+              "git:github.com/google/elephant-goldfish-model"
             ];
             theme = "catppuccin-mocha";
             enableInstallTelemetry = false;
@@ -101,6 +103,13 @@ in {
         claude-code = {
           inherit (cfg.claude) enable;
           settings = {
+            extraKnownMarketplaces.egm = {
+              source = {
+                source = "github";
+                repo = "google/elephant-goldfish-model";
+              };
+              autoUpdate = true;
+            };
             extraKnownMarketplaces.ponytail = {
               source = {
                 source = "github";
@@ -109,6 +118,7 @@ in {
               autoUpdate = true;
             };
             enabledPlugins = {
+              "egm@egm" = true;
               "ponytail@ponytail" = true;
             };
             theme = "auto";
