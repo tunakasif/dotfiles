@@ -21,6 +21,7 @@ _: {
       "graphviz"
       "jcode"
       "netbirdio/tap/netbird"
+      "rclone"
       "terminal-notifier"
       "tuicr"
     ];
