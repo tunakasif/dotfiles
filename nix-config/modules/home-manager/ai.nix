@@ -207,6 +207,23 @@ in {
               package = "aisdk:@ai-sdk/openai-compatible";
               settings.baseURL = "https://inference-rcp.epfl.ch/v1";
               models = {
+                "epfl-aiaas/frontier" = {
+                  name = "RCP AIaaS Frontier";
+                  modelID = "epfl-aiaas/frontier";
+
+                  capabilities = {
+                    input = ["image" "text"];
+                    output = ["text"];
+                  };
+
+                  settings.reasoningEffort = "max";
+                  variants = map mkReasoningVariant [
+                    "low"
+                    "high"
+                    "max"
+                  ];
+                };
+
                 "epfl-aiaas/large" = {
                   name = "RCP AIaaS Large";
                   modelID = "epfl-aiaas/large";
