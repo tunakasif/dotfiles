@@ -65,15 +65,72 @@ in {
         pi-coding-agent = {
           inherit (cfg.pi) enable;
           extraPackages = [pkgs.nodejs];
+          models.providers."epfl-rcp-aiaas" = {
+            name = "RCP AI Inference as a Service";
+            baseUrl = "https://inference-rcp.epfl.ch/v1";
+            api = "openai-completions";
+            apiKey = "$EPFL_AIAAS_API_KEY";
+            authHeader = true;
+            models = [
+              {
+                id = "epfl-aiaas/frontier";
+                name = "RCP AIaaS Frontier";
+                input = ["image" "text"];
+                reasoning = true;
+                thinkingLevelMap = {
+                  off = null;
+                  minimal = null;
+                  low = "low";
+                  medium = null;
+                  high = "high";
+                  xhigh = null;
+                  max = "max";
+                };
+              }
+              {
+                id = "epfl-aiaas/large";
+                name = "RCP AIaaS Large";
+                input = ["image" "text"];
+                cost = {
+                  input = 0.1664;
+                  output = 0.4991;
+                  cacheRead = 0.0166;
+                  cacheWrite = 0;
+                };
+              }
+              {
+                id = "epfl-aiaas/small";
+                name = "RCP AIaaS Small";
+                input = ["image" "text"];
+                reasoning = true;
+                thinkingLevelMap = {
+                  off = "none";
+                  minimal = null;
+                  low = "low";
+                  medium = null;
+                  high = "high";
+                  xhigh = "xhigh";
+                  max = "max";
+                };
+                cost = {
+                  input = 0.1671;
+                  output = 0.5014;
+                  cacheRead = 0.0167;
+                  cacheWrite = 0;
+                };
+              }
+            ];
+          };
           settings = {
             defaultProvider = "openai";
-            defaultModel = "gpt-6-astra";
+            defaultModel = "gpt-6.2-astra";
             defaultThinkingLevel = "xhigh";
             enabledModels = [
-              "openai/gpt-6-astra"
-              "openai/gpt-6.1-sol"
-              "claude-bridge/claude-fable-5-1"
+              "openai/gpt-6.2-astra"
+              "openai/gpt-6.2-sol"
+              "claude-bridge/claude-fable-5-2"
               "claude-bridge/claude-opus-5-5"
+              "epfl-aiaas/*"
             ];
             packages = [
               "npm:pi-claude-bridge"
