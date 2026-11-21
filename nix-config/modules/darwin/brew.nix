@@ -39,6 +39,7 @@ _: {
       "ghostty"
       "google-chrome"
       "helium-browser"
+      "herdr-app"
       "insync"
       "kitty"
       "latexit"
